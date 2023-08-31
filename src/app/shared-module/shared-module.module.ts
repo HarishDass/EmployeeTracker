@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 import { AccordionModule } from 'primeng/accordion';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -93,17 +90,13 @@ import { CardModule } from 'primeng/card';
 import { BlockUIModule } from 'primeng/blockui';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
-
 @NgModule({
-
   imports: [
     AvatarModule,
     AvatarGroupModule,
-    BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     AccordionModule,
     AutoCompleteModule,
     BadgeModule,
@@ -188,8 +181,99 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     TreeSelectModule,
     TreeTableModule,
     AnimateModule,
-    CardModule]
+    CardModule,
+  ],
+  exports: [
+    AvatarModule,
+    AvatarGroupModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    AccordionModule,
+    AutoCompleteModule,
+    BadgeModule,
+    BreadcrumbModule,
+    BlockUIModule,
+    ButtonModule,
+    CalendarModule,
+    CarouselModule,
+    CascadeSelectModule,
+    ChartModule,
+    CheckboxModule,
+    ChipsModule,
+    ChipModule,
+    ColorPickerModule,
+    ConfirmDialogModule,
+    ContextMenuModule,
+    VirtualScrollerModule,
+    DataViewModule,
+    DialogModule,
+    DividerModule,
+    DockModule,
+    DragDropModule,
+    DropdownModule,
+    DynamicDialogModule,
+    EditorModule,
+    FieldsetModule,
+    FileUploadModule,
+    GalleriaModule,
+    InplaceModule,
+    InputMaskModule,
+    InputSwitchModule,
+    InputTextModule,
+    InputTextareaModule,
+    InputNumberModule,
+    ImageModule,
+    KnobModule,
+    ListboxModule,
+    MegaMenuModule,
+    MenuModule,
+    MenubarModule,
+    MessageModule,
+    MessagesModule,
+    MultiSelectModule,
+    OrganizationChartModule,
+    OrderListModule,
+    OverlayPanelModule,
+    PaginatorModule,
+    PanelModule,
+    PanelMenuModule,
+    PasswordModule,
+    PickListModule,
+    ProgressSpinnerModule,
+    ProgressBarModule,
+    RadioButtonModule,
+    RatingModule,
+    SelectButtonModule,
+    SidebarModule,
+    ScrollerModule,
+    ScrollPanelModule,
+    ScrollTopModule,
+    SkeletonModule,
+    SlideMenuModule,
+    SliderModule,
+    SpeedDialModule,
+    SpinnerModule,
+    SplitterModule,
+    SplitButtonModule,
+    StepsModule,
+    TableModule,
+    TabMenuModule,
+    TabViewModule,
+    TagModule,
+    TerminalModule,
+    TieredMenuModule,
+    TimelineModule,
+    ToastModule,
+    ToggleButtonModule,
+    ToolbarModule,
+    TooltipModule,
+    TriStateCheckboxModule,
+    TreeModule,
+    TreeSelectModule,
+    TreeTableModule,
+    AnimateModule,
+    CardModule
+  ],
 })
-
-
-export class SharedModuleModule { }
+export class SharedModuleModule {}
