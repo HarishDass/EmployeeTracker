@@ -20,7 +20,6 @@
     transition: 1s;
     width: 360px;
     height:250px;
-    /* [style]="{ width: '360px',height:'250px */
 }
 
 .employee_details_card:hover {
@@ -30,7 +29,9 @@
 .employe_card_text{
     font-weight: bold;
     position: relative;
-    /* bottom: 20px; */
     font-size: large;
+}
 
+.employe_card_img{
+    height: 174px;
 }

@@ -8,27 +8,23 @@
 <p-divider></p-divider>
 
 <div id="mainView">
-  <p-card
-    header=""
-    class="employee_details_card"
-    (click)="navigateTO('EmployeeDetails')"
-  >
+  <p-card class="employee_details_card" (click)="navigateTO('EmployeeDetails')">
     <div class="employe_card_text">Employee Details</div>
     <ng-template pTemplate="header">
-      <img alt="Card" src="../../assets/Images/AdobeStock_427200891 .png" />
+      <img
+        alt="Card"
+        class="employe_card_img"
+        src="../../assets/Images/AdobeStock_427200891 .png"
+      />
     </ng-template>
   </p-card>
-  <p-card
-    header=""
-    class="employee_details_card"
-    (click)="navigateTO('Attendance')"
-  >
+  <p-card class="employee_details_card" (click)="navigateTO('Attendance')">
     <div class="employe_card_text">Attendance</div>
     <ng-template pTemplate="header">
       <img
         alt="Card"
+        class="employe_card_img"
         src="../../assets/Images/Candidate-1024x585.jpg"
-        style="height: 174px"
       />
     </ng-template>
   </p-card>
