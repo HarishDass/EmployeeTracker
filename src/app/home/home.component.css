@@ -13,21 +13,24 @@
     margin: 90px auto;
 }
 
-.Card {
+.employee_details_card {
     cursor: pointer;
     margin-top: 20px;
     text-align: center;
     transition: 1s;
+    width: 360px;
+    height:250px;
+    /* [style]="{ width: '360px',height:'250px */
 }
 
-.Card:hover {
+.employee_details_card:hover {
     transform: scale(1.1);
 }
 
-.cardinDiv {
+.employe_card_text{
     font-weight: bold;
     position: relative;
-    bottom: 20px;
+    /* bottom: 20px; */
     font-size: large;
 
 }
