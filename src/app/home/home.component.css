@@ -16,29 +16,18 @@
 .Card {
     cursor: pointer;
     margin-top: 20px;
-    /* background-color: white; */
     text-align: center;
     transition: 1s;
 }
 
-.Card:hover{
+.Card:hover {
     transform: scale(1.1);
 }
 
-.cardinDiv{
+.cardinDiv {
     font-weight: bold;
     position: relative;
     bottom: 20px;
     font-size: large;
-    
+
 }
-
-
-
-
-
-
-
-
-
-
