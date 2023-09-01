@@ -1,2 +1,21 @@
-<button (click)="navigateTO('EmployeeDetails')">EmployeeDetails</button>
-<button  (click)="navigateTO('Attendance')">Attendance</button>
+<div id="navBar">
+    <img src="../../assets/Images/1_11zon-fotor-2023090111414-removebg-preview (1).png" alt="Employee Tracker">
+    <p-button label="Log out" styleClass="p-button-rounded"></p-button>
+</div>
+<p-divider></p-divider>
+
+<div id="mainView">
+    <p-card header="" class="Card" [style]="{ width: '360px',height:'250px'}" (click)="navigateTO('EmployeeDetails')">
+        <div class="cardinDiv">Employee Details</div>
+        <ng-template pTemplate="header">
+            <img alt="Card" src="../../assets/Images/AdobeStock_427200891 .png" />
+        </ng-template>
+    </p-card>
+    <p-card header="" class="Card" [style]="{ width: '360px',height:'250px',}" (click)="navigateTO('Attendance')">
+        <div class="cardinDiv">Attendance</div>
+        <ng-template pTemplate="header">
+            <img alt="Card" src="../../assets/Images/Candidate-1024x585.jpg" style="height: 174px;" />
+        </ng-template>
+    </p-card>
+
+</div>
