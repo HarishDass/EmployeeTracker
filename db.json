@@ -1,0 +1,16 @@
+{
+    "data":[
+    
+        {
+          "EmployeeName": "bharathi",
+          "MobileNo": 1234567890,
+          "Department": "frontend developer",
+          "Gender": "male",
+          "Active": true,
+          "EmployeeNo": 101,
+         " Photo": "base64 Format",
+          "Email": "bharathidhasan@gmail.com"
+        }
+        ]
+
+}
