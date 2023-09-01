@@ -1,0 +1,80 @@
+<div class="main">
+    <h3 id="heading">Add Employee Details</h3>
+    <form [formGroup]="Register" (ngSubmit)="onSubmit()">
+        <div class="segment">
+            <label for="emp_name">Employee Name :</label>
+            <input pInputText placeholder="Ex. Vijay S" formControlName="emp_name" /> 
+        </div>
+        <div class="segment">
+            <label for="emp_dob">Date of Birth :</label>
+            <p-calendar formControlName="emp_dob" [showIcon]="true"></p-calendar>
+        </div>
+        <div class="segment">
+            <label for="emp_phone">Phone Number :</label>
+            <p-inputMask mask="99999 99999" formControlName="emp_phone" placeholder="98765 43210"></p-inputMask>    
+        </div>
+        <div class="segment">
+            <label for="emp_nation">Nationality :</label>
+            <div>
+                <p-radioButton name="nation" value="indian" formControlName="emp_nation" inputId="nation1"></p-radioButton>
+                <label for="nation1">Indian</label>
+                <p-radioButton name="nation" value="others" formControlName="emp_nation" inputId="nation2"></p-radioButton>
+                <label for="nation2">Others</label>
+            </div>
+        </div>
+        <div class="segment">
+            <label for="emp_doj">Date of Joining :</label>
+            <p-calendar formControlName="emp_doj" [showIcon]="true"></p-calendar>
+        </div>
+        <div class="segment">
+            <label for="emp_dept">Department :</label>
+            <p-dropdown formControlName="dept" [options]="dept" optionLabel="name"></p-dropdown>
+        </div>
+        <div class="segment">
+            <label for="emp_gender">Gender :</label>
+            <div>
+                <p-radioButton name="gender" value="male" formControlName="emp_gender" inputId="gender1"></p-radioButton>
+                <label for="gender1">Male</label>
+                <p-radioButton name="gender" value="female" formControlName="emp_gender" inputId="gender1"></p-radioButton>
+                <label for="gender1">Female</label>
+                <p-radioButton name="gender" value="others" formControlName="emp_gender" inputId="gender2"></p-radioButton>
+                <label for="gender2">Others</label>
+            </div>
+        </div>
+        <div class="segment">
+            <label for="emp_active">Active :</label>
+            <div>
+                <p-radioButton name="active" value="indian" formControlName="emp_active" inputId="active1"></p-radioButton>
+                <label for="active1">Active</label>
+                <p-radioButton name="active" value="others" formControlName="emp_active" inputId="inactive" disable="true"></p-radioButton>
+                <label for="inactive">Inactive</label>
+            </div>
+        </div>
+        <!-- address -->
+        <div class="segment">
+            <div>
+                <label for="addr1">Address Line 1 :</label>
+                <input pInputText formControlName="addr1"/>     
+            </div>
+            <div>
+                <label for="addr2">Address Line 2 :</label>
+                <input pInputText formControlName="addr2"/>     
+            </div>
+            <div>
+                <label for="city">City :</label>
+                <input pInputText formControlName="city"/>     
+            </div>
+            <div>
+                <label for="state">State :</label>
+                <input pInputText formControlName="state"/>     
+            </div>
+            <div>
+                <label for="pincode">Pincode :</label>
+                <input pInputText formControlName="pincode"/>     
+            </div>
+        </div>
+        
+        <p-button label="Submit" ></p-button>
+    </form>
+</div>
+
