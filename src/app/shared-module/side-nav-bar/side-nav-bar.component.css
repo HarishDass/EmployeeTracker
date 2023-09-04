@@ -1,8 +1,4 @@
-body {
-  margin: 0;
-  font-family: "Lato", sans-serif;
-  position: relative;
-}
+
 
 .sidebar {
   margin: 0;
@@ -48,20 +44,9 @@ div.content {
   height: 1000px;
 }
 
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
 
-  .sidebar a {
-    float: left;
-  }
-
-  div.content {
-    margin-left: 0;
-  }
+.sidebar a {
+  float: left;
 }
 
 
@@ -79,3 +64,10 @@ div.content {
     float: none;
   }
 }
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  }

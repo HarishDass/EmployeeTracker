@@ -1,5 +1,6 @@
-<div class="EmployeeDetails">
-  <p-table [value]="employeeDetails" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="employeeDetails">
+  <p-table [value]="employeeDetails" styleClass="table"  [scrollable]="true"  scrollDirection="both" 
+  scrollHeight="650px">
     <ng-template pTemplate="header">
       <tr>
         <th>EmployeeNo</th>
