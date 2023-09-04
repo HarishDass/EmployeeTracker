@@ -14,15 +14,14 @@
     <ng-template pTemplate="body" let-employeeDetail>
       <tr>
         <td>{{ employeeDetail.EmployeeNo }}</td>
-        <td>{{ employeeDetail.Photo }}</td>
+        <td>
+          <img [src]="employeeDetail.Photo" width="100px" height="100px" />
+        </td>
         <td>{{ employeeDetail.EmployeeName }}</td>
         <td>{{ employeeDetail.Department }}</td>
         <td>{{ employeeDetail.Gender }}</td>
         <td>
-          <p-button
-            *ngIf="employeeDetail.Active == false"
-            label="{{ employeeDetail.Active }}"
-          ></p-button>
+          <p-button label="{{ employeeDetail.Active }}"></p-button>
         </td>
         <td>{{ employeeDetail.Email }}</td>
       </tr>

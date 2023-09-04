@@ -7,4 +7,5 @@ export interface EmployeesTypes {
   EmployeeNo: number;
   Photo: string;
   Email: string;
+  date: Date;
 }

@@ -9,6 +9,7 @@ import { EmployeesTypes } from 'src/assets/data/employeeAttendance';
 })
 export class ViewTableComponent implements OnInit {
   employeeDetails: Array<EmployeesTypes> = [];
+  statuses!: any[];
   constructor(private employeeInfo: EmployeeDetailsService) {}
   ngOnInit(): void {
     this.employeeInfo

@@ -7,6 +7,7 @@ import { Injectable, OnInit } from '@angular/core';
 export class EmployeeDetailsService implements OnInit {
   constructor(private http: HttpClient) {}
   ngOnInit(): void {}
+
   getData() {
     return this.http.get('http://localhost:3000/data');
   }
