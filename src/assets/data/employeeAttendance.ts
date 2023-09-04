@@ -1,4 +1,4 @@
-export interface Employees {
+export interface EmployeesTypes {
   EmployeeName: string;
   MobileNo: number;
   Department: string;

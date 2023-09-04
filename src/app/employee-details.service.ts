@@ -8,6 +8,6 @@ export class EmployeeDetailsService implements OnInit {
   constructor(private http: HttpClient) {}
   ngOnInit(): void {}
   getData() {
-    this.http.get('http://localhost:3000/data');
+    return this.http.get('http://localhost:3000/data');
   }
 }

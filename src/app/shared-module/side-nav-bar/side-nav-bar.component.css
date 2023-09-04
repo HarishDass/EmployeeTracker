@@ -1,150 +1,72 @@
-/* * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .item1 {
-    grid-area: header;
-    height: 100px;
-    background: white;
-  }
-  .item2 {
-    grid-area: menu;
-    height: 650px;
-    border-radius:10px;
-  }
-  .item3 {
-    grid-area: main;
-    background: white;
-    border-radius:10px;
-  }
-  .grid-container {
-    display: grid;
-    grid-template-areas:
-      'header header header header header header'
-      'menu main main main main main'
-      'menu main main main main main';
-    gap: 15px;
-    background-color: rgb(239,243,248);
-    padding: 1px;
-  }
-  
-  .grid-container>div {
-    background: rgb(255,255,255);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 20px;
-  }
-  .pTitle{
-    font-weight: bold;
-    font-size: 30px;
-  }
-  .dashBoard:hover{
-    color: blue;
-  }
-  .side{
-    background: white;
-  }
-  .SideBarContent {
-    color: #0000;
-      background:
-        linear-gradient(90deg, #1095c1 50%, #000 0) var(--_p, 100%)/200% no-repeat;
-      -webkit-background-clip: text;
-      background-clip: text;
-      transition: .6s;
-      font-size: 20px;
-      height: 60px;
-      background-color: crimson;
-      margin-top: 10px;
-      text-align: center;
-    
-    
-  }
-  .SideBarContent:hover {
-    --_p: 0%;
-    -webkit-box-shadow: -3px -3px 11px -3px rgba(0,0,0,0.75);
-  -moz-box-shadow: -3px -3px 11px -3px rgba(0,0,0,0.75);
-  box-shadow: -3px -3px 11px -3px rgba(0,0,0,0.75);
-  border-bottom: 1px solid black;
-  font-size:25px;
-  font-weight:500;
-  } */
-
 body {
-    margin: 0;
-    font-family: "Lato", sans-serif;
-    position: relative;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  position: relative;
 }
 
-
 .sidebar {
-    margin: 0;
-    padding: 0;
-    width: 300px;
-    background-color: rgb(63, 71, 95);
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-    margin-top:100px;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  background-color: rgb(63, 71, 95);
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  margin-top: 100px;
 }
 
 .sidebar a {
-   
-    display: block;
-    color: black;
-    padding: 16px;
-    font-size: 30px;
-    text-align:center;
-    text-decoration: none;
-     background:
-        linear-gradient(90deg, #1095c1 50%, #000 0) var(--_p, 100%)/200% no-repeat;
-      -webkit-background-clip: text;
-      background-clip: text;
-      transition: .6s;
+  display: block;
+  color: black;
+  padding: 16px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  background:
+    linear-gradient(90deg, #1095c1 50%, #000 0) var(--_p, 100%)/200% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: .6s;
 }
 
 .sidebar a.active {
-    
-    /* background-color: #04AA6D; */
-    color: black;
+  color: black;
 }
 
 .sidebar a:hover {
-    background-color: rgb(10, 12, 18);
-    color: blue;
-    --_p: 0%;
-    -webkit-box-shadow: -3px -3px 11px -3px rgba(0,0,0,1);
-  -moz-box-shadow: -3px -3px 11px -3px rgba(0,0,0,1);
-  box-shadow: -3px -3px 11px -3px rgba(0,0,0,1);
+  background-color: rgb(10, 12, 18);
+  color: blue;
+  --_p: 0%;
+  -webkit-box-shadow: -3px -3px 11px -3px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -3px -3px 11px -3px rgba(0, 0, 0, 1);
+  box-shadow: -3px -3px 11px -3px rgba(0, 0, 0, 1);
 }
 
 div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
 }
 
-
-
 @media screen and (max-width: 700px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
 
-    .sidebar a {
-        float: left;
-    }
+  .sidebar a {
+    float: left;
+  }
 
-    div.content {
-        margin-left: 0;
-    }
+  div.content {
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .sidebar a {
-        text-align: center;
-        float: none;
-    }
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
 }
