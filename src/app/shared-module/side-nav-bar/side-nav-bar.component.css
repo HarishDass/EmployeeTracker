@@ -64,11 +64,13 @@ div.content {
   }
 }
 
-.home {
-  width: '260px';
-  height: '60px';
-  padding-bottom: '5px';
-  width: 200px;
+
+:host>>>.home {
+  width: 260px;
+  height: 60px;
+  padding-bottom: 5px;
+  text-align:center;
+
 }
 
 @media screen and (max-width: 400px) {
