@@ -1,11 +1,11 @@
-#navBar {
+#employee_homepage_nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.884);
 }
 
-#mainView {
+#employe_card_holder {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;

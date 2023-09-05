@@ -1,1 +1,37 @@
-<p>inactive-employee works!</p>
+<div class="inactive_employe_table">
+  <p-card header="Inactive Employee List">
+    <p-table
+      [value]="leftoverdatas"
+      styleClass="p-datatable-sm p-datatable-striped"
+      [paginator]="true"
+      [rows]="10"
+      [columns]="inactive_emp_table_header"
+      >>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Photo</th>
+          <th>Employee Name</th>
+          <th>Employee No</th>
+          <th>Department</th>
+          <th>Active Status</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-lefted>
+        <tr *ngIf="lefted.Active == false">
+          <td>{{ lefted.Photo }}</td>
+          <td>{{ lefted.employeeName }}</td>
+          <td>{{ lefted.EmployeeNo }}</td>
+          <td>{{ lefted.deportment }}</td>
+          <td>
+            <p-tag [severity]="getSeverity(lefted.Active)">{{ ansData }}</p-tag>
+          </td>
+        </tr>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="5">No customers found.</td>
+          </tr>
+        </ng-template>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>
