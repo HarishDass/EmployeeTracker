@@ -52,7 +52,7 @@
     cursor: pointer;
 }
 
-.toggle2 {
+.toggleBtn {
     position: relative;
     top: calc(50% - 2px);
     left: 50%;
@@ -60,9 +60,9 @@
     width: 32px;
 }
 
-.toggle2>span,
-.toggle2>span::before,
-.toggle2>span::after {
+.toggleBtn>span,
+.toggleBtn>span::before,
+.toggleBtn>span::after {
     display: block;
     position: absolute;
     width: 100%;
@@ -72,26 +72,26 @@
     transition-duration: .25s;
 }
 
-.toggle2>span::before {
+.toggleBtn>span::before {
     content: '';
     top: -8px;
 }
 
-.toggle2>span::after {
+.toggleBtn>span::after {
     content: '';
     top: 8px;
 }
 
-.menu-toggle.is-active .toggle2>span {
+.menu-toggle.is-active .toggleBtn>span {
     transform: rotate(45deg);
 }
 
-.menu-toggle.is-active .toggle2>span::before {
+.menu-toggle.is-active .toggleBtn>span::before {
     top: 0;
     transform: rotate(0deg);
 }
 
-.menu-toggle.is-active .toggle2>span::after {
+.menu-toggle.is-active .toggleBtn>span::after {
     top: 0;
     transform: rotate(90deg);
 }
