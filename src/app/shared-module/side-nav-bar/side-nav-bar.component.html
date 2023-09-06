@@ -1,0 +1,20 @@
+<div class="outer">
+  <div
+    class="menu-toggle"
+    (click)="toggleMenu()"
+    [ngClass]="{ 'is-active': isMenuActive }"
+  >
+    <div class="toggle2">
+      <span></span>
+    </div>
+  </div>
+  <aside class="innerSideBar" [ngClass]="{ 'is-active': isSidebarActive }">
+    <nav class="menu">
+      <a class="menu-item is-active">Home</a>
+      <a class="menu-item">Home</a>
+      <a class="menu-item">Home</a>
+      <a class="menu-item">Home</a>
+      <a class="menu-item">Home</a>
+    </nav>
+  </aside>
+</div>

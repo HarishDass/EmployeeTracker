@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.outer {
+    display: flex;
+    margin-top: 100px;
+    min-height: 100vh;
+}
+
+.innerSideBar {
+    flex: 1 1 0;
+    max-width: 300px;
+    padding: 32px 16px;
+    background-color: rgb(40, 35, 60);
+}
+
+.innerSideBar .menu {
+    margin: 0 -16px;
+}
+
+.innerSideBar .menu .menu-item {
+    display: block;
+    padding: 16px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+}
+
+.innerSideBar .menu .menu-item:hover {
+    color: #3bba9c;
+    border-right: 5px solid #3bba9c;
+}
+
+.innerSideBar .menu .menu-item:hover {
+    color: #3bba9c;
+    border-right: 5px solid #3bba9c;
+}
+
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    width: 60px;
+    height: 60px;
+    border-radius: 99px;
+    background-color: #2e3047;
+    cursor: pointer;
+}
+
+.toggle2 {
+    position: relative;
+    top: calc(50% - 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+}
+
+.toggle2>span,
+.toggle2>span::before,
+.toggle2>span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 99px;
+    background-color: #FFF;
+    transition-duration: .25s;
+}
+
+.toggle2>span::before {
+    content: '';
+    top: -8px;
+}
+
+.toggle2>span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu-toggle.is-active .toggle2>span {
+    transform: rotate(45deg);
+}
+
+.menu-toggle.is-active .toggle2>span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+.menu-toggle.is-active .toggle2>span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+@media (max-width:1024px) {
+    .innerSideBar {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 400px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .innerSideBar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        height: 100vh;
+        width: 80%;
+        max-width: 300px;
+        transition: 0.2s linear;
+    }
+
+    .innerSideBar.is-active {
+        left: 0;
+    }
+
+}
