@@ -5,8 +5,7 @@
       styleClass="p-datatable-sm p-datatable-striped"
       [paginator]="true"
       [rows]="10"
-      [columns]="inactive_emp_table_header"
-      >>
+    >
       <ng-template pTemplate="header">
         <tr>
           <th>Photo</th>
@@ -14,16 +13,24 @@
           <th>Employee No</th>
           <th>Department</th>
           <th>Active Status</th>
+          <th>Edit Details</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-lefted>
         <tr *ngIf="lefted.Active == false">
-          <td>{{ lefted.Photo }}</td>
+          <td><img id="inactive_employe_img" src=" lefted.Photo" /></td>
           <td>{{ lefted.employeeName }}</td>
           <td>{{ lefted.EmployeeNo }}</td>
           <td>{{ lefted.deportment }}</td>
           <td>
-            <p-tag [severity]="getSeverity(lefted.Active)">{{ ansData }}</p-tag>
+            <p-tag severity="warning">Inactive</p-tag>
+          </td>
+          <td>
+            <p-button
+              label="Edit"
+              styleClass="p-button-sm"
+              (click)="activateFn(lefted)"
+            ></p-button>
           </td>
         </tr>
         <ng-template pTemplate="emptymessage">
@@ -33,5 +40,46 @@
         </ng-template>
       </ng-template>
     </p-table>
+    <p-dialog header="Employee Details" [(visible)]="visible">
+      <div
+        class="flex py-2 justify-content-center"
+        id="employee_details_editor"
+      >
+        <form>
+          <label
+            >Employee Name :
+            <input
+              pInputText
+              [disabled]="true"
+              [value]="individualData.employeeName"
+            /> </label
+          >&nbsp;
+          <label
+            >Employee Name :
+            <input
+              pInputText
+              [disabled]="true"
+              [value]="individualData.EmployeeNo"
+            /> </label
+          ><br /><br />
+          <label
+            >Department :
+            <input
+              pInputTextarea
+              [disabled]="true"
+              [value]="individualData.deportment"
+            /> </label
+          >&nbsp;&nbsp;
+          <label
+            >Mobile No :
+            <input
+              pInputTextarea
+              [disabled]="true"
+              [value]="individualData.mobileNo"
+            />
+          </label>
+        </form>
+      </div>
+    </p-dialog>
   </p-card>
 </div>

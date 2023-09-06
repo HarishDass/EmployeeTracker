@@ -1,8 +1,11 @@
 :host ::ng-deep .p-card {
   border-radius: 25px !important;
   width: 900px;
-  height: 650px;
+  height:max-content;
   border: 2px solid black;
   margin: 10px auto;
 }
 
+.employee_details_editor{
+  width: max-content;
+}
