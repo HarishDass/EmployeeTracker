@@ -1,2 +1,25 @@
-<button (click)="navigateTO('EmployeeDetails')">EmployeeDetails</button>
-<button  (click)="navigateTO('Attendance')">Attendance</button>
+<div id="employee_homepage_nav">
+  <img
+    src="../../assets/home_page_images/home_page_emp_logo.png"
+    alt="Employee Tracker"
+  />
+  <p-button label="Log out" styleClass="p-button-rounded"></p-button>
+</div>
+<p-divider></p-divider>
+
+<div id="employe_card_holder">
+  <div *ngFor="let cards of cardData">
+    <div class="employee_details_card">
+      <p-card class="employee_details_card" (click)="navigateTO(cards.routing)">
+        <div class="employe_card_text">{{ cards.cardname }}</div>
+        <ng-template pTemplate="header">
+          <img
+            alt="Card"
+            class="employe_card_img"
+            src="{{ cards.imagesforcard }}"
+          />
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>
