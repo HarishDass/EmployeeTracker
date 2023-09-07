@@ -17,7 +17,7 @@ const routes: Routes = [
       import('./attendance/attendance.module').then((m) => m.AttendanceModule),
   },
   {
-    path: 'EmployeeDetails',
+    path: 'Employee Details',
     loadChildren: () =>
       import('./employee-details/employee-details.module').then(
         (m) => m.EmployeeDetailsModule

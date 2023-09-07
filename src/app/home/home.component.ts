@@ -11,15 +11,10 @@ export class HomeComponent {
   value: any;
   cardData: Carddetailsinarr[] = [
     {
-      imagesforcard: '../../assets/home_page_images/emp_details_card_img.png',
       cardname: 'Employee Details',
-      routing: 'EmployeeDetails',
     },
     {
-      imagesforcard:
-        '../../assets/home_page_images/emp_attendence_card_img.jpg',
       cardname: 'Attendance',
-      routing: 'Attendance',
     },
   ];
 

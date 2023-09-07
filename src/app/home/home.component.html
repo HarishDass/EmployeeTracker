@@ -10,13 +10,16 @@
 <div id="employe_card_holder">
   <div *ngFor="let cards of cardData">
     <div class="employee_details_card">
-      <p-card class="employee_details_card" (click)="navigateTO(cards.routing)">
+      <p-card
+        class="employee_details_card"
+        (click)="navigateTO(cards.cardname)"
+      >
         <div class="employe_card_text">{{ cards.cardname }}</div>
         <ng-template pTemplate="header">
           <img
             alt="Card"
             class="employe_card_img"
-            src="{{ cards.imagesforcard }}"
+            src="../../assets/home_page_images/{{ cards.cardname }}.png"
           />
         </ng-template>
       </p-card>
