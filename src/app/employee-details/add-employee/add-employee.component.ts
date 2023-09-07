@@ -1,71 +1,94 @@
 import { Component } from '@angular/core';
-import { FormGroup,FormControl,FormBuilder, Validators } from '@angular/forms';
+import { Validators, FormGroup, FormArray, FormBuilder, FormControl } from '@angular/forms';
+import { EmployeeServiceService } from '../../employee-service.service';
 
-interface Dept {
-    name: string;
+interface department {
+  dept: string;
 }
 
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
-  styleUrls: ['./add-employee.component.css']
+  styleUrls: ['./add-employee.component.css'],
 })
 export class AddEmployeeComponent {
-  dept : (Dept[] | undefined);
-  selectedDept :( Dept | undefined);
+  myForm: FormGroup;
+  departments : (department[] | undefined);
+  uploadedPhoto: string | ArrayBuffer | null = null;
+  initialSubmitButtonState: boolean = true;
 
 
-  Register = new FormGroup({
-    emp_name : new FormControl(null, Validators.required),
-    emp_dob : new FormControl(null, Validators.required),
-    emp_phone: new FormControl(null, Validators.required),
-    emp_nation : new FormControl(null, Validators.required),
-    emp_doj : new FormControl(null, Validators.required),
-    emp_gender: new FormControl(null, Validators.required),
-    emp_active: new FormControl(null, Validators.required),
-    dept: new FormControl(null,Validators.required),
-    selectedDept: new FormControl(null, Validators.required),
-    Address : new FormGroup({
-      addr1 : new FormControl(null, Validators.required),
-      addr2: new FormControl(null, Validators.required),
-      city : new FormControl(null, Validators.required),
-      state : new FormControl(null, Validators.required), 
-      pincode : new FormControl(null, Validators.required)
+  constructor(private employee : EmployeeServiceService) {
+  this.myForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    dob: new FormControl('', Validators.required),
+    phone: new FormControl('', Validators.required),
+    nationality: new FormControl('', Validators.required),
+    date_of_joining: new FormControl('', Validators.required),
+    department: new FormControl<department | null>(null, Validators.required),
+    gender: new FormControl('', Validators.required),
+    isActive: new FormControl('', Validators.required),
+    address: new FormGroup({
+      address_line1: new FormControl('', Validators.required),
+      address_line2: new FormControl('', Validators.required),
+      city: new FormControl('', Validators.required),
+      state: new FormControl('', Validators.required), 
+      pincode: new FormControl('', Validators.required)
     }),
-    emp_fathername : new FormControl(null, Validators.required),  
-    emp_no : new FormControl(null, Validators.required),  
-    emp_photo : new FormControl(null, Validators.required), 
-    emp_quali : new FormControl(null, Validators.required),
-    emp_ctc : new FormControl(null, Validators.required),  
-    emp_exORfr : new FormControl(null, Validators.required),
-    emp_yrOFexp : new FormControl(null, Validators.required),
-    emp_expdetails : new FormControl({
-      company : new FormControl(null, Validators.required),
-      joinDate: new FormControl(null, Validators.required),
-      endDate : new FormControl(null, Validators.required),
+    fathername : new FormControl("", Validators.required),  
+    employee_no : new FormControl('', Validators.required),  
+    photo : new FormControl("", Validators.required), 
+    qualification : new FormControl("", Validators.required),
+    ctc : new FormControl("", Validators.required), 
+    mail : new FormControl("", Validators.required),   
+    experience : new FormControl("", Validators.required),
+    experience_details : new FormGroup({
+      years : new FormControl("", Validators.required),
+      company : new FormControl("", Validators.required),
+      joinDate: new FormControl("", Validators.required),
+      endDate : new FormControl("", Validators.required)
     }), 
-    emp_emerPhone : new FormControl(null, Validators.required),
-    emp_adhaar : new FormControl(null, Validators.required),
-    emp_pan : new FormControl(null, Validators.required)
-  })
-  onSubmit() {
-    console.log(this.Register.value)
-  }
-  clearInput() {
-    this.Register.reset();
-  }
-  
-  // constructor(private fb: FormBuilder) { };
+    emergency_Phone : new FormControl("", Validators.required),
+    aadhaar : new FormControl("", Validators.required),
+    pan : new FormControl("", Validators.required)
+  });
 
+  }
+     
 
   ngOnInit() {
-    this.dept = [
-        { name: 'HR' },
-        { name: 'Frontend Developer' },
-        { name: 'Backend Developer' },
-        { name: 'Tester' },
-        { name: 'Team Leader' },
-        { name: 'Cypersecurity' }
+    this.initialSubmitButtonState = this.myForm.valid;
+
+    this.departments = [
+        { dept: 'Select Department' },
+        { dept: 'HR' },
+        { dept: 'Frontend Developer' },
+        { dept: 'Backend Developer' },
+        { dept: 'Tester' },
+        { dept: 'Team Leader' },
+        { dept: 'Cypersecurity' }
     ];
-}
+  }
+
+  
+  onFileSelect(event: any) {
+    const file = event.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.uploadedPhoto = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  onSubmit() {        
+    let formData1 = this.myForm.value;
+    formData1.photo = this.uploadedPhoto;  
+    this.employee.saveEmployeeData(formData1).subscribe(res=>console.log(res));
+  }
+  
+  onReset(){
+    this.myForm.reset();
+  }
 }

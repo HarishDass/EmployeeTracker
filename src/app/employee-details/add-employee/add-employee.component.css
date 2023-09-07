@@ -1,6 +1,10 @@
 body{
     margin: 20px;
 }
+/* .outer{
+    margin-left: 30%;
+    margin-right: 5%;
+} */
 #heading{
     background-color: #3a81f6;
     margin: 15px;
@@ -8,4 +12,26 @@ body{
     border-radius: 5px;
     color: white;
     font-size: x-large;
+}
+:host >>> .emp-form{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.p-inputtext,.p-inputNumber {
+    width: 100%;
+}
+label{
+    font-weight: bold;
+}
+.sub-label{
+    font-weight: normal;
+    padding-left: 10px;
+}
+.mainbtn{
+    display: flex;
+    justify-content: center;
+}
+.sbtn{
+    margin: 30px;
+    width: 100px;
 }
