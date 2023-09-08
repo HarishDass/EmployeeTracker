@@ -8,8 +8,6 @@
 #employe_card_holder {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-evenly; */
-    /* align-items: last baseline; */
     margin: 90px auto;
     width: 1300px;
 }
