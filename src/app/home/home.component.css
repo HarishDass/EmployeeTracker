@@ -8,15 +8,13 @@
 #employe_card_holder {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: last baseline;
     margin: 90px auto;
     width: 1200px;
 }
 
 .employee_details_card {
     cursor: pointer;
-    margin-top: 50px;
+    margin: 30px;
     text-align: center;
     transition: 1s;
     width: 360px;

@@ -8,7 +8,6 @@ import { Carddetailsinarr } from '../shared-module/carddetailsinarr';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  value: any;
   cardData: Carddetailsinarr[] = [
     {
       cardname: 'Employee Details',
