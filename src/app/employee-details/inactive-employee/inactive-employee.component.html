@@ -17,7 +17,7 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-lefted>
-        <tr *ngIf="lefted.Active == false">
+        <tr>
           <td><img id="inactive_employe_img" src=" lefted.Photo" /></td>
           <td>{{ lefted.employeeName }}</td>
           <td>{{ lefted.EmployeeNo }}</td>
@@ -46,40 +46,91 @@
         id="employee_details_editor"
       >
         <form>
+          <div class="formDiv">
+            <label
+              >Employee Name : <br /><input
+                pInputText
+                [disabled]="true"
+                [value]="individualData.employeeName"
+              />
+            </label>
+            <label
+              >Employee No :<br />
+              <input
+                pInputText
+                [disabled]="true"
+                [value]="individualData.EmployeeNo"
+              />
+            </label>
+          </div>
+          <br />
+          <div class="formDiv">
+            <label
+              >Department :<br />
+              <input
+                pInputTextarea
+                [disabled]="true"
+                [value]="individualData.deportment"
+              />
+            </label>
+            <label
+              >Mobile No :<br />
+              <input
+                pInputTextarea
+                [disabled]="true"
+                [value]="individualData.mobileNo"
+              />
+            </label>
+          </div>
+
+          <br />
           <label
-            >Employee Name :
-            <input
-              pInputText
-              [disabled]="true"
-              [value]="individualData.employeeName"
-            /> </label
-          >&nbsp;
-          <label
-            >Employee Name :
-            <input
-              pInputText
-              [disabled]="true"
-              [value]="individualData.EmployeeNo"
-            /> </label
-          ><br /><br />
-          <label
-            >Department :
+            >Email :<br />
             <input
               pInputTextarea
               [disabled]="true"
-              [value]="individualData.deportment"
-            /> </label
-          >&nbsp;&nbsp;
-          <label
-            >Mobile No :
-            <input
-              pInputTextarea
-              [disabled]="true"
-              [value]="individualData.mobileNo"
+              [value]="individualData.email"
             />
           </label>
+          <br /><br />
+          <div class="employee_active_status_btn_space">
+            <div>
+              <label for="employee_active_status_radio_btn1" class="ml-2"
+                >Activate :</label
+              >
+              <p-radioButton
+                name="Active"
+                value="true"
+                [(ngModel)]="ingredient"
+                class="employee_active_status_radio_btn"
+                inputId="employee_active_status_radio_btn1"
+              ></p-radioButton>
+            </div>
+            <div>
+              <label for="employee_active_status_radio_btn2" class="ml-2"
+                >Inactive :</label
+              >
+              <p-radioButton
+                name="Inactive"
+                value="false"
+                [(ngModel)]="ingredient"
+                class="employee_active_status_radio_btn"
+                inputId="employee_active_status_radio_btn2"
+              ></p-radioButton>
+            </div>
+          </div>
         </form>
       </div>
     </p-dialog>
   </p-card>
 </div>
+
+<!-- 
+<label
+>Activate :
+<p-inputSwitch
+  [disabled]="disabled"
+  (onChange)="toggleActiveFn($event, individualData)"
+  id="employee_active_status_switch_btn"
+></p-inputSwitch>
+</label> -->

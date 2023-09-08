@@ -9,3 +9,42 @@
 .employee_details_editor{
   width: max-content;
 }
+
+.employee_active_status_btn_space{
+  height:30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.employee_active_status_radio_btn{
+  position: relative;
+  top: 3px;
+}
+
+.formDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+}
+
+:host ::ng-deep .p-radiobutton 
+    .p-radiobutton-box:not(.p-disabled)
+    :not(.p-highlight):hover {
+    border-color: rgb(217, 11, 141);
+}
+
+:host ::ng-deep .p-radiobutton 
+    .p-radiobutton-box.p-highlight, 
+:host ::ng-deep .p-radiobutton 
+    .p-radiobutton-box.p-highlight:hover {
+      
+    background-color: rgb(255, 123, 0);
+    border-color: rgb(255, 123, 0);
+    box-shadow: none;
+}
+
+:host ::ng-deep .p-radiobutton-icon {
+    background-color:rgb(10, 174, 224) !important;
+}

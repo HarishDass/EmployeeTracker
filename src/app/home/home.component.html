@@ -1,6 +1,6 @@
 <div id="employee_homepage_nav">
   <img
-    src="../../assets/Images/1_11zon-fotor-2023090111414-removebg-preview (1).png"
+    src="../../assets/home_page_images/home_page_emp_logo.png"
     alt="Employee Tracker"
   />
   <p-button label="Log out" styleClass="p-button-rounded"></p-button>
@@ -8,24 +8,21 @@
 <p-divider></p-divider>
 
 <div id="employe_card_holder">
-  <p-card class="employee_details_card" (click)="navigateTO('EmployeeDetails')">
-    <div class="employe_card_text">Employee Details</div>
-    <ng-template pTemplate="header">
-      <img
-        alt="Card"
-        class="employe_card_img"
-        src="../../assets/Images/AdobeStock_427200891 .png"
-      />
-    </ng-template>
-  </p-card>
-  <p-card class="employee_details_card" (click)="navigateTO('Attendance')">
-    <div class="employe_card_text">Attendance</div>
-    <ng-template pTemplate="header">
-      <img
-        alt="Card"
-        class="employe_card_img"
-        src="../../assets/Images/Candidate-1024x585.jpg"
-      />
-    </ng-template>
-  </p-card>
+  <div *ngFor="let cards of cardData">
+    <div class="employee_details_card">
+      <p-card
+        class="employee_details_card"
+        (click)="navigateTO(cards.cardname)"
+      >
+        <div class="employe_card_text">{{ cards.cardname }}</div>
+        <ng-template pTemplate="header">
+          <img
+            alt="Card"
+            class="employe_card_img"
+            src="../../assets/home_page_images/{{ cards.cardname }}.png"
+          />
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
 </div>

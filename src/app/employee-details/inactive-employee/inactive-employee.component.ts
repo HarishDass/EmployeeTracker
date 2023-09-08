@@ -10,11 +10,12 @@ export class InactiveEmployeeComponent {
   leftoverdatas: EmployeData[] = [];
   visible: boolean = false;
   individualData: any = {};
+  disabled = false;
 
   constructor(private LinkData: LeftoverTableService) {}
   ngOnInit() {
     this.LinkData.employeeDataFn().subscribe((res: EmployeData[]) => {
-      this.leftoverdatas = res;
+      this.leftoverdatas = res.filter((resp) => resp.Active == false);
       console.log(this.leftoverdatas);
     });
   }
@@ -24,4 +25,14 @@ export class InactiveEmployeeComponent {
     this.individualData = lefted;
     console.log(this.individualData);
   }
+
+  toggleActiveFn(e: any, individualData: any) {
+    if (e.checked) {
+      individualData.Active = true;
+    } else {
+      individualData.Active = false;
+    }
+    console.log(e);
+  }
+  ingredient!: string;
 }

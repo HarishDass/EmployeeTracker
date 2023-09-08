@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Carddetailsinarr } from '../shared-module/carddetailsinarr';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  value: any;
+  cardData: Carddetailsinarr[] = [
+    {
+      cardname: 'Employee Details',
+    },
+    {
+      cardname: 'Attendance',
+    },
+    {
+      cardname: 'Attendance',
+    },
+    {
+      cardname: 'Attendance',
+    },
+  ];
+
   constructor(private router: Router) {}
+
   navigateTO(module: any) {
     this.router.navigate([module]);
   }
