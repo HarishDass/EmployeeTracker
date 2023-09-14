@@ -15,12 +15,6 @@ export class HomeComponent {
     {
       cardname: 'Attendance',
     },
-    {
-      cardname: 'Attendance',
-    },
-    {
-      cardname: 'Attendance',
-    },
   ];
 
   constructor(private router: Router) {}
