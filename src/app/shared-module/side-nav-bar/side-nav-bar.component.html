@@ -9,12 +9,18 @@
     </div>
   </div>
   <aside class="innerSideBar" [ngClass]="{ 'is-active': isSidebarActive }">
-    <nav class="menu">
-      <a class="menu-item is-active">Home</a>
-      <a class="menu-item">Home</a>
-      <a class="menu-item">Home</a>
-      <a class="menu-item">Home</a>
-      <a class="menu-item">Home</a>
-    </nav>
+    <p class="heading">DASHBOARD</p>
+    <button class="btn" (click)="goTO('EmployeeDetails')">
+      EmployeeDetails
+    </button>
+    <button class="btn" (click)="goTO('Attendance')">Attendance</button>
+    <hr />
+    <ul class="menu" *ngFor="let item of page">
+      <li class="menu-item is-active">
+        <button class="btn" routerLink="{{ item.path }}">
+          {{ item.name }}
+        </button>
+      </li>
+    </ul>
   </aside>
 </div>

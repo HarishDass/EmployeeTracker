@@ -8,6 +8,7 @@
 .outer {
     display: flex;
     margin-top: 100px;
+    max-height: auto;
     min-height: 100vh;
 }
 
@@ -15,7 +16,9 @@
     flex: 1 1 0;
     max-width: 300px;
     padding: 32px 16px;
-    background-color: rgb(40, 35, 60);
+    background-color: rgb(52, 61, 74);
+    border-top-right-radius: 1rem;
+    border: 1px solid;
 }
 
 .innerSideBar .menu {
@@ -96,13 +99,73 @@
     transform: rotate(90deg);
 }
 
-@media (max-width:1024px) {
+.heading {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.btn {
+    position: relative;
+    width: 16rem;
+    height: 3rem;
+    font-size: .8rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em 2.5em;
+    display: inline-block;
+    transition: all .2s;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: white;
+    border: none;
+    background-color: rgb(52, 61, 74);
+    text-align: left;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    color: #3bba9c;
+    font-weight: bold;
+    font-size: 1rem;
+
+}
+
+/* .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px #3bba9c;
+} */
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn::after {
+    color: #3bba9c;
+}
+
+/* .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+} */
+
+@media (max-width:500px) {
     .innerSideBar {
         max-width: 200px;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .menu-toggle {
         display: block;
     }
