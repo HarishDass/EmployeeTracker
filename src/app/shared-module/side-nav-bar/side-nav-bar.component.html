@@ -9,10 +9,10 @@
     </div>
   </div>
   <aside class="innerSideBar" [ngClass]="{ 'is-active': isSidebarActive }">
-    <p class="heading">DASHBOARD</p>
+    <p class="heading">DASHBOARD</p><br>
     <button class="btn" (click)="goTO('EmployeeDetails')">
       EmployeeDetails
-    </button>
+    </button><br><br>
     <button class="btn" (click)="goTO('Attendance')">Attendance</button>
     <hr />
     <ul class="menu" *ngFor="let item of page">
