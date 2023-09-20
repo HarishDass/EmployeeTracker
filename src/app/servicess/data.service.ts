@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Dataa } from 'src/interface/dataa';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  getData() {
-    this.http.get('/../../assets/details.json');
+  getdata(): Observable<Dataa[]> {
+    return this.http.get<Dataa[]>('http://localhost:3000/Employeedetails');
   }
 }

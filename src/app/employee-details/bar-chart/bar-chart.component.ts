@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Chart, registerables } from 'node_modules/chart.js';
+Chart.register(...registerables);
+import { DataService } from 'src/app/servicess/data.service';
 
 @Component({
   selector: 'app-bar-chart',
@@ -6,75 +9,88 @@ import { Component } from '@angular/core';
   styleUrls: ['./bar-chart.component.css'],
 })
 export class BarChartComponent {
-  title = 'EmployeeTrackingDetails';
+  chartdata: any = [];
+  result: any;
+  Name: Array<any> = [];
+  Count: any;
+  constructor(private service: DataService) {}
 
-  basicData: any;
-  basicOptions: any;
+  ngOnInit() {
+    this.service.getdata().subscribe((res: any) => {
+      this.result = res;
+      console.log(res);
+      this.chartdata = res.map((resp: any) => resp.deportment);
+      console.log(this.chartdata);
+      const duplicateCounts = this.countDuplicates(this.chartdata);
+      console.log(duplicateCounts);
 
-  constructor() {
-    const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue('--text-color');
-    const textColorSecondary = documentStyle.getPropertyValue(
-      '--text-color-secondary'
-    );
-    const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+      this.Name = duplicateCounts.map(
+        (duplicateCount: any) => duplicateCount.name
+      );
 
-    this.basicData = {
-      labels: ['HR', 'FROND-END', 'BACK-END', 'TESTER', 'TL', 'CYBER-SECURITY'],
-      datasets: [
-        {
-          label: 'DEPARTMENTS',
-          data: [10, 15, 12, 80, 20, 30],
-          backgroundColor: [
-            '#F08080 ',
-            '#20B2AA',
-            '#4169E1',
-            '#FFB6C1',
-            '#8B008B',
-            '#808080',
+      console.log(this.Name);
+
+      this.Count = duplicateCounts.map((duplicateCounts: any) => {
+        return duplicateCounts.count;
+      });
+      console.log(this.Count);
+      this.chartdata = new Chart('canvas', {
+        type: 'bar',
+        data: {
+          labels: this.Name,
+          datasets: [
+            {
+              label: 'Department',
+              data: this.Count,
+              backgroundColor: [
+                'pink',
+                'lightblue',
+                'grey',
+                'yellow',
+                'lightgreen',
+              ],
+              borderColor: ['red', 'blue', 'black', 'orange', 'green'],
+              borderWidth: 1.5,
+            },
           ],
-          borderColor: [
-            'rgb(255, 160, 64)',
-            'rgb(64, 255, 179)',
-            'rgb(64, 134, 255)',
-            'rgb(255, 64, 204)',
-            'rgb(220, 64, 255)',
-            'rgb(87, 86, 83)',
-          ],
-          borderWidth: 0.5,
         },
-      ],
-    };
+        options: {
+          scales: {
+            x: {
+              grid: {
+                offset: true,
+              },
+            },
+            y: {
+              beginAtZero: false,
+              max: 10,
+              min: 1,
+            },
+          },
+        },
+      });
+    });
+  }
 
-    this.basicOptions = {
-      plugins: {
-        legend: {
-          labels: {
-            color: textColor,
-          },
-        },
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            color: textColorSecondary,
-          },
-          grid: {
-            color: surfaceBorder,
-            drawBorder: false,
-          },
-        },
-        x: {
-          ticks: {
-            color: textColorSecondary,
-          },
-          grid: {
-            color: surfaceBorder,
-            drawBorder: false,
-          },
-        },
-      },
-    };
+  countDuplicates(arr: string[]): { name: string; count: number }[] {
+    const nameCounts: { [key: string]: number } = {};
+
+    for (const name of arr) {
+      if (nameCounts[name]) {
+        nameCounts[name]++;
+      } else {
+        nameCounts[name] = 1;
+      }
+      console.log(nameCounts);
+    }
+
+    const result: { name: string; count: number }[] = [];
+
+    for (const name in nameCounts) {
+      result.push({ name, count: nameCounts[name] });
+      console.log(result);
+    }
+
+    return result;
   }
 }
