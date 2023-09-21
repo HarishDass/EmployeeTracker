@@ -1,4 +1,5 @@
 export interface EmployeData {
+  id: number;
   employeeName: string;
   dateOfBirth: string;
   mobileNo: number;

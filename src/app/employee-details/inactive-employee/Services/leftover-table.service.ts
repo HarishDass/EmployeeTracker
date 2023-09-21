@@ -8,8 +8,11 @@ import { EmployeData } from '../../interface/employe-data';
 })
 export class LeftoverTableService {
   constructor(private link: HttpClient) {}
+  server: string = 'http://localhost:3000/EmpDetails';
 
   employeeDataFn(): Observable<EmployeData[]> {
-    return this.link.get<EmployeData[]>('http://localhost:3000/EmpDetails');
+    return this.link.get<EmployeData[]>(this.server);
   }
+
+  updateDataFn() {}
 }

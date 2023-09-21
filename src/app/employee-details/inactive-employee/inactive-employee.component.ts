@@ -11,6 +11,7 @@ export class InactiveEmployeeComponent {
   visible: boolean = false;
   individualData: any = {};
   disabled = false;
+  activating!: string;
 
   constructor(private LinkData: LeftoverTableService) {}
   ngOnInit() {
@@ -21,18 +22,27 @@ export class InactiveEmployeeComponent {
   }
 
   activateFn(lefted: EmployeData) {
+    console.log(lefted);
+  }
+
+  indiviActiveFn(lefted: EmployeData) {
     this.visible = true;
     this.individualData = lefted;
+    // console.log(lefted);
     console.log(this.individualData);
   }
 
-  toggleActiveFn(e: any, individualData: any) {
-    if (e.checked) {
-      individualData.Active = true;
+  toggleActiveFn() {
+    if (this.activating == 'true') {
+      this.individualData.Active = true;
+      console.log(this.individualData);
+      this.visible = false;
+      this.activating = '';
     } else {
-      individualData.Active = false;
+      this.individualData.Active = false;
+      // console.log(this.individualData);
+      this.visible = false;
+      this.activating = '';
     }
-    console.log(e);
   }
-  ingredient!: string;
 }
