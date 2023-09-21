@@ -14,5 +14,7 @@ export class LeftoverTableService {
     return this.link.get<EmployeData[]>(this.server);
   }
 
-  updateDataFn() {}
+  updateDataFn() {
+    return this.link.put;
+  }
 }
