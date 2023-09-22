@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "EmployeeName": "ArulVincent",
+      "MobileNo": 1234567890,
+      "Department": "Backend Developer",
+      "Gender": "Male",
+      "date": "2023-09-05",
+      "Status": false,
+      "Informed": null,
+      "EmployeeNo": 101,
+      "Photo": "../../assets/images/bharathi.jpeg",
+      "Email": "guruprasadh49@gmail.com"
+    },
+    {
+      "EmployeeName": "ArulVincent",
+      "MobileNo": 1234567890,
+      "Department": "Backend Developer",
+      "Gender": "Male",
+      "date": "2023-09-05",
+      "Status": false,
+      "Informed": null,
+      "UnInformed": true,
+      "Reason": null,
+      "EmployeeNo": 101,
+      "Photo": "../../assets/images/bharathi.jpeg",
+      "Email": "arulvincent0812@gmail.com"
+    },
+    {
+      "EmployeeName": "ArulVincent",
+      "MobileNo": 1234567890,
+      "Department": "Backend Developer",
+      "Gender": "Male",
+      "date": "2023-09-05",
+      "Status": false,
+      "Informed": true,
+      "Reason": "fever",
+      "EmployeeNo": 101,
+      "Photo": "../../assets/images/bharathi.jpeg",
+      "Email": "narmadhamurugan706@gmail.com"
+    },
+    {
+      "EmployeeName": "ArulVincent",
+      "MobileNo": 1234567890,
+      "Department": "Frontend Developer",
+      "Gender": "Male",
+      "date": "2023-09-05",
+      "Status": true,
+      "Informed": null,
+      "EmployeeNo": 101,
+      "Photo": "../../assets/images/bharathi.jpeg",
+      "Email": "vvbhagyasri221@gmail.com"
+    }
+  ]
+}
