@@ -14,7 +14,10 @@ export class LeftoverTableService {
     return this.link.get<EmployeData[]>(this.server);
   }
 
-  updateDataFn() {
-    return this.link.put;
+  updateDataFn(individualData: EmployeData) {
+    return this.link.put<EmployeData>(
+      `${this.server}/${individualData.id}`,
+      individualData
+    );
   }
 }

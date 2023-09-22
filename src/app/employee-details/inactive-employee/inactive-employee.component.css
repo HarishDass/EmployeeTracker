@@ -22,14 +22,30 @@
   top: 3px;
 }
 
-.formDiv {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 500px;
-}
-
 #employee_active_status_submit_btn {
   display: flex;
   justify-content: flex-end;
+}
+
+#clearBtn_for_searchbar {
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+#emp_search_clear_ {
+  width: 290px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#employee_details_searchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#no_details_text {
+  text-align: center;
 }
