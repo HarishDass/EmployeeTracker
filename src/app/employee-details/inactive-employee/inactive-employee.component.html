@@ -11,22 +11,14 @@
       <ng-template pTemplate="caption">
         <div id="employee_details_searchBar">
           <h2>Inactive Employee List</h2>
-          <div id="emp_search_clear_">
-            <input
-              pInputText
-              [(ngModel)]="clearthebar"
-              class="p-inputtext"
-              type="text"
-              (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
-              placeholder="Search keyword"
-            />
-            <p-button
-              (onClick)="clearFn(dt1)"
-              styleClass="p-button  p-button-text p-button-sm"
-            >
-              <span id="clearBtn_for_searchbar">Clear</span></p-button
-            >
-          </div>
+          <input
+            pInputText
+            [(ngModel)]="clearthebar"
+            class="p-inputtext"
+            type="text"
+            (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search keyword"
+          />
         </div>
       </ng-template>
       <ng-template pTemplate="header">

@@ -23,11 +23,6 @@ export class InactiveEmployeeComponent {
     });
   }
 
-  clearFn(table: any) {
-    this.clearthebar = '';
-    table.clear();
-  }
-
   activateFn(lefted: EmployeData) {
     console.log(lefted);
     this.visible = false;
