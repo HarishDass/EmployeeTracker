@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
-import { Carddetailsinarr } from '../shared-module/carddetailsinarr';
 @NgModule({
   declarations: [HomeComponent],
   imports: [CommonModule, HomeRoutingModule, SharedModuleModule],

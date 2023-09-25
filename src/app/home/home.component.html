@@ -12,14 +12,14 @@
     <div class="employee_details_card">
       <p-card
         class="employee_details_card"
-        (click)="navigateTO(cards.cardname)"
+        (click)="navigateTO(cards.cardName)"
       >
-        <div class="employe_card_text">{{ cards.cardname }}</div>
+        <div class="employe_card_text">{{ cards.cardName }}</div>
         <ng-template pTemplate="header">
           <img
             alt="Card"
             class="employe_card_img"
-            src="../../assets/home_page_images/{{ cards.cardname }}.png"
+            src="../../assets/home_page_images/{{ cards.cardName }}.png"
           />
         </ng-template>
       </p-card>
