@@ -11,10 +11,7 @@ export class InactiveEmployeeComponent {
   leftoverdatas: EmployeData[] = [];
   visible: boolean = false;
   individualData: any = {};
-  disabled = false;
   activating!: string;
-  EmpnameFordis: string = '';
-  clearthebar: string = '';
 
   constructor(private LinkData: LeftoverTableService) {}
   ngOnInit() {
@@ -32,7 +29,6 @@ export class InactiveEmployeeComponent {
   indiviActiveFn(lefted: EmployeData) {
     this.visible = true;
     this.individualData = lefted;
-    this.EmpnameFordis = lefted.employeeName;
     this.activating = '';
   }
 
@@ -40,9 +36,10 @@ export class InactiveEmployeeComponent {
     if (this.activating == 'true') {
       this.individualData.Active = true;
       this.LinkData.updateDataFn(this.individualData).subscribe(
-        (x: EmployeData) => {
+        (changingValueofEmp: EmployeData) => {
           const updatedDetails = this.leftoverdatas.filter(
-            (x1: EmployeData) => x.id !== x1.id
+            (changedValueofEmp: EmployeData) =>
+              changingValueofEmp.id !== changedValueofEmp.id
           );
           this.leftoverdatas = updatedDetails;
         }
