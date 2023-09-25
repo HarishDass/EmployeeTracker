@@ -1,0 +1,21 @@
+#headding {
+  background-color: blue;
+  margin: 15px;
+  color: aliceblue;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: x-large;
+  width: 100%;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#p-datatable-tbody,
+tr {
+  color: solid #000305;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+tr:hover {
+  color: whitesmoke;
+  background-color: #000305;
+}
