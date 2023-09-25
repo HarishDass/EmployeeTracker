@@ -10,11 +10,7 @@ app.use(bodyParser.json());
 app.listen(5000, () => {
     console.log("The server started on port 5000 !!!!!!");
 });
-app.get("/", (req, res) => {
-    res.send(
-        "<h1 style='text-align: center'>Welcome to My World<br><br>😃👻😃👻😃👻😃👻😃</h1>"
-    );
-});
+
 
 
 app.post("/sendmail", (req, res) => {

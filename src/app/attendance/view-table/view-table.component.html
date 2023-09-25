@@ -3,6 +3,7 @@
     #emp
     [value]="employeeDetails"
     [rows]="5"
+    [rowHover]="true"
     styleClass="table"
     [scrollable]="true"
     scrollDirection="both"
@@ -71,6 +72,7 @@
           </p-columnFilter>
         </th>
         <th>Informed</th>
+        <th>UnInformed</th>
         <th>Reason</th>
         <th>Send Email</th>
       </tr>
@@ -80,7 +82,7 @@
         <td pFrozenColumn>{{ employeeDetail.EmployeeNo }}</td>
         <td pFrozenColumn>{{ employeeDetail.EmployeeName }}</td>
         <td>
-          <img [src]="employeeDetail.Photo"  />
+          <img [src]="employeeDetail.Photo" width="100px" height="100px" />
         </td>
         <td>{{ employeeDetail.Department }}</td>
         <td>{{ employeeDetail.Gender }}</td>
@@ -96,27 +98,38 @@
             }"
           ></button>
         </td>
-        <td
-          [ngStyle]="{
-            visibility: employeeDetail.Status === true ? 'hidden' : 'visibility'
-          }"
-        >
+        <td>
           <button
             pButton
             [label]="employeeDetail.Informed === true ? 'Yes' : 'No'"
             [ngStyle]="{
               'background-color':
-                employeeDetail.Informed === true ? 'green' : 'red'
+                employeeDetail.Informed === true ? 'green' : 'red',
+              visibility:
+                employeeDetail.Status === true ||
+                employeeDetail.UnInformed === true
+                  ? 'hidden'
+                  : 'visibility'
+            }"
+          ></button>
+        </td>
+        <td>
+          <button
+            pButton
+            [label]="employeeDetail.UnInformed === true ? 'Yes' : 'No'"
+            [ngStyle]="{'background-color' :employeeDetail.UnInformed ===true ? 'green':'red',
+             'visibility':
+                employeeDetail.Status === true || employeeDetail.Informed === true ? 'hidden' : 'visibility',
             }"
           ></button>
         </td>
         <td>{{ employeeDetail.Reason }}</td>
         <td>
-          <button  
-          [disabled]="employeeDetail.Status === true  "
+          <button
             pButton
             (click)="request(employeeDetail)"
             label="Send Email"
+            [disabled]="employeeDetail.Status == true"
           ></button>
         </td>
       </tr>
