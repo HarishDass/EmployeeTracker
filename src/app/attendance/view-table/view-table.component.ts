@@ -2,18 +2,21 @@ import { Component, Input } from '@angular/core';
 import { Table } from 'primeng/table';
 import { EmployeeDetailsService } from 'src/app/employee-details.service';
 import { EmployeesTypes } from 'src/assets/data/employeeAttendance';
-import { EmailService } from 'src/app/email.service';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-view-table',
   templateUrl: './view-table.component.html',
   styleUrls: ['./view-table.component.css'],
+  providers: [MessageService],
 })
 export class ViewTableComponent {
   employeeDetails: Array<EmployeesTypes> = [];
   statuses!: any[];
+
   constructor(
     private employeeInfo: EmployeeDetailsService,
-    public http: EmailService
+    public http: EmployeeDetailsService,
+    private messageService: MessageService
   ) {}
   ngOnInit(): void {
     this.employeeInfo.getData().subscribe((data: any) => {
@@ -39,11 +42,14 @@ export class ViewTableComponent {
       department: details.Department,
       date: details.Date,
     };
-    console.log(user.date);
-
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Email Sent Successfully',
+    });
     this.http
       .sendEmail('http://localhost:5000/sendmail', user)
-      .subscribe((data) => {
+      .subscribe((data: any) => {
         data;
         console.log(
           `👏 > 👏 > 👏 > 👏 ${[

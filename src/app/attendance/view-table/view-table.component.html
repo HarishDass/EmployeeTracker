@@ -125,8 +125,10 @@
         </td>
         <td>{{ employeeDetail.Reason }}</td>
         <td>
+          <p-toast></p-toast>
           <button
             pButton
+            pRipple
             (click)="request(employeeDetail)"
             label="Send Email"
             [disabled]="employeeDetail.Status == true"

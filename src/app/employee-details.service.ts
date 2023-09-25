@@ -11,4 +11,7 @@ export class EmployeeDetailsService implements OnInit {
   getData() {
     return this.http.get('http://localhost:3000/data');
   }
+  sendEmail(url: any, data: any) {
+    return this.http.post(url, data);
+  }
 }
