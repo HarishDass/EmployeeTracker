@@ -11,8 +11,8 @@ export class EmployeeServiceService {
   // getAllEmployee({
   //   return this.http.get(this.url)
   // })
-  saveEmployeeData(data : any){
+  saveEmployeeData(data1 : any){
     // console.log(data);
-    return this.http.post(this.url,data) 
+    return this.http.post(this.url,data1) 
   }
 }

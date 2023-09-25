@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
-import { Validators, FormGroup, FormArray, FormBuilder, FormControl } from '@angular/forms';
+import {
+  Validators,
+  FormGroup,
+  FormArray,
+  FormBuilder,
+  FormControl,
+} from '@angular/forms';
 import { EmployeeServiceService } from '../../employee-service.service';
+import Swal from 'sweetalert2';
 
 interface department {
-  dept: string;
+  department: string;
 }
 
 @Component({
@@ -13,64 +20,112 @@ interface department {
 })
 export class AddEmployeeComponent {
   myForm: FormGroup;
-  departments : (department[] | undefined);
+  departments: department[] | undefined;
   uploadedPhoto: string | ArrayBuffer | null = null;
-  initialSubmitButtonState: boolean = true;
+  submitted = false;
 
-
-  constructor(private employee : EmployeeServiceService) {
-  this.myForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    dob: new FormControl('', Validators.required),
-    phone: new FormControl('', Validators.required),
-    nationality: new FormControl('', Validators.required),
-    date_of_joining: new FormControl('', Validators.required),
-    department: new FormControl<department | null>(null, Validators.required),
-    gender: new FormControl('', Validators.required),
-    isActive: new FormControl('', Validators.required),
-    address: new FormGroup({
-      address_line1: new FormControl('', Validators.required),
-      address_line2: new FormControl('', Validators.required),
-      city: new FormControl('', Validators.required),
-      state: new FormControl('', Validators.required), 
-      pincode: new FormControl('', Validators.required)
-    }),
-    fathername : new FormControl("", Validators.required),  
-    employee_no : new FormControl('', Validators.required),  
-    photo : new FormControl("", Validators.required), 
-    qualification : new FormControl("", Validators.required),
-    ctc : new FormControl("", Validators.required), 
-    mail : new FormControl("", Validators.required),   
-    experience : new FormControl("", Validators.required),
-    experience_details : new FormGroup({
-      years : new FormControl("", Validators.required),
-      company : new FormControl("", Validators.required),
-      joinDate: new FormControl("", Validators.required),
-      endDate : new FormControl("", Validators.required)
-    }), 
-    emergency_Phone : new FormControl("", Validators.required),
-    aadhaar : new FormControl("", Validators.required),
-    pan : new FormControl("", Validators.required)
-  });
-
+  constructor(
+    private fb: FormBuilder,
+    private employee: EmployeeServiceService
+  ) {
+    this.myForm = this.fb.group({
+      employeeName: [
+        '',
+        Validators.required
+      ],
+      dateOfBirth: ['', Validators.required],
+      mobileNo: ['', Validators.required],
+      nationality: ['', Validators.required],
+      dateOfJoining: ['', Validators.required],
+      department: [null, Validators.required],
+      gender: ['', Validators.required],
+      active: ['', Validators.required],
+      address: this.fb.group({
+        address_line1: ['', Validators.required],
+        address_line2: ['', Validators.required],
+        city: ['', Validators.required],
+        state: ['', Validators.required],
+        pincode: ['', Validators.required],
+      }),
+      fatherName: ['', Validators.required],
+      EmployeeNo: ['', Validators.required],
+      photo: [''],
+      qualification: ['', Validators.required],
+      CTC: ['', Validators.required],
+      email: ['', Validators.required],
+      experience: ['', Validators.required],
+      yearOfExperience: this.fb.array([
+      ]),
+      emergencyContactNumber: ['', Validators.required],
+      panNumber: ['', Validators.required],
+    });
   }
-     
 
   ngOnInit() {
-    this.initialSubmitButtonState = this.myForm.valid;
-
     this.departments = [
-        { dept: 'Select Department' },
-        { dept: 'HR' },
-        { dept: 'Frontend Developer' },
-        { dept: 'Backend Developer' },
-        { dept: 'Tester' },
-        { dept: 'Team Leader' },
-        { dept: 'Cypersecurity' }
+      { department: 'Select Department' },
+      { department: 'HR' },
+      { department: 'Frontend Developer' },
+      { department: 'Backend Developer' },
+      { department: 'Tester' },
+      { department: 'Team Leader' },
+      { department: 'Cypersecurity' },
     ];
   }
 
-  
+  get f() {
+    return this.myForm.controls;
+  }
+
+  get address(): FormGroup {
+    return this.myForm.get('address') as FormGroup;
+  }
+
+  get ad() {
+    return this.address.controls;
+  }
+  get companyName() {
+    return this.yearOfExperience.get('companyName');
+  }
+
+  get yearOfExperience() {
+    return this.myForm.get('yearOfExperience') as FormArray;
+  }
+  get exp() {
+    return this.yearOfExperience.controls;
+  }
+
+  experienceDetails(): FormGroup {
+    return this.fb.group({
+      years: ['', Validators.required],
+      companyName: ['', Validators.required],
+      joinDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+    });
+  }
+
+  addExperience() {
+    this.yearOfExperience.push(this.experienceDetails());
+  }
+
+  delExperience() {
+    let control = <FormArray>this.myForm.controls['yearOfExperience'];
+    control.removeAt(control.length - 1);
+    // this.yearOfExperience.removeAt(index - 1)
+  }
+
+  experienceRequired(event: any) {
+    if (event.checked) {
+      this.myForm.controls['yearOfExperience'].setValidators([
+        Validators.required,
+      ]);
+      this.myForm.controls['yearOfExperience'].updateValueAndValidity();
+    } else {
+      this.myForm.controls['yearOfExperience'].setValidators(null);
+      this.myForm.controls['yearOfExperience'].updateValueAndValidity();
+    }
+  }
+
   onFileSelect(event: any) {
     const file = event.files[0];
     if (file) {
@@ -82,13 +137,27 @@ export class AddEmployeeComponent {
     }
   }
 
-  onSubmit() {        
-    let formData1 = this.myForm.value;
-    formData1.photo = this.uploadedPhoto;  
-    this.employee.saveEmployeeData(formData1).subscribe(res=>console.log(res));
+  onSubmit() {
+    this.submitted = true;
+    const formData1 = this.myForm.value;
+    formData1.photo = this.uploadedPhoto;
+    
+    console.log(this.myForm);
+    if (this.myForm.invalid) {
+      Swal.fire('Sorry!', 'Please Enter all fields!', 'error');
+      return;
+    }
+    else if (this.myForm.valid) {
+      this.employee
+        .saveEmployeeData(formData1)
+        .subscribe((res) => console.log(res));
+      Swal.fire('Thank You!', 'Successfully Submitted!', 'success');
+    }
   }
-  
-  onReset(){
+
+  onReset() {
+    this.submitted = false;
     this.myForm.reset();
+    Swal.fire('Reset!', 'Successfully Reseted!', 'success');
   }
 }

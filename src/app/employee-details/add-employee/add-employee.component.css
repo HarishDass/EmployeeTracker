@@ -17,11 +17,37 @@ body{
     margin-left: 10%;
     margin-right: 10%;
 }
-.p-inputtext,.p-inputNumber {
-    width: 100%;
+:host >>> .p-inputtext{
+    width: 70%;
 }
+:host >>> .p-dropdown{
+    width: 70%;
+}
+:host >>> .p-calendar{
+    width: 70%;
+}
+:host >>> .p-inputNumber{
+    width: 70%;
+}
+/* :host >>> .p-fileUpload{
+    width: 30%;
+} */
 label{
     font-weight: bold;
+    font-size: medium;
+    padding: 10px;
+    float: left;
+    width: 30%;
+    /* color: #3a81f6; */
+}
+
+.field1{
+    border: 1px solid #3a81f6;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 .sub-label{
     font-weight: normal;
@@ -32,6 +58,33 @@ label{
     justify-content: center;
 }
 .sbtn{
-    margin: 30px;
+    margin: 20px;
     width: 100px;
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    label{
+        font-weight: bold;
+        font-size: medium;
+        padding: 10px;
+        width: 100%;
+        /* color: #3a81f6; */
+    }
+    :host >>> .p-inputtext{
+        width: 100%;
+    }
+    :host >>> .p-dropdown{
+        width: 100%;
+    }
+    :host >>> .p-calendar{
+        width: 100%;
+    }
+    :host >>> .p-inputNumber{
+        width: 100%;
+    }
+    /* :host >>> .p-radioButton{
+        display: flex;
+        flex-direction: row;
+    } */
+  }
