@@ -1,0 +1,15 @@
+:host ::ng-deep .p-card{
+    border-radius: 15px;
+    width: 1100px;
+    height: max-content;
+    border: 2px solid black;
+    margin: 10px auto;
+}
+
+.submitButton
+{
+    margin-top: 15px;
+    display: flex;
+    justify-content:end;
+}
+

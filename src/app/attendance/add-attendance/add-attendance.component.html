@@ -1,0 +1,125 @@
+<p-card header="Attendance list">
+  <p-table
+    #table
+    [paginator]="true"
+    [rowsPerPageOptions]="[4, 5, 8, 10]"
+    [rows]="10"
+    styleClass="p-datatable-sm"
+    [value]="new_data"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['employeeName', 'deportment', 'EmployeeNo']"
+    [filterDelay]="0"
+  >
+    <ng-template pTemplate="caption">
+      <span class="p-input-icon-left ml-auto">
+        <input
+          pInputText
+          type="text"
+          (input)="table.filterGlobal($any($event.target).value, 'contains')"
+          placeholder="Search keyword"
+        />
+      </span>
+      <th>
+        <p-multiSelect
+          [options]="departments"
+          placeholder="Select Department"
+          (onChange)="onDepartmentChange($event)"
+          styleClass="p-column-filter"
+          optionLabel="name"
+        >
+          <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-deportment-option">
+              <span class="p-ml-1">{{ option.name }}</span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
+      </th>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let column of cols">
+          {{ column.header }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-new_data>
+      <tr>
+        <td><img src="new_data.Photo" /></td>
+        <td>{{ new_data.AttendanceDate }}</td>
+        <td>{{ new_data.employeeName }}</td>
+        <td>{{ new_data.EmployeeNo }}</td>
+        <td [pSortableColumn]="new_data.deportment">
+          {{ new_data.deportment }}
+        </td>
+        <td>
+          <label
+            >Present
+            <p-checkbox
+              [(ngModel)]="new_data.present"
+              [binary]="true"
+              inputId="binary"
+              (onChange)="isPresent(new_data)"
+              [disabled]="new_data.absent"
+            ></p-checkbox> </label
+          ><br />
+          <br />
+          <label
+            >Absent&nbsp;
+            <p-checkbox
+              [(ngModel)]="new_data.absent"
+              [disabled]="new_data.present"
+              [binary]="true"
+              (onChange)="isAbsent(new_data)"
+              inputId="binary"
+            ></p-checkbox
+          ></label>
+        </td>
+        <td>
+          <label
+            >With &nbsp; &nbsp; &nbsp;
+            <p-checkbox
+              [(ngModel)]="new_data.withPermission"
+              [disabled]="!new_data.absent"
+              (onChange)="withPermission(new_data)"
+              [binary]="true"
+              inputId="binary"
+            ></p-checkbox>
+          </label>
+          <br />
+          <br />
+          <label
+            >Without
+            <p-checkbox
+              [value]="withoutPermission"
+              [disabled]="bothDisabled"
+              [disabled]="isDisabled"
+              [binary]="true"
+              inputId="binary"
+              (onChange)="withoutPermission(new_data)"
+            ></p-checkbox>
+          </label>
+        </td>
+        <td>
+          <textarea
+            rows="2"
+            cols="30"
+            pInputTextarea
+            [disabled]="bothDisabled"
+            [disabled]="isDisabled"
+            [disabled]="reasonDisabled"
+          ></textarea>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div class="submitButton">
+    <p-button
+      label="Submit"
+      (onClick)="onSubmit()"
+      styleClass="p-button-raised"
+    ></p-button>
+  </div>
+  ></p-card
+>
