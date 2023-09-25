@@ -1,4 +1,4 @@
-#headding {
+#page_heading {
   background-color: blue;
   margin: 15px;
   color: aliceblue;
@@ -6,16 +6,16 @@
   border-radius: 5px;
   font-size: x-large;
   width: 100%;
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: "Times New Roman";
 }
 
 #p-datatable-tbody,
 tr {
   color: solid #000305;
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: "Times New Roman";
 }
 
 tr:hover {
   color: whitesmoke;
-  background-color: #000305;
+  background-color: #779fba;
 }
