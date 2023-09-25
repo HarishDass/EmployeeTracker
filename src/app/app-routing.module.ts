@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileDetailsComponent } from './employee-details/profile-details/profile-details.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
         (m) => m.EmployeeDetailsModule
       ),
   },
+ 
 ];
 
 @NgModule({
