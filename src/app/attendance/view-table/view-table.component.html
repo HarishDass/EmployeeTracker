@@ -38,7 +38,7 @@
       <tr>
         <th pFrozenColumn>EmpId</th>
         <th pFrozenColumn>EmployeeName</th>
-        <th>Photo</th>
+        <th pFrozenColumn>Photo</th>
         <th>Department</th>
         <th>Gender</th>
         <th>
@@ -81,7 +81,7 @@
       <tr>
         <td pFrozenColumn>{{ employeeDetail.EmployeeNo }}</td>
         <td pFrozenColumn>{{ employeeDetail.EmployeeName }}</td>
-        <td>
+        <td pFrozenColumn>
           <img [src]="employeeDetail.Photo" width="100px" height="100px" />
         </td>
         <td>{{ employeeDetail.Department }}</td>
