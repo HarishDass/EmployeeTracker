@@ -12,4 +12,9 @@
     display: flex;
     justify-content:end;
 }
+.table-disabled{
+    opacity: 0.5;
+    pointer-events: none
+    ;
+}
 

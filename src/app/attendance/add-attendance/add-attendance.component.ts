@@ -16,32 +16,21 @@ interface Column {
 })
 export class AddAttendanceComponent {
   new_data: DataDetails[] = [];
+  next_data: DataDetails[] = [];
   selectedname!: DataDetails;
   cols!: Column[];
-  isDisabled: boolean;
-  absentDisabled: boolean;
-  presentDisabled: boolean;
-  bothDisabled: boolean;
-  reasonDisabled: boolean;
-  withPermissionDisabled: boolean;
   departments!: any[];
   attendance!: DataDetails;
   employeeData: DataDetails[] = [];
   @ViewChild('table') table!: Table;
-
-  constructor(private apiLink: ApiFetchService) {
-    this.presentDisabled = false;
-    this.absentDisabled = false;
-    this.bothDisabled = false;
-    this.isDisabled = true;
-    this.reasonDisabled = true;
-    this.withPermissionDisabled = true;
-  }
-
+  Attendance: boolean = false;
+  tableDisabled: boolean = false;
+  submitEnabled: boolean = false;
+  constructor(private apiLink: ApiFetchService) {}
   ngOnInit() {
-    this.refresh();
     this.apiLink.getData().subscribe((res: DataDetails[]) => {
       this.new_data = res;
+      this.next_data = res;
       console.log(this.new_data);
       this.new_data.forEach((x) => {
         x.present = false;
@@ -63,6 +52,7 @@ export class AddAttendanceComponent {
       { header: 'Reason' },
     ];
     this.departments = [
+      { name: 'All' },
       { name: 'frontend developer' },
       { name: 'backend developer' },
       { name: 'tester' },
@@ -70,60 +60,39 @@ export class AddAttendanceComponent {
       { name: 'CyberSecurity' },
     ];
   }
-  onDepartmentChange(event: any) {
-    this.table.filter(event.value, 'deportment', 'in');
+  onDepartmentChange(dept: any) {
+    if (dept.value.name === 'All') {
+      this.new_data = this.next_data;
+    } else {
+      this.new_data = this.next_data.filter(
+        (dem: any) => dem.deportment === dept.value.name
+      );
+    }
   }
-  refresh() {
-    this.apiLink.getData().subscribe((data) => {
-      console.log(data);
-      this.new_data = data;
-    });
+  checkBoxStatus() {
+    this.Attendance = this.new_data.every(
+      (item) => item.present || item.absent
+    );
+    if (this.Attendance == true) {
+      this.submitEnabled = true;
+    }
   }
   onSubmit() {
+    this.tableDisabled = true;
     this.apiLink.saveUser(this.new_data).subscribe((data) => {
       console.log(data);
-      this.refresh();
     });
   }
   isPresent(val: any) {
-    // if (val.checked) {
-    //   this.absentDisabled = true;
-    // } else {
-    //   this.absentDisabled = false;
-    // }
+    this.checkBoxStatus();
     console.log(val);
     this.attendance = val;
     this.employeeData.push(this.attendance);
   }
-
   isAbsent(e: any) {
-    console.log(e);
-
-    // if (e.present == false) {
-    //   this.presentDisabled = false;
-    //   this.isDisabled = false;
-    // } else {
-    //   this.presentDisabled = true;
-    //   this.isDisabled = true;
-    // }
+    this.checkBoxStatus();
     console.log(e);
   }
-  withPermission(e: any) {
-    console.log(e);
-
-    if (e.absent == true) {
-      this.bothDisabled = false;
-    } else {
-      this.bothDisabled = true;
-    }
-  }
-  withoutPermission(e: any) {
-    console.log(e);
-
-    if (e.absent == true) {
-      this.withPermissionDisabled = false;
-    } else {
-      this.withPermissionDisabled = true;
-    }
-  }
+  withPermission(e: any) {}
+  withoutPermission(e: any) {}
 }

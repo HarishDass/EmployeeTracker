@@ -21,7 +21,7 @@
         />
       </span>
       <th>
-        <p-multiSelect
+        <p-dropdown
           [options]="departments"
           placeholder="Select Department"
           (onChange)="onDepartmentChange($event)"
@@ -29,11 +29,9 @@
           optionLabel="name"
         >
           <ng-template let-option pTemplate="item">
-            <div class="p-multiselect-deportment-option">
-              <span class="p-ml-1">{{ option.name }}</span>
-            </div>
+            <span class="p-ml-1">{{ option.name }}</span>
           </ng-template>
-        </p-multiSelect>
+        </p-dropdown>
       </th>
     </ng-template>
 
@@ -57,6 +55,7 @@
           <label
             >Present
             <p-checkbox
+              [class.table-disabled]="tableDisabled"
               [(ngModel)]="new_data.present"
               [binary]="true"
               inputId="binary"
@@ -68,6 +67,7 @@
           <label
             >Absent&nbsp;
             <p-checkbox
+              [class.table-disabled]="tableDisabled"
               [(ngModel)]="new_data.absent"
               [disabled]="new_data.present"
               [binary]="true"
@@ -81,7 +81,12 @@
             >With &nbsp; &nbsp; &nbsp;
             <p-checkbox
               [(ngModel)]="new_data.withPermission"
-              [disabled]="!new_data.absent"
+              [disabled]="true"
+              [disabled]="
+                new_data.present ||
+                !new_data.absent ||
+                new_data.withoutPermission
+              "
               (onChange)="withPermission(new_data)"
               [binary]="true"
               inputId="binary"
@@ -92,9 +97,11 @@
           <label
             >Without
             <p-checkbox
-              [value]="withoutPermission"
-              [disabled]="bothDisabled"
-              [disabled]="isDisabled"
+              [(ngModel)]="new_data.withoutPermission"
+              [disabled]="true"
+              [disabled]="
+                new_data.present || !new_data.absent || new_data.withPermission
+              "
               [binary]="true"
               inputId="binary"
               (onChange)="withoutPermission(new_data)"
@@ -106,9 +113,7 @@
             rows="2"
             cols="30"
             pInputTextarea
-            [disabled]="bothDisabled"
-            [disabled]="isDisabled"
-            [disabled]="reasonDisabled"
+            [disabled]="!new_data.withPermission"
           ></textarea>
         </td>
       </tr>
@@ -118,6 +123,7 @@
     <p-button
       label="Submit"
       (onClick)="onSubmit()"
+      [disabled]="!Attendance"
       styleClass="p-button-raised"
     ></p-button>
   </div>
