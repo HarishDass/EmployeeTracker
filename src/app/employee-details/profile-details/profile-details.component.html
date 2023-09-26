@@ -45,31 +45,33 @@
     </div>
 
     <ng-template pTemplate="header">
-      <tr id="p-datatable-thead">
-        <th>EmployeeNo</th>
-        <th>Employee Name</th>
-        <th>Photo</th>
-        <th>Date Of Birth</th>
-        <th>Mobile No</th>
+      <tr>
+        <th pFrozenColumn>Employee&nbsp;No</th>
+        <th pFrozenColumn>Employee&nbsp;Name</th>
+        <th pFrozenColumn>Photo</th>
+        <th>Date&nbsp;Of&nbsp;Birth</th>
+        <th>Mobile&nbsp;No</th>
         <th>Nationality</th>
-        <th>Date Of Joining</th>
+        <th>Date&nbsp;Of&nbsp;Joining</th>
         <th>Department</th>
         <th>Gender</th>
         <th>Qualification</th>
         <th>CTC</th>
         <th>Email</th>
         <th>Experience</th>
-        <th>Year Of Experience</th>
-        <th>Alternative Number</th>
+        <th>Year&nbsp;Of&nbsp;Experience</th>
+        <th>Alternative&nbsp;Number</th>
         <th>Edit</th>
       </tr>
     </ng-template>
 
     <ng-template pTemplate="body" let-array>
       <tr>
-        <td>{{ array.EmployeeNo }}</td>
-        <td>{{ array.employeeName.toUpperCase() }}</td>
-        <td><img [src]="array.Photo" height="100px" width="100px" /></td>
+        <td pFrozenColumn>{{ array.EmployeeNo }}</td>
+        <td pFrozenColumn>{{ array.employeeName.toUpperCase() }}</td>
+        <td pFrozenColumn>
+          <img [src]="array.Photo" height="100px" width="100px" />
+        </td>
         <td>{{ array.dateOfBirth }}</td>
         <td>{{ array.mobileNo }}</td>
         <td>{{ array.nationality.toUpperCase() }}</td>

@@ -6,13 +6,6 @@
   border-radius: 5px;
   font-size: x-large;
   width: 100%;
-  font-family: "Times New Roman";
-}
-
-#p-datatable-tbody,
-tr {
-  color: solid #000305;
-  font-family: "Times New Roman";
 }
 
 tr:hover {
