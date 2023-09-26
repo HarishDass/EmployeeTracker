@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { EmployeData } from '../interface/employe-data';
-import { LeftoverTableService } from './Services/leftover-table.service';
+import { EmployeData } from 'src/app/shared-module/employe-data';
+import { LeftoverTableService } from 'src/app/Services/leftover-table.service';
 import { filter } from 'rxjs';
 @Component({
   selector: 'app-inactive-employee',
