@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CardDetailsinarr } from '../shared-module/carddetailsinarr';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  value: any;
+  cardData: CardDetailsinarr[] = [
+    {
+      cardName: 'Employee Details',
+    },
+    {
+      cardName: 'Attendance',
+    },
+  ];
+
   constructor(private router: Router) {}
+
   navigateTO(module: any) {
-    this.router.navigate([module]);
+    const joinName = module.split(' ').join('');
+    this.router.navigate([joinName]);
   }
 }
