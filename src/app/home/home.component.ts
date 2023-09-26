@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Carddetailsinarr } from '../shared-module/carddetailsinarr';
+import { CardDetailsinarr } from '../shared-module/carddetailsinarr';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +8,12 @@ import { Carddetailsinarr } from '../shared-module/carddetailsinarr';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  cardData: Carddetailsinarr[] = [
+  cardData: CardDetailsinarr[] = [
     {
-      cardname: 'Employee Details',
+      cardName: 'Employee Details',
     },
     {
-      cardname: 'Attendance',
+      cardName: 'Attendance',
     },
   ];
 
