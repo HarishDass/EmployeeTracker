@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AttendanceComponent } from './attendance.component';
 import { HomeComponent } from '../home/home.component';
+import { ViewTableComponent } from './view-table/view-table.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,12 @@ const routes: Routes = [
     component: AttendanceComponent,
     children: [
       {
-        path: 'home',
-        component: HomeComponent,
+        path: 'viewTable',
+        component: ViewTableComponent,
+      },
+      {
+        path: 'viewTable',
+        component: ViewTableComponent,
       },
     ],
   },

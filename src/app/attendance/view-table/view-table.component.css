@@ -1,0 +1,48 @@
+.employeeDetails {
+    width: 80%;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: -150px;
+    margin-right: -100px;
+
+}
+
+:host>>>.table {
+    max-width: auto;
+}
+
+.p-datatable-header {
+    border-top-left-radius: 10%;
+
+}
+
+
+
+img {
+    width: 80px;
+    height: 80px;
+    border-radius: 80%;
+}
+
+
+
+.empImg {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+@media screen and (max-width: 400px) {
+    :host>>>.table {
+        text-align: center;
+        float: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    :host>>>.table {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+}

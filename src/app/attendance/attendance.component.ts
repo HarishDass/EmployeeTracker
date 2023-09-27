@@ -11,6 +11,7 @@ export class AttendanceComponent {
 
   pages = [
     { name: 'Attendance', path: 'home' },
-    { name: 'View Table', path: 'home' },
+    { name: 'View Table', path: 'viewTable' },
   ];
+  userName: string = 'guru';
 }
