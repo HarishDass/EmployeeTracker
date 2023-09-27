@@ -2,10 +2,8 @@
   <div class="main">
     <h3 id="heading">Add Employee Details</h3>
   </div>
-
   <p-card styleClass="emp-form">
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-      <!-- Name -->
       <div class="field">
         <label for="name" class="block">Employee Name</label>
         <input
@@ -26,7 +24,6 @@
           </div>
         </div>
       </div>
-      <!-- DOB -->
       <div class="field">
         <label for="dob" class="block">Date of Birth</label>
         <p-calendar
@@ -46,7 +43,6 @@
           </div>
         </div>
       </div>
-      <!-- Phone Number -->
       <div class="field">
         <label for="mobile" class="block">Mobile Number</label>
         <p-inputMask
@@ -60,8 +56,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Nationality -->
       <div class="field">
         <label for="nationality" class="block">Nationality</label>
         <div class="flex flex-wrap gap-3">
@@ -89,8 +83,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Date of Joining -->
       <div class="field">
         <label for="dateOfJoining" class="block">Date of Joining</label>
         <p-calendar
@@ -108,14 +100,12 @@
           </div>
         </div>
       </div>
-
-      <!-- Department -->
       <div class="field">
         <label for="department" class="block">Department</label>
         <p-dropdown
           formControlName="department"
           [options]="departments"
-          (onChange)="dept($event)"
+          (onChange)="departmentValue($event)"
           optionLabel="department"
         ></p-dropdown>
         <div
@@ -127,8 +117,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Gender -->
       <div class="field">
         <label for="gender" class="block">Gender</label>
         <div class="flex flex-wrap gap-3">
@@ -160,8 +148,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Active -->
       <div class="field">
         <label for="isActive" class="block">Active Status</label>
         <div class="flex flex-wrap gap-3">
@@ -183,8 +169,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Address -->
       <div formGroupName="address">
         <div class="field">
           <label for="address_line1" class="block">Address Line 1</label>
@@ -263,8 +247,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Father Name -->
       <div class="field">
         <label for="fathername" class="block">Father Name</label>
         <input
@@ -285,8 +267,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Employee Number -->
       <div class="field">
         <label for="EmployeeNo" class="block">Employee Number</label>
         <p-inputNumber
@@ -304,8 +284,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Photo -->
       <div class="field">
         <label for="photo" class="block">Photo</label>
         <p-fileUpload
@@ -320,8 +298,6 @@
           <div *ngIf="form['photo'].invalid">Photo is required</div>
         </div>
       </div>
-
-      <!-- Qualification -->
       <div class="field">
         <label for="qualification" class="block">Qualification</label>
         <input
@@ -338,8 +314,6 @@
           </div>
         </div>
       </div>
-
-      <!-- CTC -->
       <div class="field">
         <label for="ctc" class="block">CTC</label>
         <p-inputNumber
@@ -350,8 +324,6 @@
           <div *ngIf="form['CTC'].errors['required']">CTC is required</div>
         </div>
       </div>
-
-      <!-- Mail -->
       <div class="field">
         <label for="mail" class="block">Email ID</label>
         <input
@@ -365,8 +337,6 @@
           <div *ngIf="form['email'].errors['required']">Email is required</div>
         </div>
       </div>
-
-      <!-- Experience/ Fresher -->
       <div class="field">
         <label for="experience" class="block">Experience / Fresher</label>
         <div class="flex flex-wrap gap-3">
@@ -398,8 +368,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Experience Details -->
       <div formArrayName="yearOfExperience">
         <div *ngIf="myForm.value.experience == 'experience'">
           <div class="mainbtn">
@@ -423,8 +391,6 @@
                 placeholder="Enter Year of Experience"
               ></p-inputMask>
             </div>
-
-            <!-- Company -->
             <div class="field">
               <label for="companyName" class="block">Company Name</label>
               <input
@@ -434,8 +400,6 @@
                 formControlName="companyName"
               />
             </div>
-
-            <!-- Start Date -->
             <div class="field">
               <label for="joinDate" class="block">Date of Join</label>
               <p-calendar
@@ -445,8 +409,6 @@
                 placeholder="DD-MM-YYYY"
               ></p-calendar>
             </div>
-
-            <!-- End Date -->
             <div class="field">
               <label for="endDate" class="block">Date of End</label>
               <p-calendar
@@ -459,8 +421,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Emergency  Contact Number -->
       <div class="field">
         <label for="emergencyContactNumber" class="block"
           >Emergency Contact</label
@@ -479,11 +439,8 @@
           </div>
         </div>
       </div>
-
-      <!-- PAN number -->
       <div class="field">
         <label for="panNumber" class="block">PAN Number</label>
-
         <input
           pInputText
           placeholder="Enter PAN Number"
@@ -501,7 +458,6 @@
           </div>
         </div>
       </div>
-
       <div class="mainbtn">
         <div class="sbtn">
           <button

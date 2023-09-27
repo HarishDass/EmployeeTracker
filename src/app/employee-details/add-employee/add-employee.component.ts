@@ -77,8 +77,8 @@ export class AddEmployeeComponent {
     return this.myForm.get('yearOfExperience') as FormArray;
   }
 
-  dept(e: any) {
-    this.myForm.value.department = e.value.department;
+  departmentValue(event: any) {
+    this.myForm.value.department = event.value.department;
   }
 
   experienceDetails(): FormGroup {
