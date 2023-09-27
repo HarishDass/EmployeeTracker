@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js';
 Chart.register(...registerables);
-import { DataService } from 'src/app/servicess/data.service';
+import { DataService } from '../servicess/data.service';
 
 @Component({
   selector: 'app-bar-chart',
@@ -11,45 +11,52 @@ import { DataService } from 'src/app/servicess/data.service';
 export class BarChartComponent {
   chartdata: any = [];
   result: any;
-  Name: Array<any> = [];
   Count: any;
   constructor(private service: DataService) {}
-
   ngOnInit() {
     this.service.getdata().subscribe((res: any) => {
       this.result = res;
-      console.log(res);
       this.chartdata = res.map((resp: any) => resp.deportment);
-      console.log(this.chartdata);
       const duplicateCounts = this.countDuplicates(this.chartdata);
-      console.log(duplicateCounts);
-
-      this.Name = duplicateCounts.map(
-        (duplicateCount: any) => duplicateCount.name
-      );
-
-      console.log(this.Name);
-
-      this.Count = duplicateCounts.map((duplicateCounts: any) => {
-        return duplicateCounts.count;
+      duplicateCounts.sort((dept1: any, dept2: any) => {
+        if (dept1.name > dept2.name) {
+          return 1;
+        }
+        if (dept1.name < dept2.name) {
+          return -1;
+        }
+        return 0;
       });
+      console.log(duplicateCounts);
+      this.Count = duplicateCounts.map(
+        (duplicateCounts: any) => duplicateCounts.count
+      );
       console.log(this.Count);
+
       this.chartdata = new Chart('canvas', {
         type: 'bar',
         data: {
-          labels: this.Name,
+          labels: ['BACKEND', 'CYBER', 'FRONTEND', 'HR', 'TESTING', 'TL'],
           datasets: [
             {
               label: 'Department',
               data: this.Count,
               backgroundColor: [
-                'pink',
-                'lightblue',
-                'grey',
-                'yellow',
-                'lightgreen',
+                '#fc9baf',
+                '#91E0FF',
+                '#808080',
+                '#FFFF00',
+                '#83F28F',
+                '#CA86EC',
               ],
-              borderColor: ['red', 'blue', 'black', 'orange', 'green'],
+              borderColor: [
+                '#d90166',
+                '#0000FF',
+                '#000000',
+                '#e47200',
+                '#008631',
+                '#400040',
+              ],
               borderWidth: 1.5,
             },
           ],
@@ -62,9 +69,8 @@ export class BarChartComponent {
               },
             },
             y: {
-              beginAtZero: false,
+              beginAtZero: true,
               max: 10,
-              min: 1,
             },
           },
         },
@@ -72,25 +78,15 @@ export class BarChartComponent {
     });
   }
 
-  countDuplicates(arr: string[]): { name: string; count: number }[] {
+  countDuplicates(arr: string[]) {
     const nameCounts: { [key: string]: number } = {};
-
     for (const name of arr) {
-      if (nameCounts[name]) {
-        nameCounts[name]++;
-      } else {
-        nameCounts[name] = 1;
-      }
-      console.log(nameCounts);
+      nameCounts[name] = (nameCounts[name] || 0) + 1;
     }
-
-    const result: { name: string; count: number }[] = [];
-
-    for (const name in nameCounts) {
-      result.push({ name, count: nameCounts[name] });
-      console.log(result);
-    }
-
-    return result;
+    console.log(this.countDuplicates);
+    return Object.keys(nameCounts).map((name) => ({
+      name,
+      count: nameCounts[name],
+    }));
   }
 }

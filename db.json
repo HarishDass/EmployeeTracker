@@ -1,80 +1,12 @@
 {"Employeedetails" : 
 [
-    {
-      "employeeName": "Bharathi",
-      "dateOfBirth": "31.08.2023",
-      "mobileNo": 1234567890,
-      "nationality": "indian",
-      "dateOfJoining": "31.08.2023",
-      "deportment": "tl",
-      "gender": "male",
-      "Active": true,
-      "address": {
-        "1st street": "1stStreent",
-        "2st street": "2st street",
-        "city": "chennai",
-        "state": "tamilnadu",
-        "pin code": "6000001"
-      },
-      "fatherName": "murugan",
-      "EmployeeNo": 101,
-      "Photo": "base64 Format",
-      "qualification": 12,
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
-      "experience": "experience",
-      "yearOfExperience": [
-        {
-          "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
-        }
-      ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
-    },
-
-    {
-      "employeeName": "Harish",
-      "dateOfBirth": "31.08.2023",
-      "mobileNo": 1234567890,
-      "nationality": "indian",
-      "dateOfJoining": "31.08.2023",
-      "deportment": "frontend developer",
-      "gender": "male",
-      "Active": true,
-      "address": {
-        "1st street": "1stStreent",
-        "2st street": "2st street",
-        "city": "chennai",
-        "state": "tamilnadu",
-        "pin code": "6000001"
-      },
-      "fatherName": "murugan",
-      "EmployeeNo": 101,
-      "Photo": "base64 Format",
-      "qualification": 12,
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
-      "experience": "experience",
-      "yearOfExperience": [
-        {
-          "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
-        }
-      ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
-    },
-
-    {
+     {  
       "employeeName": "Kaushan",
       "dateOfBirth": "31.08.2023",
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "frontend developer",
+      "deportment": "TL",
       "gender": "male",
       "Active": true,
       "address": {
@@ -108,7 +40,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "BACKEND",
       "gender": "male",
       "Active": true,
       "address": {
@@ -142,7 +74,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "CYBER",
       "gender": "male",
       "Active": true,
       "address": {
@@ -176,7 +108,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "CYBER",
       "gender": "male",
       "Active": true,
       "address": {
@@ -210,7 +142,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "hr",
+      "deportment": "TL",
       "gender": "male",
       "Active": true,
       "address": {
@@ -244,7 +176,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "hr",
+      "deportment": "FRONTEND",
       "gender": "male",
       "Active": true,
       "address": {
@@ -278,7 +210,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "hr",
+      "deportment": "TESTING",
       "gender": "male",
       "Active": true,
       "address": {
@@ -312,7 +244,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "hr",
+      "deportment": "HR",
       "gender": "male",
       "Active": true,
       "address": {
@@ -346,7 +278,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "hr",
+      "deportment": "TL" ,
       "gender": "male",
       "Active": true,
       "address": {
@@ -380,279 +312,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "hr",
-      "gender": "male",
-      "Active": true,
-      "address": {
-        "1st street": "1stStreent",
-        "2st street": "2st street",
-        "city": "chennai",
-        "state": "tamilnadu",
-        "pin code": "6000001"
-      },
-      "fatherName": "murugan",
-      "EmployeeNo": 101,
-      "Photo": "base64 Format",
-      "qualification": 12,
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
-      "experience": "experience",
-      "yearOfExperience": [
-        {
-          "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
-        }
-      ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
-    },
-
-    {
-      "employeeName": "Karthick",
-      "dateOfBirth": "31.08.2023",
-      "mobileNo": 1234567890,
-      "nationality": "indian",
-      "dateOfJoining": "31.08.2023",
-      "deportment": "hr",
-      "gender": "male",
-      "Active": true,
-      "address": {
-        "1st street": "1stStreent",
-        "2st street": "2st street",
-        "city": "chennai",
-        "state": "tamilnadu",
-        "pin code": "6000001"
-      },
-      "fatherName": "murugan",
-      "EmployeeNo": 101,
-      "Photo": "base64 Format",
-      "qualification": 12,
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
-      "experience": "experience",
-      "yearOfExperience": [
-        {
-          "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
-        }
-      ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
-    },
-
-    {
-      "employeeName": "Robin",
-      "dateOfBirth": "31.08.2023",
-      "mobileNo": 1234567890,
-      "nationality": "indian",
-      "dateOfJoining": "31.08.2023",
-      "deportment": "hr",
-      "gender": "male",
-      "Active": true,
-      "address": {
-        "1st street": "1stStreent",
-        "2st street": "2st street",
-        "city": "chennai",
-        "state": "tamilnadu",
-        "pin code": "6000001"
-      },
-      "fatherName": "Aarthy",
-      "EmployeeNo": 101,
-      "Photo": "base64 Format",
-      "qualification": 12,
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
-      "experience": "experience",
-      "yearOfExperience": [
-        {
-          "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
-        }
-      ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
-    },
-
-    {
-      "employeeName": "Arul",
-      "dateOfBirth": "31.08.2023",
-      "mobileNo": 1234567890,
-      "nationality": "indian",
-      "dateOfJoining": "31.08.2023",
-      "deportment": "hr",
-      "gender": "male",
-      "Active": true,
-      "address": {
-        "1st street": "1stStreent",
-        "2st street": "2st street",
-        "city": "chennai",
-        "state": "tamilnadu",
-        "pin code": "6000001"
-      },
-      "fatherName": "murugan",
-      "EmployeeNo": 101,
-      "Photo": "base64 Format",
-      "qualification": 12,
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
-      "experience": "experience",
-      "yearOfExperience": [
-        {
-          "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
-        }
-      ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
-    },
-
-    {
-      "employeeName": "Guru",
-      "dateOfBirth": "31.08.2023",
-      "mobileNo": 1234567890,
-      "nationality": "indian",
-      "dateOfJoining": "31.08.2023",
-      "deportment": "cyber",
-      "gender": "male",
-      "Active": true,
-      "address": {
-        "1st street": "1stStreent",
-        "2st street": "2st street",
-        "city": "chennai",
-        "state": "tamilnadu",
-        "pin code": "6000001"
-      },
-      "fatherName": "murugan",
-      "EmployeeNo": 101,
-      "Photo": "base64 Format",
-      "qualification": 12,
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
-      "experience": "experience",
-      "yearOfExperience": [
-        {
-          "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
-        }
-      ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
-    },
-
-    {
-      "employeeName": "Rajesh",
-      "dateOfBirth": "31.08.2023",
-      "mobileNo": 1234567890,
-      "nationality": "indian",
-      "dateOfJoining": "31.08.2023",
-      "deportment": "cyber",
-      "gender": "male",
-      "Active": true,
-      "address": {
-        "1st street": "1stStreent",
-        "2st street": "2st street",
-        "city": "chennai",
-        "state": "tamilnadu",
-        "pin code": "6000001"
-      },
-      "fatherName": "murugan",
-      "EmployeeNo": 101,
-      "Photo": "base64 Format",
-      "qualification": 12,
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
-      "experience": "experience",
-      "yearOfExperience": [
-        {
-          "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
-        }
-      ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
-    },
-
-    {
-      "employeeName": "Peter",
-      "dateOfBirth": "31.08.2023",
-      "mobileNo": 1234567890,
-      "nationality": "indian",
-      "dateOfJoining": "31.08.2023",
-      "deportment": "cyber",
-      "gender": "male",
-      "Active": true,
-      "address": {
-        "1st street": "1stStreent",
-        "2st street": "2st street",
-        "city": "chennai",
-        "state": "tamilnadu",
-        "pin code": "6000001"
-      },
-      "fatherName": "murugan",
-      "EmployeeNo": 101,
-      "Photo": "base64 Format",
-      "qualification": 12,
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
-      "experience": "experience",
-      "yearOfExperience": [
-        {
-          "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
-        }
-      ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
-    },
-
-    {
-      "employeeName": "Kalasha",
-      "dateOfBirth": "31.08.2023",
-      "mobileNo": 1234567890,
-      "nationality": "indian",
-      "dateOfJoining": "31.08.2023",
-      "deportment": "hr",
-      "gender": "male",
-      "Active": true,
-      "address": {
-        "1st street": "1stStreent",
-        "2st street": "2st street",
-        "city": "chennai",
-        "state": "tamilnadu",
-        "pin code": "6000001"
-      },
-      "fatherName": "murugan",
-      "EmployeeNo": 101,
-      "Photo": "base64 Format",
-      "qualification": 12,
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
-      "experience": "experience",
-      "yearOfExperience": [
-        {
-          "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
-        }
-      ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
-    },
-
-    {
-      "employeeName": "Lokesh",
-      "dateOfBirth": "31.08.2023",
-      "mobileNo": 1234567890,
-      "nationality": "indian",
-      "dateOfJoining": "31.08.2023",
-      "deportment": "tl",
+      "deportment": "TL",
       "gender": "male",
       "Active": true,
       "address": {

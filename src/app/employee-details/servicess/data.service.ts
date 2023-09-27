@@ -8,7 +8,6 @@ import { Dataa } from 'src/interface/dataa';
 })
 export class DataService {
   constructor(private http: HttpClient) {}
-
   getdata(): Observable<Dataa[]> {
     return this.http.get<Dataa[]>('http://localhost:3000/Employeedetails');
   }
