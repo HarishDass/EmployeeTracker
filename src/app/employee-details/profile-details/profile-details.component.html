@@ -1,7 +1,7 @@
-<div class="headback1">
-  <h1 id="page_heading">Employee Details</h1>
-</div>
 <div class="card">
+  <div class="headback1">
+    <h1 id="page_heading">Employee Details</h1>
+  </div>
   <p-table
     #dt1
     [paginator]="true"
@@ -24,13 +24,22 @@
     scrollHeight="640px"
   >
     <ng-template pTemplate="caption">
-      <span>
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
         <input
           pInputText
           type="text"
           (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
-          placeholder="Search Department"
-        />
+          placeholder="Global Search"
+        />&nbsp;&nbsp;&nbsp;
+
+        <p-dropdown
+          [options]="departments"
+          placeholder="Select Department"
+          (onChange)="depart($event)"
+          optionLabel="department"
+        >
+        </p-dropdown>
       </span>
     </ng-template>
 
@@ -87,7 +96,7 @@
 
         <td>
           <p-button
-            (click)="showDialog(array)"
+            (click)="showDialog('update')"
             icon="pi pi-user-edit"
             label="Edit"
           ></p-button>

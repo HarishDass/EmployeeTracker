@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { ProfileDetailServiceService } from '../profile-detail-service.service';
 import { ProfileInterface } from '../profile-interface';
+import { Router } from '@angular/router';
+
+interface department {
+  department: string;
+}
 
 @Component({
   selector: 'app-profile-details',
@@ -11,14 +16,30 @@ export class ProfileDetailsComponent {
   first: number = 0;
   rows: number = 10;
   array: Array<ProfileInterface> = [];
-  Inactive: any = {};
+  new_data: Array<ProfileInterface> = [];
 
-  constructor(private datum: ProfileDetailServiceService) {}
+  departments: department[] | undefined;
+
+  constructor(
+    private datum: ProfileDetailServiceService,
+    private router: Router
+  ) {}
+
   ngOnInit(): void {
     this.datum.getData().subscribe((data: ProfileInterface[]) => {
       this.array = data;
-      console.log(this.array);
+      this.new_data = data;
     });
+
+    this.departments = [
+      { department: 'All' },
+      { department: 'frontend developer' },
+      { department: 'backend developer' },
+      { department: 'HR' },
+      { department: 'Tester' },
+      { department: 'Team Leader' },
+      { department: 'Cypersecurity' },
+    ];
   }
 
   onPageChange(event: any) {
@@ -27,7 +48,17 @@ export class ProfileDetailsComponent {
   }
 
   showDialog(array: any) {
-    this.Inactive = array;
-    console.log(this.Inactive);
+    this.router.navigate([array]);
+  }
+
+  depart(departments: any) {
+    if (departments.value.department == 'All') {
+      this.array = this.new_data;
+      console.log(this.array);
+    } else {
+      this.array = this.new_data.filter(
+        (get: any) => get.department === departments.value.department
+      );
+    }
   }
 }

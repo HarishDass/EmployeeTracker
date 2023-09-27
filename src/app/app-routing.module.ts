@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileDetailsComponent } from './employee-details/profile-details/profile-details.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 const routes: Routes = [
   {
@@ -24,7 +26,7 @@ const routes: Routes = [
         (m) => m.EmployeeDetailsModule
       ),
   },
- 
+  { path: 'update', component: AttendanceComponent },
 ];
 
 @NgModule({
