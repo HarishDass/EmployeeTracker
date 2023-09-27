@@ -6,8 +6,8 @@
     [rowHover]="true"
     styleClass="table"
     [scrollable]="true"
-    scrollDirection="both"
-    scrollHeight="500px"
+    scrollDirection="horizontal"
+    scrollHeight="520px"
     [resizableColumns]="true"
     columnResizeMode="expand"
     [globalFilterFields]="[
@@ -24,7 +24,7 @@
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [paginator]="true"
-    [rowsPerPageOptions]="[5, 10, 20, 50, 100, 150, 200]"
+    [rowsPerPageOptions]="[5, 10, 50, 100, 200]"
   >
     <ng-template pTemplate="caption">
       <input
