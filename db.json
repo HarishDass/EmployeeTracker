@@ -19,7 +19,7 @@
       "fatherName": "murugan",
       "EmployeeNo": 101,
       "Photo": "../../assets/image/images.jpeg",
-      "qualification": "12",
+      "qualification": "12th",
       "CTC": "12Lap",
       "email": "bharathidhasan@gmail.com",
       "experience": "experience",
@@ -36,37 +36,37 @@
     },
     {
       "id": "2",
-      "employeeName": "shiva m",
-      "dateOfBirth": "31.08.2023",
+      "employeeName": "nithya m",
+      "dateOfBirth": "08.12.2023",
       "mobileNo": 1234567890,
-      "nationality": "indian",
+      "nationality": "singapore",
       "dateOfJoining": "31.08.2023",
       "department": "backend developer",
-      "gender": "male",
+      "gender": "female",
       "address": {
         "address_line1": "1stStreent",
         "address_line2": "2st street",
-        "city": "chennai",
+        "city": "trichy",
         "state": "tamilnadu",
         "pin code": "6000001"
       },
-      "fatherName": "murugan",
+      "fatherName": "narayan",
       "EmployeeNo": 102,
       "Photo": "../../assets/image/images.jpeg",
-      "qualification": "12",
-      "CTC": "12Lap",
-      "email": "bharathidhasan@gmail.com",
+      "qualification": "10th",
+      "CTC": "10Lap",
+      "email": "nithyanarayan@gmail.com",
       "experience": "experience",
-      "totalyear": "4",
+      "totalyear": "8",
       "yearOfExperience": [
         {
           "companyName": "CRUD",
-          "joinDate": "10.08.2023",
-          "endDate": "31.08.2023"
+          "joinDate": "02.12.2023",
+          "endDate": "08.12.2023"
         }
       ],
-      "emergencyContactNumber": 1234567890,
-      "panNumber": "qrw1234"
+      "emergencyContactNumber": 2224567890,
+      "panNumber": "leo1234"
     },
     {
       "id": "3",
@@ -87,7 +87,7 @@
       "fatherName": "murugan",
       "EmployeeNo": 103,
       "Photo": "../../assets/image/images.jpeg",
-      "qualification": "12",
+      "qualification": "12th",
       "CTC": "12Lap",
       "email": "bharathidhasan@gmail.com",
       "experience": "experience",
@@ -121,7 +121,7 @@
       "fatherName": "murugan",
       "EmployeeNo": 104,
       "Photo": "../../assets/image/images.jpeg",
-      "qualification": "12",
+      "qualification": "12th",
       "CTC": "12Lap",
       "email": "bharathidhasan@gmail.com",
       "experience": "experience",
