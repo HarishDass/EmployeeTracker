@@ -1,3 +1,3 @@
-export interface CardDetailsinarr {
+export interface CardDetails {
   cardName: string;
 }
