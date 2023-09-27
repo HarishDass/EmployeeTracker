@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { EmployeData } from 'src/app/shared-module/employe-data';
 import { LeftoverTableService } from 'src/app/Services/leftover-table.service';
-import { filter } from 'rxjs';
 @Component({
   selector: 'app-inactive-employee',
   templateUrl: './inactive-employee.component.html',
@@ -15,15 +14,11 @@ export class InactiveEmployeeComponent {
 
   constructor(private LinkData: LeftoverTableService) {}
   ngOnInit() {
-    this.LinkData.employeeDataFn().subscribe((res: EmployeData[]) => {
-      this.leftoverdatas = res.filter((resp) => resp.Active == false);
+    this.LinkData.employeeDataFn().subscribe((Firstresponce: EmployeData[]) => {
+      this.leftoverdatas = Firstresponce.filter(
+        (responce) => responce.Active == false
+      );
     });
-  }
-
-  activateFn(lefted: EmployeData) {
-    console.log(lefted);
-    this.visible = false;
-    this.activating = '';
   }
 
   indiviActiveFn(lefted: EmployeData) {

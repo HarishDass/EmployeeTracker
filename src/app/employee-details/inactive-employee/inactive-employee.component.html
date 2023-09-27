@@ -5,7 +5,7 @@
       [value]="leftoverdatas"
       styleClass="p-datatable-sm p-datatable-striped"
       [paginator]="true"
-      [rows]="10"
+      [rows]="7"
       [globalFilterFields]="['employeeName', 'deportment', 'EmployeeNo']"
     >
       <ng-template pTemplate="caption">
@@ -27,7 +27,6 @@
           <th>Employee No</th>
           <th>Department</th>
           <th>Active Status</th>
-          <th>Edit Details</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-lefted>
@@ -42,13 +41,6 @@
               (onClick)="indiviActiveFn(lefted)"
               >Inactive</p-button
             >
-          </td>
-          <td>
-            <p-button
-              label="Edit"
-              styleClass="p-button-sm"
-              (click)="activateFn(lefted)"
-            ></p-button>
           </td>
         </tr>
       </ng-template>
