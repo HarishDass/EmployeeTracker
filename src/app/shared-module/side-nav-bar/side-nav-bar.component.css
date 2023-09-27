@@ -17,9 +17,9 @@
     flex: 1 1 0;
     max-width: 300px;
     padding: 32px 16px;
-    background-color: rgb(55, 149, 241);
+    background-color: #4A6163;
     border-top-right-radius: 1rem;
-    border: 1px solid;
+
 }
 
 .innerSideBar .menu {
@@ -133,10 +133,7 @@ a:hover {
 
 }
 
-/* a:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px #3bba9c;
-} */
+
 
 a::after {
     content: "";
@@ -154,10 +151,7 @@ a::after {
     color: #3bba9c;
 }
 
-/* a:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-} */
+
 
 @media (max-width:500px) {
     .innerSideBar {

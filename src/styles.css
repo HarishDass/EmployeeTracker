@@ -12,5 +12,10 @@ body {
 }
 
 .active {
-    background-color: gray;
+    background-color: grey;
+    /* border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px; */
+    border-radius: 18px;
+
+
 }
