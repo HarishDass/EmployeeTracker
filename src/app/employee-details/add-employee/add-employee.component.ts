@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  Validators,
-  FormGroup,
-  FormArray,
-  FormBuilder,
-  FormControl,
-} from '@angular/forms';
+import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { EmployeeServiceService } from '../../employee-service.service';
 import Swal from 'sweetalert2';
 
@@ -29,10 +23,7 @@ export class AddEmployeeComponent {
     private employee: EmployeeServiceService
   ) {
     this.myForm = this.fb.group({
-      employeeName: [
-        '',
-        Validators.required
-      ],
+      employeeName: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
       mobileNo: ['', Validators.required],
       nationality: ['', Validators.required],
@@ -52,28 +43,25 @@ export class AddEmployeeComponent {
       photo: [''],
       qualification: ['', Validators.required],
       CTC: ['', Validators.required],
-      email: ['', Validators.required],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+        ],
+      ],
       experience: ['', Validators.required],
-      yearOfExperience: this.fb.array([
-      ]),
+      yearOfExperience: this.fb.array([]),
       emergencyContactNumber: ['', Validators.required],
       panNumber: ['', Validators.required],
     });
   }
 
   ngOnInit() {
-    this.departments = [
-      { department: 'Select Department' },
-      { department: 'HR' },
-      { department: 'Frontend Developer' },
-      { department: 'Backend Developer' },
-      { department: 'Tester' },
-      { department: 'Team Leader' },
-      { department: 'Cypersecurity' },
-    ];
+    this.departments = this.employee.departments;
   }
 
-  get f() {
+  get form() {
     return this.myForm.controls;
   }
 
@@ -81,18 +69,16 @@ export class AddEmployeeComponent {
     return this.myForm.get('address') as FormGroup;
   }
 
-  get ad() {
+  get subAddress() {
     return this.address.controls;
   }
-  get companyName() {
-    return this.yearOfExperience.get('companyName');
-  }
 
-  get yearOfExperience() {
+  get yearOfExperience(): FormArray {
     return this.myForm.get('yearOfExperience') as FormArray;
   }
-  get exp() {
-    return this.yearOfExperience.controls;
+
+  dept(e: any) {
+    this.myForm.value.department = e.value.department;
   }
 
   experienceDetails(): FormGroup {
@@ -111,7 +97,6 @@ export class AddEmployeeComponent {
   delExperience() {
     let control = <FormArray>this.myForm.controls['yearOfExperience'];
     control.removeAt(control.length - 1);
-    // this.yearOfExperience.removeAt(index - 1)
   }
 
   experienceRequired(event: any) {
@@ -139,25 +124,34 @@ export class AddEmployeeComponent {
 
   onSubmit() {
     this.submitted = true;
-    const formData1 = this.myForm.value;
-    formData1.photo = this.uploadedPhoto;
-    
-    console.log(this.myForm);
+    this.myForm.value.photo = this.uploadedPhoto;
+
     if (this.myForm.invalid) {
       Swal.fire('Sorry!', 'Please Enter all fields!', 'error');
       return;
-    }
-    else if (this.myForm.valid) {
+    } else if (this.myForm.valid) {
       this.employee
-        .saveEmployeeData(formData1)
+        .saveEmployeeData(this.myForm.value)
         .subscribe((res) => console.log(res));
       Swal.fire('Thank You!', 'Successfully Submitted!', 'success');
     }
   }
 
   onReset() {
-    this.submitted = false;
-    this.myForm.reset();
-    Swal.fire('Reset!', 'Successfully Reseted!', 'success');
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, reset it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.submitted = false;
+        this.myForm.reset();
+        Swal.fire('Reset!', 'Successfully Reseted!', 'success');
+      }
+    });
   }
 }

@@ -15,13 +15,13 @@
           formControlName="employeeName"
         />
         <div
-          *ngIf="submitted && f['employeeName'].errors"
+          *ngIf="submitted && form['employeeName'].errors"
           class="p-error block"
         >
-          <div *ngIf="f['employeeName'].errors['required']">
+          <div *ngIf="form['employeeName'].errors['required']">
             Employee Name is required
           </div>
-          <div *ngIf="f['employeeName'].errors['pattern']">
+          <div *ngIf="form['employeeName'].errors['pattern']">
             Employee Name is not valid
           </div>
         </div>
@@ -37,8 +37,11 @@
           [showTime]="false"
           id="dob"
         ></p-calendar>
-        <div *ngIf="submitted && f['dateOfBirth'].errors" class="p-error block">
-          <div *ngIf="f['dateOfBirth'].errors['required']">
+        <div
+          *ngIf="submitted && form['dateOfBirth'].errors"
+          class="p-error block"
+        >
+          <div *ngIf="form['dateOfBirth'].errors['required']">
             Data of Birth is required
           </div>
         </div>
@@ -51,8 +54,8 @@
           formControlName="mobileNo"
           placeholder="Enter Mobile Number"
         ></p-inputMask>
-        <div *ngIf="submitted && f['mobileNo'].errors" class="p-error block">
-          <div *ngIf="f['mobileNo'].errors['required']">
+        <div *ngIf="submitted && form['mobileNo'].errors" class="p-error block">
+          <div *ngIf="form['mobileNo'].errors['required']">
             Mobile Number is required
           </div>
         </div>
@@ -77,8 +80,11 @@
             <label for="others" class="sub-label">Others</label>
           </div>
         </div>
-        <div *ngIf="submitted && f['nationality'].errors" class="p-error block">
-          <div *ngIf="f['nationality'].errors['required']">
+        <div
+          *ngIf="submitted && form['nationality'].errors"
+          class="p-error block"
+        >
+          <div *ngIf="form['nationality'].errors['required']">
             Nationality is required
           </div>
         </div>
@@ -94,10 +100,10 @@
           placeholder="DD-MM-YYYY"
         ></p-calendar>
         <div
-          *ngIf="submitted && f['dateOfJoining'].errors"
+          *ngIf="submitted && form['dateOfJoining'].errors"
           class="p-error block"
         >
-          <div *ngIf="f['dateOfJoining'].errors['required']">
+          <div *ngIf="form['dateOfJoining'].errors['required']">
             Date of Joining is required
           </div>
         </div>
@@ -109,10 +115,14 @@
         <p-dropdown
           formControlName="department"
           [options]="departments"
+          (onChange)="dept($event)"
           optionLabel="department"
         ></p-dropdown>
-        <div *ngIf="submitted && f['department'].errors" class="p-error block">
-          <div *ngIf="f['department'].errors['required']">
+        <div
+          *ngIf="submitted && form['department'].errors"
+          class="p-error block"
+        >
+          <div *ngIf="form['department'].errors['required']">
             Department is required
           </div>
         </div>
@@ -144,8 +154,10 @@
             <label for="others" class="sub-label">Others</label>
           </div>
         </div>
-        <div *ngIf="submitted && f['gender'].errors" class="p-error block">
-          <div *ngIf="f['gender'].errors['required']">Gender is required</div>
+        <div *ngIf="submitted && form['gender'].errors" class="p-error block">
+          <div *ngIf="form['gender'].errors['required']">
+            Gender is required
+          </div>
         </div>
       </div>
 
@@ -165,8 +177,8 @@
             <label for="inactive" class="sub-label">Inactive</label>
           </div>
         </div>
-        <div *ngIf="submitted && f['active'].errors" class="p-error block">
-          <div *ngIf="f['active'].errors['required']">
+        <div *ngIf="submitted && form['active'].errors" class="p-error block">
+          <div *ngIf="form['active'].errors['required']">
             Active Status is required
           </div>
         </div>
@@ -182,10 +194,10 @@
             placeholder="Enter Address Line 1"
           />
           <div
-            *ngIf="submitted && ad['address_line1'].errors"
+            *ngIf="submitted && subAddress['address_line1'].errors"
             class="p-error block"
           >
-            <div *ngIf="ad['address_line1'].errors['required']">
+            <div *ngIf="subAddress['address_line1'].errors['required']">
               Address Line 1 is required
             </div>
           </div>
@@ -199,10 +211,10 @@
             placeholder="Enter Address Line 2"
           />
           <div
-            *ngIf="submitted && ad['address_line2'].errors"
+            *ngIf="submitted && subAddress['address_line2'].errors"
             class="p-error block"
           >
-            <div *ngIf="ad['address_line2'].errors['required']">
+            <div *ngIf="subAddress['address_line2'].errors['required']">
               Address Line 2 is required
             </div>
           </div>
@@ -211,16 +223,26 @@
         <div class="field">
           <label for="city" class="block">City</label>
           <input pInputText formControlName="city" placeholder="Enter City" />
-          <div *ngIf="submitted && ad['city'].errors" class="p-error block">
-            <div *ngIf="ad['city'].errors['required']">City is required</div>
+          <div
+            *ngIf="submitted && subAddress['city'].errors"
+            class="p-error block"
+          >
+            <div *ngIf="subAddress['city'].errors['required']">
+              City is required
+            </div>
           </div>
         </div>
 
         <div class="field">
           <label for="state" class="block">State</label>
           <input pInputText formControlName="state" placeholder="Enter State" />
-          <div *ngIf="submitted && ad['state'].errors" class="p-error block">
-            <div *ngIf="ad['state'].errors['required']">State is required</div>
+          <div
+            *ngIf="submitted && subAddress['state'].errors"
+            class="p-error block"
+          >
+            <div *ngIf="subAddress['state'].errors['required']">
+              State is required
+            </div>
           </div>
         </div>
 
@@ -231,8 +253,11 @@
             formControlName="pincode"
             placeholder="Enter Pincode"
           ></p-inputMask>
-          <div *ngIf="submitted && ad['pincode'].errors" class="p-error block">
-            <div *ngIf="ad['pincode'].errors['required']">
+          <div
+            *ngIf="submitted && subAddress['pincode'].errors"
+            class="p-error block"
+          >
+            <div *ngIf="subAddress['pincode'].errors['required']">
               Pincode is required
             </div>
           </div>
@@ -248,9 +273,15 @@
           placeholder="Enter Father Name"
           formControlName="fatherName"
         />
-        <div *ngIf="submitted && f['fatherName'].errors" class="p-error block">
-          <div *ngIf="f['fatherName'].errors['required']">
+        <div
+          *ngIf="submitted && form['fatherName'].errors"
+          class="p-error block"
+        >
+          <div *ngIf="form['fatherName'].errors['required']">
             Father Name is required
+          </div>
+          <div *ngIf="form['fatherName'].errors['pattern']">
+            Father Name is not valid
           </div>
         </div>
       </div>
@@ -264,8 +295,11 @@
           [useGrouping]="false"
         >
         </p-inputNumber>
-        <div *ngIf="submitted && f['EmployeeNo'].errors" class="p-error block">
-          <div *ngIf="f['EmployeeNo'].errors['required']">
+        <div
+          *ngIf="submitted && form['EmployeeNo'].errors"
+          class="p-error block"
+        >
+          <div *ngIf="form['EmployeeNo'].errors['required']">
             Employee Number is required
           </div>
         </div>
@@ -282,8 +316,8 @@
           [customUpload]="true"
           showChooseButton="true"
         ></p-fileUpload>
-        <div *ngIf="submitted && f['photo'].invalid" class="p-error block">
-          <div *ngIf="f['photo'].invalid">Photo is required</div>
+        <div *ngIf="submitted && form['photo'].invalid" class="p-error block">
+          <div *ngIf="form['photo'].invalid">Photo is required</div>
         </div>
       </div>
 
@@ -296,10 +330,10 @@
           placeholder="Enter Qualification"
         />
         <div
-          *ngIf="submitted && f['qualification'].errors"
+          *ngIf="submitted && form['qualification'].errors"
           class="p-error block"
         >
-          <div *ngIf="f['qualification'].errors['required']">
+          <div *ngIf="form['qualification'].errors['required']">
             Qualification is required
           </div>
         </div>
@@ -312,8 +346,8 @@
           formControlName="CTC"
           placeholder="Enter "
         ></p-inputNumber>
-        <div *ngIf="submitted && f['CTC'].errors" class="p-error block">
-          <div *ngIf="f['CTC'].errors['required']">CTC is required</div>
+        <div *ngIf="submitted && form['CTC'].errors" class="p-error block">
+          <div *ngIf="form['CTC'].errors['required']">CTC is required</div>
         </div>
       </div>
 
@@ -326,9 +360,9 @@
           formControlName="email"
           placeholder="Enter Mail ID"
         />
-        <div *ngIf="submitted && f['email'].errors" class="p-error block">
-          <div *ngIf="f['email'].errors['required']">Email is required</div>
-          <div *ngIf="f['email'].errors['email']">Email is not valid</div>
+        <div *ngIf="submitted && form['email'].errors" class="p-error block">
+          <div *ngIf="form['email'].errors['pattern']">Email is not valid</div>
+          <div *ngIf="form['email'].errors['required']">Email is required</div>
         </div>
       </div>
 
@@ -355,8 +389,11 @@
             <label for="fresher" class="sub-label">Fresher</label>
           </div>
         </div>
-        <div *ngIf="submitted && f['experience'].errors" class="p-error block">
-          <div *ngIf="f['experience'].errors['required']">
+        <div
+          *ngIf="submitted && form['experience'].errors"
+          class="p-error block"
+        >
+          <div *ngIf="form['experience'].errors['required']">
             Experience is required
           </div>
         </div>
@@ -373,20 +410,19 @@
               <p-button label="Delete" (click)="delExperience()"></p-button>
             </div>
           </div>
-          <div></div>
           <div
             class="field1"
             *ngFor="let experience of yearOfExperience.controls; let i = index"
             formGroupName="{{ i }}"
           >
             <div class="field">
-                <label for="years" class="block">Year of Experience</label>
-                <p-inputMask
-                  mask="9"
-                  formControlName="years"
-                  placeholder="Enter Year of Experience"
-                ></p-inputMask>
-              </div>
+              <label for="years" class="block">Year of Experience</label>
+              <p-inputMask
+                mask="9"
+                formControlName="years"
+                placeholder="Enter Year of Experience"
+              ></p-inputMask>
+            </div>
 
             <!-- Company -->
             <div class="field">
@@ -435,10 +471,10 @@
           placeholder="Enter Emergency Contact Number"
         ></p-inputMask>
         <div
-          *ngIf="submitted && f['emergencyContactNumber'].errors"
+          *ngIf="submitted && form['emergencyContactNumber'].errors"
           class="p-error block"
         >
-          <div *ngIf="f['emergencyContactNumber'].errors['required']">
+          <div *ngIf="form['emergencyContactNumber'].errors['required']">
             Emergency Contact is required
           </div>
         </div>
@@ -453,21 +489,36 @@
           placeholder="Enter PAN Number"
           formControlName="panNumber"
         />
-        <div *ngIf="submitted && f['panNumber'].errors" class="p-error block">
-          <div *ngIf="f['panNumber'].errors['required']">
+        <div
+          *ngIf="submitted && form['panNumber'].errors"
+          class="p-error block"
+        >
+          <div *ngIf="form['panNumber'].errors['required']">
             Pan Number is required
+          </div>
+          <div *ngIf="form['panNumber'].errors['pattern']">
+            Pan Number not valid
           </div>
         </div>
       </div>
 
       <div class="mainbtn">
         <div class="sbtn">
-          <button pButton pRipple label="Submit" type="submit" class="p-button-success"></button>
+          <button
+            pButton
+            pRipple
+            label="Submit"
+            type="submit"
+            class="p-button-success"
+          ></button>
         </div>
         <div class="sbtn">
-          <p-button label="Reset" (click)="onReset()" styleClass="p-button-secondary" ></p-button>
+          <p-button
+            label="Reset"
+            (click)="onReset()"
+            styleClass="p-button-secondary"
+          ></p-button>
         </div>
-      </div>
-      </form
+      </div></form
   ></p-card>
 </div>
