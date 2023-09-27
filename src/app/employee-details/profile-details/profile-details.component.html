@@ -3,6 +3,8 @@
     <h1 id="page_heading">Employee Details</h1>
   </div>
   <p-table
+    [rowHover
+    ]="true"
     #dt1
     [paginator]="true"
     [rows]="5"
@@ -26,7 +28,7 @@
     [tableStyle]="{ 'min-width': '50rem' }"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [rowsPerPageOptions]="[10, 25, 50]"
-    [value]="array"
+    [value]="profile_details"
     [scrollable]="true"
     scrollDirection="both"
     scrollHeight="640px"
@@ -82,25 +84,25 @@
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="body" let-array>
+    <ng-template pTemplate="body" let-profile_details>
       <tr>
-        <td pFrozenColumn>{{ array.EmployeeNo }}</td>
-        <td pFrozenColumn>{{ array.employeeName.toUpperCase() }}</td>
+        <td pFrozenColumn>{{ profile_details.EmployeeNo }}</td>
+        <td pFrozenColumn>{{ profile_details.employeeName.toUpperCase() }}</td>
         <td pFrozenColumn>
-          <img [src]="array.Photo" height="100px" width="100px" />
+          <img [src]="profile_details.Photo" height="100px" width="100px" />
         </td>
-        <td>{{ array.dateOfBirth }}</td>
-        <td>{{ array.mobileNo }}</td>
-        <td>{{ array.nationality.toUpperCase() }}</td>
-        <td>{{ array.dateOfJoining }}</td>
-        <td>{{ array.department.toUpperCase() }}</td>
-        <td>{{ array.gender.toUpperCase() }}</td>
-        <td>{{ array.qualification.toUpperCase() }}</td>
-        <td>{{ array.CTC }}</td>
-        <td>{{ array.email }}</td>
-        <td>{{ array.experience.toUpperCase() }}</td>
-        <td>{{ array.totalyear }}</td>
-        <td>{{ array.emergencyContactNumber }}</td>
+        <td>{{ profile_details.dateOfBirth }}</td>
+        <td>{{ profile_details.mobileNo }}</td>
+        <td>{{ profile_details.nationality.toUpperCase() }}</td>
+        <td>{{ profile_details.dateOfJoining }}</td>
+        <td>{{ profile_details.department.toUpperCase() }}</td>
+        <td>{{ profile_details.gender.toUpperCase() }}</td>
+        <td>{{ profile_details.qualification.toUpperCase() }}</td>
+        <td>{{ profile_details.CTC }}</td>
+        <td>{{ profile_details.email }}</td>
+        <td>{{ profile_details.experience.toUpperCase() }}</td>
+        <td>{{ profile_details.totalyear }}</td>
+        <td>{{ profile_details.emergencyContactNumber }}</td>
 
         <td>
           <p-button

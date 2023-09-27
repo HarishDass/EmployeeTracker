@@ -15,8 +15,8 @@ interface department {
 export class ProfileDetailsComponent {
   first: number = 0;
   rows: number = 10;
-  array: Array<ProfileInterface> = [];
-  new_data: Array<ProfileInterface> = [];
+  profile_details: Array<ProfileInterface> = [];
+  global_filter_data: Array<ProfileInterface> = [];
 
   departments: department[] | undefined;
 
@@ -27,8 +27,8 @@ export class ProfileDetailsComponent {
 
   ngOnInit(): void {
     this.datum.getData().subscribe((data: ProfileInterface[]) => {
-      this.array = data;
-      this.new_data = data;
+      this.profile_details = data;
+      this.global_filter_data = data;
     });
 
     this.departments = [
@@ -48,15 +48,14 @@ export class ProfileDetailsComponent {
   }
 
   showDialog(array: any) {
-    this.router.navigate([array]);
+    this.router.navigate([this.profile_details]);
   }
 
   depart(departments: any) {
     if (departments.value.department == 'All') {
-      this.array = this.new_data;
-      console.log(this.array);
+      this.profile_details = this.global_filter_data;
     } else {
-      this.array = this.new_data.filter(
+      this.profile_details = this.global_filter_data.filter(
         (get: any) => get.department === departments.value.department
       );
     }
