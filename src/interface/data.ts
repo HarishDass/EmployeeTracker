@@ -1,4 +1,4 @@
-export interface Dataa {
+export interface Data {
   employeeName: string;
   dateOfBirth: string;
   mobileNo: number;

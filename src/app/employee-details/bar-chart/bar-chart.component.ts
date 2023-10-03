@@ -10,12 +10,12 @@ import { DataService } from '../servicess/data.service';
 })
 export class BarChartComponent {
   chartdata: any = [];
-  result: any;
-  Count: any;
   constructor(private service: DataService) {}
   ngOnInit() {
+    this.datas();
+  }
+  datas() {
     this.service.getdata().subscribe((res: any) => {
-      this.result = res;
       this.chartdata = res.map((resp: any) => resp.deportment);
       const duplicateCounts = this.countDuplicates(this.chartdata);
       duplicateCounts.sort((dept1: any, dept2: any) => {
@@ -27,12 +27,6 @@ export class BarChartComponent {
         }
         return 0;
       });
-      console.log(duplicateCounts);
-      this.Count = duplicateCounts.map(
-        (duplicateCounts: any) => duplicateCounts.count
-      );
-      console.log(this.Count);
-
       this.chartdata = new Chart('canvas', {
         type: 'bar',
         data: {
@@ -40,7 +34,9 @@ export class BarChartComponent {
           datasets: [
             {
               label: 'Department',
-              data: this.Count,
+              data: duplicateCounts.map(
+                (duplicateCounts: any) => duplicateCounts.count
+              ),
               backgroundColor: [
                 '#fc9baf',
                 '#91E0FF',
@@ -83,7 +79,6 @@ export class BarChartComponent {
     for (const name of arr) {
       nameCounts[name] = (nameCounts[name] || 0) + 1;
     }
-    console.log(this.countDuplicates);
     return Object.keys(nameCounts).map((name) => ({
       name,
       count: nameCounts[name],
