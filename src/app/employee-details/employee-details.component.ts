@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class EmployeeDetailsComponent {
   pages = [
-    { name: 'Add Details', path: 'AddDetails' },
+    { name: 'Add Employee', path: 'addEmployee' },
     { name: 'Inactive', path: 'inActivePage' },
     { name: 'View Bar', path: 'viewBar' },
     {

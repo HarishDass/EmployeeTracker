@@ -4,6 +4,7 @@ import { EmployeeDetailsComponent } from './employee-details.component';
 import { AddDetailsComponent } from './add-details/add-details.component';
 import { ActivePageComponent } from './active-page/active-page.component';
 import { ViewBarComponent } from './view-bar/view-bar.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 const routes: Routes = [
   {
@@ -11,8 +12,8 @@ const routes: Routes = [
     component: EmployeeDetailsComponent,
     children: [
       {
-        path: 'AddDetails',
-        component: AddDetailsComponent,
+        path: 'addEmployee',
+        component: AddEmployeeComponent,
       },
       {
         path: 'viewBar',
