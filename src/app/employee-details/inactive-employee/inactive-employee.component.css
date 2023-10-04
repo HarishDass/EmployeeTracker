@@ -6,6 +6,11 @@
   margin: 10px auto;
 }
 
+#employee_img {
+  width: 50px;
+  height: 50px;
+}
+
 .employee_details_editor {
   width: max-content;
 }
