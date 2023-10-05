@@ -15,8 +15,8 @@ export class BarChartComponent {
     this.datas();
   }
   datas() {
-    this.service.getdata().subscribe((res: any) => {
-      this.chartdata = res.map((resp: any) => resp.deportment);
+    this.service.getdata().subscribe((data: any) => {
+      this.chartdata = data.map((data: any) => data.deportment);
       const duplicateCounts = this.countDuplicates(this.chartdata);
       duplicateCounts.sort((dept1: any, dept2: any) => {
         if (dept1.name > dept2.name) {
