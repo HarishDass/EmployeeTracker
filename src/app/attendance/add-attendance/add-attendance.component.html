@@ -20,19 +20,17 @@
           placeholder="Search keyword"
         />
       </span>
-      <th>
-        <p-dropdown
-          [options]="departments"
-          placeholder="Select Department"
-          (onChange)="onDepartmentChange($event)"
-          styleClass="p-column-filter"
-          optionLabel="name"
-        >
-          <ng-template let-option pTemplate="item">
-            <span class="p-ml-1">{{ option.name }}</span>
-          </ng-template>
-        </p-dropdown>
-      </th>
+      <p-dropdown
+        [options]="departments"
+        placeholder="Select Department"
+        (onChange)="onDepartmentChange($event)"
+        styleClass="p-column-filter"
+        optionLabel="name"
+      >
+        <ng-template let-option pTemplate="item">
+          <span class="p-ml-1">{{ option.name }}</span>
+        </ng-template>
+      </p-dropdown>
     </ng-template>
 
     <ng-template pTemplate="header">
@@ -55,21 +53,19 @@
           <label
             >Present
             <p-checkbox
-              [class.table-disabled]="tableDisabled"
               [(ngModel)]="new_data.present"
               [binary]="true"
               inputId="binary"
               (onChange)="isPresent(new_data)"
-              [disabled]="new_data.absent"
+              [disabled]="new_data.absent || tableDisabled"
             ></p-checkbox> </label
           ><br />
           <br />
           <label
             >Absent&nbsp;
             <p-checkbox
-              [class.table-disabled]="tableDisabled"
               [(ngModel)]="new_data.absent"
-              [disabled]="new_data.present"
+              [disabled]="new_data.present || tableDisabled"
               [binary]="true"
               (onChange)="isAbsent(new_data)"
               inputId="binary"
@@ -78,7 +74,7 @@
         </td>
         <td>
           <label
-            >With &nbsp; &nbsp; &nbsp;
+            >With &nbsp; &nbsp;
             <p-checkbox
               [(ngModel)]="new_data.withPermission"
               [disabled]="true"
@@ -87,7 +83,7 @@
                 !new_data.absent ||
                 new_data.withoutPermission
               "
-              (onChange)="withPermission(new_data)"
+              (ngModelChange)="checkBoxStatus()"
               [binary]="true"
               inputId="binary"
             ></p-checkbox>
@@ -104,7 +100,7 @@
               "
               [binary]="true"
               inputId="binary"
-              (onChange)="withoutPermission(new_data)"
+              (ngModelChange)="checkBoxStatus()"
             ></p-checkbox>
           </label>
         </td>
@@ -122,10 +118,9 @@
   <div class="submitButton">
     <p-button
       label="Submit"
-      (onClick)="onSubmit()"
-      [disabled]="!Attendance"
+      (click)="onSubmit()"
+      [disabled]="!PresentOrAbsent"
       styleClass="p-button-raised"
     ></p-button>
   </div>
-  ></p-card
->
+</p-card>

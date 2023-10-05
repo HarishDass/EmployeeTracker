@@ -14,12 +14,9 @@ export class ApiFetchService {
     return this.http.get<DataDetails[]>(this.url);
   }
 
-  saveUser(data: DataDetails[]): Observable<DataDetails[]> {
-    const headers = { 'content-type': 'application/json' };
-    const body = JSON.stringify(data);
+  addAttendance(post_data: DataDetails[]): Observable<DataDetails[]> {
+    const body = JSON.stringify(post_data);
     console.log(body);
-    return this.http.post<DataDetails[]>(this.url + 'data', body, {
-      headers: headers,
-    });
+    return this.http.post<DataDetails[]>(this.url, body);
   }
 }
