@@ -1,4 +1,8 @@
-export interface Data {
+export interface environment {
+  apiUrl: string;
+}
+
+export interface empDetails {
   employeeName: string;
   dateOfBirth: string;
   mobileNo: number;
@@ -18,7 +22,6 @@ export interface Data {
   yearOfExperience: YearOfExperience[];
   emergencyContactNumber: number;
   panNumber: string;
-  label: Array<any>;
 }
 
 export interface Address {
@@ -33,4 +36,8 @@ export interface YearOfExperience {
   companyName: string;
   joinDate: string;
   endDate: string;
+}
+export interface departmentList {
+  deptName: string;
+  count: number;
 }
