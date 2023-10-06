@@ -1,17 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
-import { DataDetails } from './interfaces/data-details';
+import { Component } from '@angular/core';
+import { DataDetails, Departments } from './interfaces/data-details';
 import { ApiFetchService } from './services/api-fetch.service';
-import { MessageService } from 'primeng/api';
-import { Table } from 'primeng/table';
+import { Column } from './interfaces/data-details';
 
-interface Column {
-  header: string;
-}
 @Component({
   selector: 'app-add-attendance',
   templateUrl: './add-attendance.component.html',
   styleUrls: ['./add-attendance.component.css'],
-  providers: [MessageService],
 })
 export class AddAttendanceComponent {
   new_data: DataDetails[] = [];
@@ -19,16 +14,17 @@ export class AddAttendanceComponent {
   post_data: DataDetails[] = [];
   selectedname!: DataDetails;
   cols!: Column[];
-  departments!: any[];
+  departments!: Departments[];
   attendance!: DataDetails;
   employeeData: DataDetails[] = [];
-  @ViewChild('table') table!: Table;
   PresentOrAbsent: boolean = false;
   tableDisabled: boolean = false;
   submitEnabled: boolean = false;
   withOrWithout: boolean = false;
+  submitDisabled: boolean = false;
 
   constructor(private apiLink: ApiFetchService) {}
+
   ngOnInit() {
     this.apiLink.getData().subscribe((res: DataDetails[]) => {
       this.new_data = res;
@@ -38,6 +34,7 @@ export class AddAttendanceComponent {
         x.absent = false;
         x.withPermission = false;
         x.withoutPermission = false;
+        x.reason = '';
         x.AttendanceDate = new Date().toLocaleDateString('en-IN');
       });
     });
@@ -74,26 +71,24 @@ export class AddAttendanceComponent {
     this.PresentOrAbsent = this.new_data.every(
       (item) => item.present || item.absent
     );
-    this.withOrWithout = this.new_data.some((item) => {
-      item.withPermission || item.withoutPermission;
-    });
-    if (this.PresentOrAbsent == true && this.withOrWithout == true) {
+    if (this.PresentOrAbsent == true) {
       this.submitEnabled = true;
     }
   }
   onSubmit() {
-    this.submitEnabled = false;
+    this.submitDisabled = true;
     this.tableDisabled = true;
-    this.apiLink.addAttendance(this.new_data).subscribe((data) => {
-      console.log(data);
-    });
+    this.apiLink
+      .addAttendance(this.new_data)
+      .subscribe((data: DataDetails[]) => {
+        this.post_data = data;
+        console.log(this.post_data);
+      });
   }
   isPresent(val: any) {
     this.checkBoxStatus();
-    this.attendance = val;
-    this.employeeData.push(this.attendance);
   }
-  isAbsent(e: any) {
+  isAbsent(val: any) {
     this.checkBoxStatus();
   }
 }

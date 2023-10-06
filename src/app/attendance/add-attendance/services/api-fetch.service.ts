@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiFetchService {
   url = 'http://localhost:3000/details';
+  url2 = 'http://localhost:3000/post_data';
 
   constructor(private http: HttpClient) {}
   getData(): Observable<DataDetails[]> {
@@ -15,8 +16,6 @@ export class ApiFetchService {
   }
 
   addAttendance(post_data: DataDetails[]): Observable<DataDetails[]> {
-    const body = JSON.stringify(post_data);
-    console.log(body);
-    return this.http.post<DataDetails[]>(this.url, body);
+    return this.http.post<DataDetails[]>(this.url2, post_data);
   }
 }

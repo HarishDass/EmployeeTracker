@@ -1,10 +1,11 @@
-<p-card header="Attendance list">
+<p-card>
   <p-table
     #table
     [paginator]="true"
     [rowsPerPageOptions]="[4, 5, 8, 10]"
     [rows]="10"
     styleClass="p-datatable-sm"
+    [style]=""
     [value]="new_data"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
@@ -12,25 +13,28 @@
     [filterDelay]="0"
   >
     <ng-template pTemplate="caption">
-      <span class="p-input-icon-left ml-auto">
-        <input
-          pInputText
-          type="text"
-          (input)="table.filterGlobal($any($event.target).value, 'contains')"
-          placeholder="Search keyword"
-        />
-      </span>
-      <p-dropdown
-        [options]="departments"
-        placeholder="Select Department"
-        (onChange)="onDepartmentChange($event)"
-        styleClass="p-column-filter"
-        optionLabel="name"
-      >
-        <ng-template let-option pTemplate="item">
-          <span class="p-ml-1">{{ option.name }}</span>
-        </ng-template>
-      </p-dropdown>
+      <h2>Attendance list</h2>
+      <div id="search_bar_holder">
+        <p-dropdown
+          [options]="departments"
+          placeholder="Select Department"
+          (onChange)="onDepartmentChange($event)"
+          styleClass="p-column-filter"
+          optionLabel="name"
+        >
+          <ng-template let-option pTemplate="item">
+            <span class="p-ml-1">{{ option.name }}</span>
+          </ng-template>
+        </p-dropdown>
+        <span>
+          <input
+            pInputText
+            type="text"
+            (input)="table.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search keyword"
+          />
+        </span>
+      </div>
     </ng-template>
 
     <ng-template pTemplate="header">
@@ -81,9 +85,9 @@
               [disabled]="
                 new_data.present ||
                 !new_data.absent ||
-                new_data.withoutPermission
+                new_data.withoutPermission ||
+                tableDisabled
               "
-              (ngModelChange)="checkBoxStatus()"
               [binary]="true"
               inputId="binary"
             ></p-checkbox>
@@ -96,11 +100,13 @@
               [(ngModel)]="new_data.withoutPermission"
               [disabled]="true"
               [disabled]="
-                new_data.present || !new_data.absent || new_data.withPermission
+                new_data.present ||
+                !new_data.absent ||
+                new_data.withPermission ||
+                tableDisabled
               "
               [binary]="true"
               inputId="binary"
-              (ngModelChange)="checkBoxStatus()"
             ></p-checkbox>
           </label>
         </td>
@@ -110,6 +116,7 @@
             cols="30"
             pInputTextarea
             [disabled]="!new_data.withPermission"
+            [(ngModel)]="new_data.reason"
           ></textarea>
         </td>
       </tr>
@@ -119,7 +126,7 @@
     <p-button
       label="Submit"
       (click)="onSubmit()"
-      [disabled]="!PresentOrAbsent"
+      [disabled]="!PresentOrAbsent || submitDisabled"
       styleClass="p-button-raised"
     ></p-button>
   </div>

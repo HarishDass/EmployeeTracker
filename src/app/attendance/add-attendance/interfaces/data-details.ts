@@ -28,6 +28,7 @@ export interface DataDetails {
   withPermission: boolean;
   withoutPermission: boolean;
   AttendanceDate: string;
+  reason: string;
 }
 
 export interface Address {
@@ -42,4 +43,11 @@ export interface YearOfExperience {
   companyName: string;
   joinDate: string;
   endDate: string;
+}
+export interface Column {
+  header: string;
+}
+
+export interface Departments {
+  name: string;
 }
