@@ -20,7 +20,6 @@ export class HomeComponent {
   constructor(private router: Router) {}
 
   navigateTO(module: any) {
-    const joinName = module.replace(' ', '');
-    this.router.navigate([joinName]);
+    this.router.navigate([module.replace(' ', '')]);
   }
 }
