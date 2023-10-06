@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js';
 Chart.register(...registerables);
 import { DataService } from '../servicess/data.service';
+import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-bar-chart',
@@ -9,14 +10,14 @@ import { DataService } from '../servicess/data.service';
   styleUrls: ['./bar-chart.component.css'],
 })
 export class BarChartComponent {
-  chartdata: any = [];
+  chartdata: string[] = [];
   constructor(private service: DataService) {}
   ngOnInit() {
     this.datas();
   }
   datas() {
-    this.service.getdata().subscribe((data: any) => {
-      this.chartdata = data.map((data: any) => data.deportment);
+    this.service.getdata().subscribe((data: Data) => {
+      this.chartdata = data['map']((data1: Data) => data1['deportment']);
       const duplicateCounts = this.countDuplicates(this.chartdata);
       duplicateCounts.sort((dept1: any, dept2: any) => {
         if (dept1.name > dept2.name) {
@@ -27,7 +28,7 @@ export class BarChartComponent {
         }
         return 0;
       });
-      this.chartdata = new Chart('canvas', {
+      new Chart('canvas', {
         type: 'bar',
         data: {
           labels: ['BACKEND', 'CYBER', 'FRONTEND', 'HR', 'TESTING', 'TL'],
