@@ -31,11 +31,7 @@
       <ng-template pTemplate="body" let-lefted>
         <tr>
           <td>
-            <img
-              id="inactive_employe_img"
-              src="{{ lefted.photo }}"
-              id="employee_img"
-            />
+            <img id="inactive_employe_img" src="{{ lefted.photo }}" />
           </td>
           <td>{{ lefted.employeeName.toUpperCase() }}</td>
           <td>{{ lefted.EmployeeNo }}</td>
@@ -60,12 +56,11 @@
     <p-dialog
       header=" Make {{ individualData.employeeName | uppercase }} Active ?"
       [(visible)]="visible"
+      [style]=""
+      [closable]="false"
       [modal]="true"
     >
-      <div
-        class="flex py-2 justify-content-center"
-        id="employee_details_editor"
-      >
+      <div id="employee_details_editor">
         <div class="employee_active_status_btn_space">
           <p-button
             label="Yes"

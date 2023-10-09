@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { EmployeData } from 'src/app/shared-module/employe-data';
-import { LeftoverTableService } from 'src/app/Services/leftover-table.service';
+import { EmployeData } from 'src/app/shared-module/interface/employe-data';
+import { LeftoverTableService } from 'src/app/shared-module/Services/leftover-table.service';
 @Component({
   selector: 'app-inactive-employee',
   templateUrl: './inactive-employee.component.html',
@@ -10,10 +10,13 @@ export class InactiveEmployeeComponent {
   leftoverdatas: EmployeData[] = [];
   visible: boolean = false;
   individualData: any = {};
-  activating!: string;
 
   constructor(private LinkData: LeftoverTableService) {}
   ngOnInit() {
+    this.GetDataFn();
+  }
+
+  GetDataFn() {
     this.LinkData.employeeDataFn().subscribe((Firstresponce: EmployeData[]) => {
       this.leftoverdatas = Firstresponce.filter(
         (responce) => responce.Active == false
@@ -24,7 +27,7 @@ export class InactiveEmployeeComponent {
   indiviActiveFn(lefted: EmployeData) {
     this.visible = true;
     this.individualData = lefted;
-    this.activating = '';
+    console.log(this.individualData);
   }
 
   toggleActiveFn() {
@@ -39,12 +42,9 @@ export class InactiveEmployeeComponent {
       }
     );
     this.visible = false;
-    this.activating = '';
   }
 
   toggleNotActiveFn() {
-    this.individualData.Active = false;
     this.visible = false;
-    this.activating = '';
   }
 }

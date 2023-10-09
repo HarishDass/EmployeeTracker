@@ -1,3 +1,7 @@
+export interface environment {
+  apiUrl: string;
+}
+
 export interface EmployeData {
   id: number;
   employeeName: string;
@@ -33,4 +37,8 @@ export interface YearOfExperience {
   companyName: string;
   joinDate: string;
   endDate: string;
+}
+
+export interface CardDetails {
+  cardName: string;
 }
