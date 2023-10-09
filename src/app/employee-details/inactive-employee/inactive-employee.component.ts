@@ -28,23 +28,23 @@ export class InactiveEmployeeComponent {
   }
 
   toggleActiveFn() {
-    if (this.activating == 'true') {
-      this.individualData.Active = true;
-      this.LinkData.updateDataFn(this.individualData).subscribe(
-        (changingValueofEmp: EmployeData) => {
-          const updatedDetails = this.leftoverdatas.filter(
-            (changedValueofEmp: EmployeData) =>
-              changingValueofEmp.id !== changedValueofEmp.id
-          );
-          this.leftoverdatas = updatedDetails;
-        }
-      );
-      this.visible = false;
-      this.activating = '';
-    } else {
-      this.individualData.Active = false;
-      this.visible = false;
-      this.activating = '';
-    }
+    this.individualData.Active = true;
+    this.LinkData.updateDataFn(this.individualData).subscribe(
+      (changingValueofEmp: EmployeData) => {
+        const updatedDetails = this.leftoverdatas.filter(
+          (changedValueofEmp: EmployeData) =>
+            changingValueofEmp.id !== changedValueofEmp.id
+        );
+        this.leftoverdatas = updatedDetails;
+      }
+    );
+    this.visible = false;
+    this.activating = '';
+  }
+
+  toggleNotActiveFn() {
+    this.individualData.Active = false;
+    this.visible = false;
+    this.activating = '';
   }
 }

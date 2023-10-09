@@ -37,9 +37,9 @@
               id="employee_img"
             />
           </td>
-          <td>{{ lefted.employeeName }}</td>
+          <td>{{ lefted.employeeName.toUpperCase() }}</td>
           <td>{{ lefted.EmployeeNo }}</td>
-          <td>{{ lefted.deportment }}</td>
+          <td>{{ lefted.deportment.toUpperCase() }}</td>
           <td>
             <p-button
               styleClass="p-button-warning p-button-sm"
@@ -58,7 +58,7 @@
       </ng-template>
     </p-table>
     <p-dialog
-      header="Do you want to Activate :- {{ individualData.employeeName }}"
+      header=" Make {{ individualData.employeeName | uppercase }} Active ?"
       [(visible)]="visible"
       [modal]="true"
     >
@@ -67,33 +67,15 @@
         id="employee_details_editor"
       >
         <div class="employee_active_status_btn_space">
-          <div>
-            <label for="employee_active_status_radio_btn1">Yes :</label>
-            <p-radioButton
-              name="Active"
-              value="true"
-              [(ngModel)]="activating"
-              class="employee_active_status_radio_btn"
-              inputId="employee_active_status_radio_btn1"
-            ></p-radioButton>
-          </div>
-          <div>
-            <label for="employee_active_status_radio_btn2">No :</label>
-            <p-radioButton
-              name="Inactive"
-              value="false"
-              [(ngModel)]="activating"
-              class="employee_active_status_radio_btn"
-              inputId="employee_active_status_radio_btn2"
-            ></p-radioButton>
-          </div>
-        </div>
-        <br />
-        <div id="employee_active_status_submit_btn">
           <p-button
-            label="Submit"
-            styleClass="p-button-sm"
+            label="Yes"
+            styleClass="p-button-sm p-button-success"
             (onClick)="toggleActiveFn()"
+          ></p-button>
+          <p-button
+            label="No"
+            styleClass="p-button-sm p-button-danger"
+            (onClick)="toggleNotActiveFn()"
           ></p-button>
         </div>
       </div>
