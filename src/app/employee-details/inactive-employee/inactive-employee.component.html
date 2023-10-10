@@ -28,18 +28,18 @@
           <th>Active Status</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-lefted>
+      <ng-template pTemplate="body" let-lefted_emp>
         <tr>
           <td>
-            <img id="inactive_employe_img" src="{{ lefted.photo }}" />
+            <img id="inactive_employe_img" src="{{ lefted_emp.photo }}" />
           </td>
-          <td>{{ lefted.employeeName.toUpperCase() }}</td>
-          <td>{{ lefted.EmployeeNo }}</td>
-          <td>{{ lefted.deportment.toUpperCase() }}</td>
+          <td>{{ lefted_emp.employeeName.toUpperCase() }}</td>
+          <td>{{ lefted_emp.EmployeeNo }}</td>
+          <td>{{ lefted_emp.deportment.toUpperCase() }}</td>
           <td>
             <p-button
               styleClass="p-button-warning p-button-sm"
-              (onClick)="indiviActiveFn(lefted)"
+              (onClick)="indiviActive(lefted_emp)"
               >Inactive</p-button
             >
           </td>
@@ -65,12 +65,12 @@
           <p-button
             label="Yes"
             styleClass="p-button-sm p-button-success"
-            (onClick)="toggleActiveFn()"
+            (onClick)="make_emp_Active()"
           ></p-button>
           <p-button
             label="No"
             styleClass="p-button-sm p-button-danger"
-            (onClick)="toggleNotActiveFn()"
+            (onClick)="make_emp_inActive()"
           ></p-button>
         </div>
       </div>

@@ -11,11 +11,11 @@ export class LeftoverTableService {
   environment: string = environment.apiUrl;
   constructor(private link: HttpClient) {}
 
-  employeeDataFn(): Observable<EmployeData[]> {
+  getting_emp_data(): Observable<EmployeData[]> {
     return this.link.get<EmployeData[]>(this.environment + '/EmpDetails');
   }
 
-  updateDataFn(individualData: EmployeData) {
+  updateData(individualData: EmployeData) {
     return this.link.put<EmployeData>(
       `${this.environment + '/EmpDetails'}/${individualData.id}`,
       individualData

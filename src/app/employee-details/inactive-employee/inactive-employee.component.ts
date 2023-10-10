@@ -13,26 +13,28 @@ export class InactiveEmployeeComponent {
 
   constructor(private LinkData: LeftoverTableService) {}
   ngOnInit() {
-    this.GetDataFn();
+    this.fetching_emp_data();
   }
 
-  GetDataFn() {
-    this.LinkData.employeeDataFn().subscribe((Firstresponce: EmployeData[]) => {
-      this.leftoverdatas = Firstresponce.filter(
-        (responce) => responce.Active == false
-      );
-    });
+  fetching_emp_data() {
+    this.LinkData.getting_emp_data().subscribe(
+      (raw_emp_details: EmployeData[]) => {
+        this.leftoverdatas = raw_emp_details.filter(
+          (filtered_inactive_emp_data) =>
+            filtered_inactive_emp_data.Active == false
+        );
+      }
+    );
   }
 
-  indiviActiveFn(lefted: EmployeData) {
+  indiviActive(lefted_emp: EmployeData) {
     this.visible = true;
-    this.individualData = lefted;
-    console.log(this.individualData);
+    this.individualData = lefted_emp;
   }
 
-  toggleActiveFn() {
+  make_emp_Active() {
     this.individualData.Active = true;
-    this.LinkData.updateDataFn(this.individualData).subscribe(
+    this.LinkData.updateData(this.individualData).subscribe(
       (changingValueofEmp: EmployeData) => {
         const updatedDetails = this.leftoverdatas.filter(
           (changedValueofEmp: EmployeData) =>
@@ -44,7 +46,7 @@ export class InactiveEmployeeComponent {
     this.visible = false;
   }
 
-  toggleNotActiveFn() {
+  make_emp_inActive() {
     this.visible = false;
   }
 }
