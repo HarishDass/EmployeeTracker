@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { DataDetails, Departments } from './interfaces/data-details';
-import { ApiFetchService } from './services/api-fetch.service';
-import { Column } from './interfaces/data-details';
+import { DataDetails, Departments, TableHead } from './interfaces/data-details';
+import { ApiFetchService } from 'src/app/shared-module/services/api-fetch.service';
+import { DropdownChangeEvent } from 'primeng/dropdown';
+import { CheckboxChangeEvent } from 'primeng/checkbox';
 
 @Component({
   selector: 'app-add-attendance',
@@ -9,14 +10,12 @@ import { Column } from './interfaces/data-details';
   styleUrls: ['./add-attendance.component.css'],
 })
 export class AddAttendanceComponent {
-  new_data: DataDetails[] = [];
-  next_data: DataDetails[] = [];
+  employee_data: DataDetails[] = [];
+  filter_data: DataDetails[] = [];
   post_data: DataDetails[] = [];
-  selectedname!: DataDetails;
-  cols!: Column[];
+  headers!: TableHead[];
   departments!: Departments[];
   attendance!: DataDetails;
-  employeeData: DataDetails[] = [];
   PresentOrAbsent: boolean = false;
   tableDisabled: boolean = false;
   submitEnabled: boolean = false;
@@ -27,9 +26,9 @@ export class AddAttendanceComponent {
 
   ngOnInit() {
     this.apiLink.getData().subscribe((res: DataDetails[]) => {
-      this.new_data = res;
-      this.next_data = res;
-      this.new_data.forEach((x) => {
+      this.employee_data = res;
+      this.filter_data = res;
+      this.employee_data.forEach((x) => {
         x.present = false;
         x.absent = false;
         x.withPermission = false;
@@ -39,7 +38,7 @@ export class AddAttendanceComponent {
       });
     });
 
-    this.cols = [
+    this.headers = [
       { header: 'Photo' },
       { header: 'Date' },
       { header: 'Employee Name' },
@@ -58,17 +57,17 @@ export class AddAttendanceComponent {
       { name: 'CyberSecurity' },
     ];
   }
-  onDepartmentChange(dept: any) {
-    if (dept.value.name === 'All') {
-      this.new_data = this.next_data;
+  onDepartmentChange(department: DropdownChangeEvent) {
+    if (department.value.name === 'All') {
+      this.employee_data = this.filter_data;
     } else {
-      this.new_data = this.next_data.filter(
-        (dem: any) => dem.deportment === dept.value.name
+      this.employee_data = this.filter_data.filter(
+        (dem: any) => dem.deportment === department.value.name
       );
     }
   }
   checkBoxStatus() {
-    this.PresentOrAbsent = this.new_data.every(
+    this.PresentOrAbsent = this.employee_data.every(
       (item) => item.present || item.absent
     );
     if (this.PresentOrAbsent == true) {
@@ -79,16 +78,15 @@ export class AddAttendanceComponent {
     this.submitDisabled = true;
     this.tableDisabled = true;
     this.apiLink
-      .addAttendance(this.new_data)
+      .addAttendance(this.employee_data)
       .subscribe((data: DataDetails[]) => {
         this.post_data = data;
-        console.log(this.post_data);
       });
   }
-  isPresent(val: any) {
+  isPresent(val: CheckboxChangeEvent) {
     this.checkBoxStatus();
   }
-  isAbsent(val: any) {
+  isAbsent(val: CheckboxChangeEvent) {
     this.checkBoxStatus();
   }
 }

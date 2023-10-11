@@ -1,7 +1,6 @@
-// export interface DataDetails {
-// export interface DataDetails {
-//     details: Detail[]
-//   }
+export interface environment {
+  apiUrl: string;
+}
 
 export interface DataDetails {
   employeeName: string;
@@ -44,7 +43,7 @@ export interface YearOfExperience {
   joinDate: string;
   endDate: string;
 }
-export interface Column {
+export interface TableHead {
   header: string;
 }
 

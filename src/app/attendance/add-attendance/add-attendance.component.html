@@ -6,7 +6,7 @@
     [rows]="10"
     styleClass="p-datatable-sm"
     [style]=""
-    [value]="new_data"
+    [value]="employee_data"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [globalFilterFields]="['employeeName', 'deportment', 'EmployeeNo']"
@@ -39,39 +39,39 @@
 
     <ng-template pTemplate="header">
       <tr>
-        <th *ngFor="let column of cols">
+        <th *ngFor="let column of headers">
           {{ column.header }}
         </th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-new_data>
+    <ng-template pTemplate="body" let-employee_data>
       <tr>
-        <td><img src="new_data.Photo" /></td>
-        <td>{{ new_data.AttendanceDate }}</td>
-        <td>{{ new_data.employeeName }}</td>
-        <td>{{ new_data.EmployeeNo }}</td>
-        <td [pSortableColumn]="new_data.deportment">
-          {{ new_data.deportment }}
+        <td><img id="table_img" src="{{ employee_data.photo }}" /></td>
+        <td>{{ employee_data.AttendanceDate }}</td>
+        <td>{{ employee_data.employeeName }}</td>
+        <td>{{ employee_data.EmployeeNo }}</td>
+        <td [pSortableColumn]="employee_data.deportment">
+          {{ employee_data.deportment }}
         </td>
         <td>
           <label
             >Present
             <p-checkbox
-              [(ngModel)]="new_data.present"
+              [(ngModel)]="employee_data.present"
               [binary]="true"
               inputId="binary"
-              (onChange)="isPresent(new_data)"
-              [disabled]="new_data.absent || tableDisabled"
+              (onChange)="isPresent(employee_data)"
+              [disabled]="employee_data.absent || tableDisabled"
             ></p-checkbox> </label
           ><br />
           <br />
           <label
             >Absent&nbsp;
             <p-checkbox
-              [(ngModel)]="new_data.absent"
-              [disabled]="new_data.present || tableDisabled"
+              [(ngModel)]="employee_data.absent"
+              [disabled]="employee_data.present || tableDisabled"
               [binary]="true"
-              (onChange)="isAbsent(new_data)"
+              (onChange)="isAbsent(employee_data)"
               inputId="binary"
             ></p-checkbox
           ></label>
@@ -80,12 +80,12 @@
           <label
             >With &nbsp; &nbsp;
             <p-checkbox
-              [(ngModel)]="new_data.withPermission"
+              [(ngModel)]="employee_data.withPermission"
               [disabled]="true"
               [disabled]="
-                new_data.present ||
-                !new_data.absent ||
-                new_data.withoutPermission ||
+                employee_data.present ||
+                !employee_data.absent ||
+                employee_data.withoutPermission ||
                 tableDisabled
               "
               [binary]="true"
@@ -97,12 +97,12 @@
           <label
             >Without
             <p-checkbox
-              [(ngModel)]="new_data.withoutPermission"
+              [(ngModel)]="employee_data.withoutPermission"
               [disabled]="true"
               [disabled]="
-                new_data.present ||
-                !new_data.absent ||
-                new_data.withPermission ||
+                employee_data.present ||
+                !employee_data.absent ||
+                employee_data.withPermission ||
                 tableDisabled
               "
               [binary]="true"
@@ -115,8 +115,8 @@
             rows="2"
             cols="30"
             pInputTextarea
-            [disabled]="!new_data.withPermission"
-            [(ngModel)]="new_data.reason"
+            [disabled]="!employee_data.withPermission"
+            [(ngModel)]="employee_data.reason"
           ></textarea>
         </td>
       </tr>
