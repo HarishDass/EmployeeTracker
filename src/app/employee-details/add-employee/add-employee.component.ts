@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { EmployeeServiceService } from '../../employee-service.service';
+import { department } from './add-employee.interface';
 import Swal from 'sweetalert2';
-
-interface department {
-  department: string;
-}
 
 @Component({
   selector: 'app-add-employee',
@@ -15,7 +12,7 @@ interface department {
 export class AddEmployeeComponent {
   myForm: FormGroup;
   departments: department[] | undefined;
-  uploadedPhoto: string | ArrayBuffer | null = null;
+  url = './assets/click.jpg';
   submitted = false;
 
   constructor(
@@ -33,14 +30,14 @@ export class AddEmployeeComponent {
       active: ['', Validators.required],
       address: this.fb.group({
         address_line1: ['', Validators.required],
-        address_line2: ['', Validators.required],
+        address_line2: [''],
         city: ['', Validators.required],
         state: ['', Validators.required],
         pincode: ['', Validators.required],
       }),
       fatherName: ['', Validators.required],
       EmployeeNo: ['', Validators.required],
-      photo: [''],
+      photo: ['', Validators.required],
       qualification: ['', Validators.required],
       CTC: ['', Validators.required],
       email: [
@@ -51,6 +48,7 @@ export class AddEmployeeComponent {
         ],
       ],
       experience: ['', Validators.required],
+      totalYears: ['', Validators.required],
       yearOfExperience: this.fb.array([]),
       emergencyContactNumber: ['', Validators.required],
       panNumber: ['', Validators.required],
@@ -94,9 +92,9 @@ export class AddEmployeeComponent {
     this.yearOfExperience.push(this.experienceDetails());
   }
 
-  delExperience() {
+  delExperience(index: any) {
     let control = <FormArray>this.myForm.controls['yearOfExperience'];
-    control.removeAt(control.length - 1);
+    control.removeAt(index);
   }
 
   experienceRequired(event: any) {
@@ -111,12 +109,17 @@ export class AddEmployeeComponent {
     }
   }
 
-  onFileSelect(event: any) {
-    const file = event.files[0];
-    if (file) {
+  onFileSelect(event: Event) {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files.length > 0) {
+      const file = fileInput.files[0];
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.uploadedPhoto = e.target.result;
+        const result = reader.result as String;
+        this.url = e.target.result;
+        this.myForm.patchValue({
+          photo: result,
+        });
       };
       reader.readAsDataURL(file);
     }
@@ -124,8 +127,6 @@ export class AddEmployeeComponent {
 
   onSubmit() {
     this.submitted = true;
-    this.myForm.value.photo = this.uploadedPhoto;
-
     if (this.myForm.invalid) {
       Swal.fire('Sorry!', 'Please Enter all fields!', 'error');
       return;
@@ -150,7 +151,7 @@ export class AddEmployeeComponent {
       if (result.isConfirmed) {
         this.submitted = false;
         this.myForm.reset();
-        Swal.fire('Reset!', 'Successfully Reseted!', 'success');
+        this.url = './assets/click.jpg';
       }
     });
   }

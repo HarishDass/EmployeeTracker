@@ -13,17 +13,32 @@ body {
   margin-left: 10%;
   margin-right: 10%;
 }
-:host >>> .p-inputtext {
+.star{
+  color: #e24f4f;
+}
+
+/* .photo {
+  display: block;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+} */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border: 2px solid #e0e4e8;
+}
+#photoError{
+  float: right;
   width: 70%;
 }
-:host >>> .p-dropdown {
-  width: 70%;
-}
-:host >>> .p-calendar {
-  width: 70%;
-}
-:host >>> .p-inputNumber {
-  width: 70%;
+.p-error{
+  font-size: smaller;
 }
 
 label {
@@ -32,6 +47,11 @@ label {
   padding: 10px;
   float: left;
   width: 30%;
+}
+
+:host >>> .inputField{
+  height: 40px;
+  width: 70%;
 }
 
 .field1 {
@@ -51,7 +71,7 @@ label {
   justify-content: center;
 }
 .sbtn {
-  margin: 20px;
+  margin: 10px;
   width: 100px;
 }
 
@@ -62,16 +82,8 @@ label {
     padding: 10px;
     width: 100%;
   }
-  :host >>> .p-inputtext {
-    width: 100%;
-  }
-  :host >>> .p-dropdown {
-    width: 100%;
-  }
-  :host >>> .p-calendar {
-    width: 100%;
-  }
-  :host >>> .p-inputNumber {
+
+  :host >>> .inputField{
     width: 100%;
   }
 }
