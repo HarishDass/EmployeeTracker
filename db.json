@@ -961,7 +961,7 @@
       "dateOfJoining": "31.08.2023",
       "deportment": "backend developer",
       "gender": "male",
-      "Active": false,
+      "Active": true,
       "address": {
         "1st street": "1stStreent",
         "2st street": "2st street",
@@ -995,7 +995,7 @@
       "dateOfJoining": "31.08.2023",
       "deportment": "backend developer",
       "gender": "male",
-      "Active": false,
+      "Active": true,
       "address": {
         "1st street": "1stStreent",
         "2st street": "2st street",
