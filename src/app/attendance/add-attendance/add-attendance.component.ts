@@ -62,7 +62,7 @@ export class AddAttendanceComponent {
       this.employee_data = this.filter_data;
     } else {
       this.employee_data = this.filter_data.filter(
-        (dem: any) => dem.deportment === department.value.name
+        (choiceData: any) => choiceData.deportment === department.value.name
       );
     }
   }
