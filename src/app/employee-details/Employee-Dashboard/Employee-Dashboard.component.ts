@@ -5,11 +5,11 @@ import { departmentList, empDetails } from 'src/interface/empDetails';
 import { empInfo } from 'src/app/shared-module/service/empInfo.service';
 
 @Component({
-  selector: 'app-bar-chart',
-  templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.css'],
+  selector: 'app-employee-dashboard',
+  templateUrl: './employee-dashboard.component.html',
+  styleUrls: ['./employee-dashboard.component.css'],
 })
-export class BarChartComponent {
+export class EmployeeDashboardComponent {
   constructor(private service: empInfo) {}
   ngOnInit() {
     this.datas();
