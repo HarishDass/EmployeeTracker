@@ -37,7 +37,3 @@ export interface YearOfExperience {
   joinDate: string;
   endDate: string;
 }
-export interface departmentList {
-  deptName: string;
-  count: number;
-}

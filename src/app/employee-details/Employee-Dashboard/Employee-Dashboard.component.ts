@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js';
 Chart.register(...registerables);
-import { departmentList, empDetails } from 'src/interface/empDetails';
-import { empInfo } from 'src/app/shared-module/service/empInfo.service';
+import {
+  departmentList,
+  EmployeData,
+} from 'src/app/shared-module/interface/employe-data';
+import { empInfo } from 'src/app/shared-module/Services/empInfo.service';
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -15,7 +18,7 @@ export class EmployeeDashboardComponent {
     this.datas();
   }
   datas() {
-    this.service.getData().subscribe((resp: empDetails[]) => {
+    this.service.getData().subscribe((resp: EmployeData[]) => {
       const departmentList: string[] = this.service.getDepartment();
 
       const department: departmentList[] = departmentList.map((emp) => {
@@ -23,6 +26,7 @@ export class EmployeeDashboardComponent {
           deptName: emp,
           count: resp.filter((value) => value.deportment === emp).length,
         };
+        console.log(object);
         return object;
       });
 
@@ -67,7 +71,8 @@ export class EmployeeDashboardComponent {
             },
             y: {
               beginAtZero: true,
-              max: 10,
+              min: 0,
+              max: 20,
             },
           },
         },
