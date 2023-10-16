@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { DataDetails, Departments, TableHead } from './interfaces/data-details';
+import {
+  DataDetails,
+  Departments,
+  TableHead,
+} from '../../shared-module/interface/data-details';
 import { ApiFetchService } from 'src/app/shared-module/services/api-fetch.service';
 import { DropdownChangeEvent } from 'primeng/dropdown';
 import { CheckboxChangeEvent } from 'primeng/checkbox';
