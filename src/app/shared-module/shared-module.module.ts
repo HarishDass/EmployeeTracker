@@ -273,7 +273,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     TreeSelectModule,
     TreeTableModule,
     AnimateModule,
-    CardModule
+    CardModule,
   ],
 })
 export class SharedModuleModule {}

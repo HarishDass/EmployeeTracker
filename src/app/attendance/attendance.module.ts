@@ -7,10 +7,6 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 @NgModule({
   declarations: [AttendanceComponent],
-  imports: [
-    CommonModule,
-    AttendanceRoutingModule,
-    SharedModuleModule,
-  ],
+  imports: [CommonModule, AttendanceRoutingModule, SharedModuleModule],
 })
 export class AttendanceModule {}

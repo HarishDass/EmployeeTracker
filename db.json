@@ -7,7 +7,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "frontend developer",
+      "deportment": "FRONTEND",
       "gender": "male",
       "Active": false,
       "address": {
@@ -41,7 +41,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "uiux developer",
+      "deportment": "CYBER",
       "gender": "female",
       "Active": false,
       "address": {
@@ -75,7 +75,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "TL",
       "gender": "male",
       "Active": false,
       "address": {
@@ -109,7 +109,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "CYBER",
       "gender": "male",
       "Active": false,
       "address": {
@@ -143,7 +143,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "CYBER",
       "gender": "male",
       "Active": false,
       "address": {
@@ -177,7 +177,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "CYBER",
       "gender": "male",
       "Active": false,
       "address": {
@@ -211,7 +211,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "CYBER",
       "gender": "male",
       "Active": false,
       "address": {
@@ -245,7 +245,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "BACKEND",
       "gender": "male",
       "Active": false,
       "address": {
@@ -279,7 +279,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "BACKEND",
       "gender": "male",
       "Active": false,
       "address": {
@@ -313,7 +313,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "BACKEND",
       "gender": "male",
       "Active": false,
       "address": {
@@ -347,7 +347,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "BACKEND",
       "gender": "male",
       "Active": false,
       "address": {
@@ -381,7 +381,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "BACKEND",
       "gender": "male",
       "Active": false,
       "address": {
@@ -415,7 +415,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "BACKEND",
       "gender": "male",
       "Active": false,
       "address": {
@@ -449,7 +449,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "BACKEND",
       "gender": "male",
       "Active": false,
       "address": {
@@ -483,7 +483,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "BACKEND",
       "gender": "male",
       "Active": false,
       "address": {
@@ -517,7 +517,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "BACKEND",
       "gender": "male",
       "Active": false,
       "address": {
@@ -551,7 +551,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "HR",
       "gender": "male",
       "Active": false,
       "address": {
@@ -585,7 +585,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "HR",
       "gender": "male",
       "Active": false,
       "address": {
@@ -619,7 +619,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "HR",
       "gender": "male",
       "Active": false,
       "address": {
@@ -653,7 +653,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "HR",
       "gender": "male",
       "Active": false,
       "address": {
@@ -687,7 +687,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "HR",
       "gender": "male",
       "Active": false,
       "address": {
@@ -721,7 +721,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "HR",
       "gender": "male",
       "Active": false,
       "address": {
@@ -755,7 +755,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "TESTING",
       "gender": "male",
       "Active": false,
       "address": {
@@ -789,7 +789,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "TESTING",
       "gender": "male",
       "Active": false,
       "address": {
@@ -823,7 +823,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "TESTING",
       "gender": "male",
       "Active": false,
       "address": {
@@ -857,7 +857,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "TESTING",
       "gender": "male",
       "Active": false,
       "address": {
@@ -891,7 +891,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "TL",
       "gender": "male",
       "Active": false,
       "address": {
@@ -925,7 +925,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "TL",
       "gender": "male",
       "Active": false,
       "address": {
@@ -959,7 +959,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "TL",
       "gender": "male",
       "Active": true,
       "address": {
@@ -993,7 +993,7 @@
       "mobileNo": 1234567890,
       "nationality": "indian",
       "dateOfJoining": "31.08.2023",
-      "deportment": "backend developer",
+      "deportment": "TL",
       "gender": "male",
       "Active": true,
       "address": {
