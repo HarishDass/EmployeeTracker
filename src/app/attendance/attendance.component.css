@@ -1,5 +1,9 @@
 #main {
     position: relative;
-    bottom: 46rem;
-    left: 500px;
-}
+    float: right;
+    width: 80%;
+    height: 100vh;
+    padding: 10px;
+    overflow: auto;
+  }
+  
