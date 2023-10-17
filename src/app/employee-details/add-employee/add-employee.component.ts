@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { EmployeeServiceService } from '../../employee-service.service';
 import { department } from './add-employee.interface';
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-add-employee',
@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class AddEmployeeComponent {
   myForm: FormGroup;
   departments: department[] | undefined;
-  url = './assets/click.jpg';
+  url = './assets/images/click.jpg';
   submitted = false;
 
   constructor(
@@ -147,11 +147,11 @@ export class AddEmployeeComponent {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, reset it!',
-    }).then((result) => {
+    }).then((result:any) => {
       if (result.isConfirmed) {
         this.submitted = false;
         this.myForm.reset();
-        this.url = './assets/click.jpg';
+        this.url = './assets/images/click.jpg';
       }
     });
   }
