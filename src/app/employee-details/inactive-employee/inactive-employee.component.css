@@ -1,0 +1,44 @@
+:host ::ng-deep .p-card {
+  border-radius: 25px !important;
+  width: 100%;
+  height: max-content;
+  border: 2px solid black;
+  margin: 10px auto;
+}
+
+#inactive_employe_img {
+  width: 50px;
+  height: 50px;
+}
+
+.employee_details_editor {
+  width: max-content;
+}
+
+.employee_active_status_btn_space {
+  margin-top: 10px;
+  height: 60px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.employee_active_status_radio_btn {
+  position: relative;
+  top: 3px;
+}
+
+#employee_active_status_submit_btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#employee_details_searchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#no_details_text {
+  text-align: center;
+}

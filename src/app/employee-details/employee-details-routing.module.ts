@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmployeeDetailsComponent } from './employee-details.component';
 import { AddDetailsComponent } from './add-details/add-details.component';
 import { ActivePageComponent } from './active-page/active-page.component';
-import { ViewBarComponent } from './view-bar/view-bar.component';
-import { HomeComponent } from '../home/home.component';
+import { EmployeeDashboardComponent } from './Employee-Dashboard/Employee-Dashboard.component';
+import { InactiveEmployeeComponent } from './inactive-employee/inactive-employee.component';
 
 const routes: Routes = [
   {
@@ -12,20 +12,20 @@ const routes: Routes = [
     component: EmployeeDetailsComponent,
     children: [
       {
+        path: 'Dashboard',
+        component: EmployeeDashboardComponent,
+      },
+      {
         path: 'AddDetails',
         component: AddDetailsComponent,
       },
       {
-        path: 'viewBar',
+        path: 'activePage',
         component: ActivePageComponent,
       },
       {
         path: 'inActivePage',
-        component: ViewBarComponent,
-      },
-      {
-        path: 'activePage',
-        component: ActivePageComponent,
+        component: InactiveEmployeeComponent,
       },
     ],
   },

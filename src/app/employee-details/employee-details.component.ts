@@ -7,12 +7,9 @@ import { Component } from '@angular/core';
 })
 export class EmployeeDetailsComponent {
   pages = [
+    { name: 'Dashboard', path: 'Dashboard' },
     { name: 'Add Details', path: 'AddDetails' },
+    { name: 'Active Page', path: 'activePage' },
     { name: 'Inactive', path: 'inActivePage' },
-    { name: 'View Bar', path: 'viewBar' },
-    {
-      name: 'Active Page',
-      path: 'activePage'
-    },
   ];
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CardDetails } from '../shared-module/carddetailsinarr';
+import { CardDetails } from '../shared-module/interface/employe-data';
 
 @Component({
   selector: 'app-home',

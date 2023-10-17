@@ -1,6 +1,7 @@
 #main {
-    position: relative;
-    float: right;
-    width: 78%;
-    margin: 10px;
+  position: relative;
+  float: right;
+  width: 77%;
+  height: 95vh;
+  overflow: auto;
 }

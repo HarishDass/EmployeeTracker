@@ -274,8 +274,7 @@ import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
     TreeSelectModule,
     TreeTableModule,
     AnimateModule,
-    CardModule,
-    SideNavBarComponent,
+    CardModule,SideNavBarComponent
   ],
   declarations: [SideNavBarComponent],
 })
