@@ -1,5 +1,6 @@
 #main {
     position: relative;
-    bottom: 46rem;
-    left: 500px;
+    float: right;
+    width: 78%;
+    margin: 10px;
 }

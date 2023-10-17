@@ -4,6 +4,7 @@ import { EmployeeDetailsComponent } from './employee-details.component';
 import { AddDetailsComponent } from './add-details/add-details.component';
 import { ActivePageComponent } from './active-page/active-page.component';
 import { ViewBarComponent } from './view-bar/view-bar.component';
+import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [
   {

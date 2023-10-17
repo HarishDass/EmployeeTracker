@@ -8,12 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SideNavBarComponent implements OnInit {
   @Input() page: any;
-  isMenuActive = false;
   isSidebarActive = false;
-  toggleMenu() {
-    this.isMenuActive = !this.isMenuActive;
-    this.isSidebarActive = !this.isSidebarActive;
-  }
+
   ngOnInit(): void {}
 
   constructor(private router: Router) {}

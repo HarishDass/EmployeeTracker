@@ -1,26 +1,6 @@
-<div class="outer">
-  <div
-    class="menu-toggle"
-    (click)="toggleMenu()"
-    [ngClass]="{ 'is-active': isMenuActive }"
-  >
-    <div class="toggleBtn">
-      <span></span>
-    </div>
-  </div>
-  <aside class="innerSideBar" [ngClass]="{ 'is-active': isSidebarActive }">
-    <p class="heading">DASHBOARD</p><br>
-    <button class="btn" (click)="goTO('EmployeeDetails')">
-      EmployeeDetails
-    </button><br><br>
-    <button class="btn" (click)="goTO('Attendance')">Attendance</button>
-    <hr />
-    <ul class="menu" *ngFor="let item of page">
-      <li class="menu-item is-active">
-        <button class="btn" routerLink="{{ item.path }}">
-          {{ item.name }}
-        </button>
+<div class="sideBar" [ngClass]="{ 'is-active': isSidebarActive }">
+    <h4 class="heading" routerLink="/">DASHBOARD</h4>
+      <li *ngFor="let item of page" class="list">
+         <a class="link" routerLink="{{ item.path }}" routerLinkActive="active">{{ item.name }}</a> 
       </li>
-    </ul>
-  </aside>
 </div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-details',
@@ -13,7 +12,7 @@ export class EmployeeDetailsComponent {
     { name: 'View Bar', path: 'viewBar' },
     {
       name: 'Active Page',
-      path: 'activePage',
+      path: 'activePage'
     },
   ];
 }
