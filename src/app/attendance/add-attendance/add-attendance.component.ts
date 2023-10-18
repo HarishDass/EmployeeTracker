@@ -25,6 +25,7 @@ export class AddAttendanceComponent {
   submitEnabled: boolean = false;
   withOrWithout: boolean = false;
   submitDisabled: boolean = false;
+  visible: boolean = false;
 
   constructor(private apiLink: ApiFetchService) {}
 
@@ -79,6 +80,16 @@ export class AddAttendanceComponent {
     }
   }
   onSubmit() {
+    this.visible = true;
+  }
+  isPresent(val: CheckboxChangeEvent) {
+    this.checkBoxStatus();
+  }
+  isAbsent(val: CheckboxChangeEvent) {
+    this.checkBoxStatus();
+  }
+  submitStatus() {
+    this.visible = false;
     this.submitDisabled = true;
     this.tableDisabled = true;
     this.apiLink
@@ -87,10 +98,7 @@ export class AddAttendanceComponent {
         this.post_data = data;
       });
   }
-  isPresent(val: CheckboxChangeEvent) {
-    this.checkBoxStatus();
-  }
-  isAbsent(val: CheckboxChangeEvent) {
-    this.checkBoxStatus();
+  cancel() {
+    this.visible = false;
   }
 }

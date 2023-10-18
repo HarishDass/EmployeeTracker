@@ -3,9 +3,8 @@
     #table
     [paginator]="true"
     [rowsPerPageOptions]="[4, 5, 8, 10]"
-    [rows]="10"
-    styleClass="p-datatable-sm"
-    [style]=""
+    [rows]="5"
+    styleClass="p-datatable-sm p-datatable-striped"
     [value]="employee_data"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
@@ -13,7 +12,12 @@
     [filterDelay]="0"
   >
     <ng-template pTemplate="caption">
-      <h2 id="table_attendance_title">Attendance list</h2>
+      <div id="table_attendance_title">
+        <img
+          src="../../../assets/attendance_list_images/icons8-attendance-60.png"
+        />
+        <h2>ATTENDANCE LIST</h2>
+      </div>
       <div id="search_bar_holder">
         <p-dropdown
           [options]="departments"
@@ -54,7 +58,7 @@
           {{ employee_data.deportment }}
         </td>
         <td>
-          <label
+          <label class="present_checkbox"
             >Present
             <p-checkbox
               [(ngModel)]="employee_data.present"
@@ -65,7 +69,7 @@
             ></p-checkbox> </label
           ><br />
           <br />
-          <label
+          <label class="absent_checkbox"
             >Absent&nbsp;
             <p-checkbox
               [(ngModel)]="employee_data.absent"
@@ -130,4 +134,25 @@
       styleClass="p-button-raised"
     ></p-button>
   </div>
+  <p-dialog
+    [(visible)]="visible"
+    [closable]="false"
+    [modal]="true"
+    header="CLICK CONFIRM TO SUMBIT ATTENDANCE"
+  >
+    <div id="confirmation_dialog_box">
+      <div class="confirmation_status_btn">
+        <p-button
+          label="CONFIRM"
+          styleClass="p-button-sm p-button-success"
+          (onClick)="submitStatus()"
+        ></p-button>
+        <p-button
+          label="CANCEL"
+          styleClass="p-button-sm p-button-blue-900"
+          (onClick)="cancel()"
+        ></p-button>
+      </div>
+    </div>
+  </p-dialog>
 </p-card>

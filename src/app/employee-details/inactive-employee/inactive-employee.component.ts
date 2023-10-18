@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EmployeData } from 'src/app/shared-module/interface/employe-data';
-import { LeftoverTableService } from 'src/app/shared-module/Services/leftover-table.service';
+import { LeftoverTableService } from 'src/app/shared-module/services/leftover-table.service';
 @Component({
   selector: 'app-inactive-employee',
   templateUrl: './inactive-employee.component.html',
