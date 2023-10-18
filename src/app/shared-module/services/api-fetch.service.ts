@@ -11,13 +11,25 @@ export class ApiFetchService {
   environment: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
+
+  departments = [
+    { name: 'All' },
+    { name: 'Frontend Developer' },
+    { name: 'Backend Developer' },
+    { name: 'Tester' },
+    { name: 'HR' },
+    { name: 'CyberSecurity' },
+  ];
+
   getData(): Observable<DataDetails[]> {
     return this.http.get<DataDetails[]>(this.environment + '/EmpDetails');
   }
-  addAttendance(post_data: DataDetails[]): Observable<DataDetails[]> {
+  addAttendance(
+    post_attendance_data: DataDetails[]
+  ): Observable<DataDetails[]> {
     return this.http.post<DataDetails[]>(
-      this.environment + '/post_data',
-      post_data
+      this.environment + '/post_attendance_data',
+      post_attendance_data
     );
   }
 }

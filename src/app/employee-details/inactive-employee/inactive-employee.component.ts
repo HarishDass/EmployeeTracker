@@ -21,7 +21,7 @@ export class InactiveEmployeeComponent {
       (raw_emp_details: EmployeData[]) => {
         this.leftoverdatas = raw_emp_details.filter(
           (filtered_inactive_emp_data) =>
-            filtered_inactive_emp_data.Active == false
+            filtered_inactive_emp_data.active == false
         );
       }
     );
@@ -33,7 +33,7 @@ export class InactiveEmployeeComponent {
   }
 
   make_emp_Active() {
-    this.individualData.Active = true;
+    this.individualData.active = true;
     this.LinkData.updateData(this.individualData).subscribe(
       (changingValueofEmp: EmployeData) => {
         const updatedDetails = this.leftoverdatas.filter(

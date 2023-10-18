@@ -8,7 +8,7 @@
     [value]="employee_data"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [globalFilterFields]="['employeeName', 'deportment', 'EmployeeNo']"
+    [globalFilterFields]="['employeeName', 'department', 'EmployeeNo']"
     [filterDelay]="0"
   >
     <ng-template pTemplate="caption">
@@ -54,8 +54,8 @@
         <td>{{ employee_data.AttendanceDate }}</td>
         <td>{{ employee_data.employeeName }}</td>
         <td>{{ employee_data.EmployeeNo }}</td>
-        <td [pSortableColumn]="employee_data.deportment">
-          {{ employee_data.deportment }}
+        <td [pSortableColumn]="employee_data.department">
+          {{ employee_data.department }}
         </td>
         <td>
           <label class="present_checkbox"
@@ -82,7 +82,7 @@
         </td>
         <td>
           <label
-            >With &nbsp; &nbsp;
+            >With &nbsp; &nbsp; &nbsp;
             <p-checkbox
               [(ngModel)]="employee_data.withPermission"
               [disabled]="true"
@@ -117,11 +117,18 @@
         <td>
           <textarea
             rows="2"
-            cols="30"
+            cols="20"
             pInputTextarea
             [disabled]="!employee_data.withPermission"
             [(ngModel)]="employee_data.reason"
           ></textarea>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="8" id="no_details_text">
+          No Employee found with this detail.
         </td>
       </tr>
     </ng-template>

@@ -31,8 +31,8 @@ export class AddAttendanceComponent {
 
   ngOnInit() {
     this.apiLink.getData().subscribe((res: DataDetails[]) => {
-      this.employee_data = res;
-      this.filter_data = res;
+      this.employee_data = res.filter((x) => x.active == true);
+      this.filter_data = this.employee_data;
       this.employee_data.forEach((x) => {
         x.present = false;
         x.absent = false;
@@ -53,21 +53,15 @@ export class AddAttendanceComponent {
       { header: ' Permission' },
       { header: 'Reason' },
     ];
-    this.departments = [
-      { name: 'All' },
-      { name: 'frontend developer' },
-      { name: 'backend developer' },
-      { name: 'tester' },
-      { name: 'HR' },
-      { name: 'CyberSecurity' },
-    ];
+
+    this.departments = this.apiLink.departments;
   }
   onDepartmentChange(department: DropdownChangeEvent) {
     if (department.value.name === 'All') {
       this.employee_data = this.filter_data;
     } else {
       this.employee_data = this.filter_data.filter(
-        (choiceData: any) => choiceData.deportment === department.value.name
+        (choiceData: any) => choiceData.department === department.value.name
       );
     }
   }

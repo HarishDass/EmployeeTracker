@@ -6,7 +6,7 @@
       styleClass="p-datatable-sm p-datatable-striped"
       [paginator]="true"
       [rows]="7"
-      [globalFilterFields]="['employeeName', 'deportment', 'EmployeeNo']"
+      [globalFilterFields]="['employeeName', 'department', 'EmployeeNo']"
     >
       <ng-template pTemplate="caption">
         <div id="employee_details_searchBar">
@@ -35,7 +35,7 @@
           </td>
           <td>{{ lefted_emp.employeeName.toUpperCase() }}</td>
           <td>{{ lefted_emp.EmployeeNo }}</td>
-          <td>{{ lefted_emp.deportment.toUpperCase() }}</td>
+          <td>{{ lefted_emp.department.toUpperCase() }}</td>
           <td>
             <p-button
               styleClass="p-button-warning p-button-sm"

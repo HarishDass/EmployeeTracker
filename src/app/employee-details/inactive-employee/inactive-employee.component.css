@@ -1,6 +1,6 @@
 :host ::ng-deep .p-card {
   border-radius: 25px !important;
-  width: 900px;
+  width: 100%;
   height: max-content;
   border: 2px solid black;
   margin: 10px auto;
