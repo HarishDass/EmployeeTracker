@@ -1,13 +1,12 @@
+<div class="page_title">
+  <h1 id="page_heading">Employee Details</h1>
+</div>
 <div class="card">
-  <div class="headback1">
-    <h1 id="page_heading">Employee Details</h1>
-  </div>
   <p-table
-    [rowHover
-    ]="true"
+    [rowHover]="true"
     #dt1
     [paginator]="true"
-    [rows]="5"
+    [rows]="10"
     [globalFilterFields]="[
       'EmployeeNo',
       'employeeName',
@@ -25,44 +24,41 @@
       'dateOfBirth'
     ]"
     [showCurrentPageReport]="true"
-    [tableStyle]="{ 'min-width': '50rem' }"
+    [tableStyle]="{ 'max-width': '30rem' }"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [rowsPerPageOptions]="[10, 25, 50]"
+    [rowsPerPageOptions]="[3, 10, 25, 50]"
     [value]="profile_details"
     [scrollable]="true"
-    scrollDirection="both"
     scrollHeight="640px"
   >
-    <ng-template pTemplate="caption">
+  <ng-template pTemplate="caption">
       <span class="p-input-icon-left">
         <i class="pi pi-search"></i>
+
         <input
           pInputText
           type="text"
           (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
           placeholder="Global Search"
         />&nbsp;&nbsp;&nbsp;
-
-        <p-dropdown
-          [options]="departments"
-          placeholder="Select Department"
-          (onChange)="depart($event)"
-          optionLabel="department"
-        >
-        </p-dropdown>
       </span>
+      <p-dropdown
+        class="department_filter"
+        [options]="departments"
+        placeholder="Select Department"
+        (onChange)="depart($event)"
+        optionLabel="department"
+      ></p-dropdown>
+      &nbsp;&nbsp;&nbsp;
     </ng-template>
-
     <div>
       <p-paginator
         (onPageChange)="onPageChange($event)"
         [first]="first"
         [rows]="rows"
-        [totalRecords]="120"
-        [rowsPerPageOptions]="[10, 20, 30]"
+        [rowsPerPageOptions]="[3, 10, 20, 30]"
       ></p-paginator>
     </div>
-
     <ng-template pTemplate="header">
       <tr>
         <th pFrozenColumn>Employee&nbsp;No</th>
@@ -83,7 +79,6 @@
         <th>Edit</th>
       </tr>
     </ng-template>
-
     <ng-template pTemplate="body" let-profile_details>
       <tr>
         <td pFrozenColumn>{{ profile_details.EmployeeNo }}</td>
@@ -103,7 +98,6 @@
         <td>{{ profile_details.experience.toUpperCase() }}</td>
         <td>{{ profile_details.totalyear }}</td>
         <td>{{ profile_details.emergencyContactNumber }}</td>
-
         <td>
           <p-button
             (click)="showDialog('update')"
@@ -112,6 +106,9 @@
           ></p-button>
         </td>
       </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <td colspan="13" class="emptydata">NO DATA ARE MATCH TO SEARCH RESULT</td>
     </ng-template>
   </p-table>
 </div>

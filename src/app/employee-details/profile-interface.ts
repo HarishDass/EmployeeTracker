@@ -46,3 +46,4 @@ interface PageEvent {
 export interface Inactive {
   employeeName: string;
 }
+
