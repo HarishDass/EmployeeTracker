@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
-import { EmployeeServiceService } from '../../employee-service.service';
+import { EmployeeServiceService } from '../../shared-module/Services/employee-service.service';
 import { department } from './add-employee.interface';
 import Swal from 'sweetalert2'
 
@@ -44,6 +44,7 @@ export class AddEmployeeComponent {
         '',
         [
           Validators.required,
+
           Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
         ],
       ],

@@ -52,7 +52,7 @@ label {
   width: 70%;
 }
 .field {
-  padding: 15px;
+  margin: 15px;  
 }
 
 .field1 {
@@ -60,13 +60,22 @@ label {
   border-radius: 10px;
   padding: 10px;
   margin: 20px;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 18%;
+  margin-right: 18%;
 }
-.sub-label {
-  font-weight: normal;
-  padding-left: 10px;
+
+.inputRadio{
+  width: 70%;
+  margin: 22px;
 }
+.radioBtn{
+  display: inline;
+  margin-right: 20px;
+}
+.radioLabel{
+  padding-left: 5px;
+}
+
 .mainbtn {
   display: flex;
   justify-content: center;
