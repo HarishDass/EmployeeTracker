@@ -51,6 +51,9 @@ label {
   height: 40px;
   width: 70%;
 }
+.field {
+  padding: 15px;
+}
 
 .field1 {
   border: 1px solid #3a81f6;
