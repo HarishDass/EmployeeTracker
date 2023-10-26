@@ -1,0 +1,7 @@
+<div class="sideBar" [ngClass]="{ 'is-active': isSidebarActive }">
+    <h4 class="heading" routerLink="/">Employee Tracker*</h4>
+    <p id="mTitle">MENU</p>
+      <li *ngFor="let item of page" class="list">
+         <a class="link" routerLink="{{ item.path }}" routerLinkActive="active">{{ item.name }}</a> 
+      </li>
+</div>

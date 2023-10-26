@@ -89,6 +89,7 @@ import { AnimateModule } from 'primeng/animate';
 import { CardModule } from 'primeng/card';
 import { BlockUIModule } from 'primeng/blockui';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
 
 @NgModule({
   imports: [
@@ -273,7 +274,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     TreeSelectModule,
     TreeTableModule,
     AnimateModule,
-    CardModule
+    CardModule,SideNavBarComponent
   ],
+  declarations: [SideNavBarComponent],
 })
 export class SharedModuleModule {}

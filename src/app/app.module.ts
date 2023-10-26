@@ -4,21 +4,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProfileDetailServiceService } from './employee-details/profile-detail-service.service';
-import { TableModule } from 'primeng/table';
-import { DialogModule } from 'primeng/dialog';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { EmployeeServiceService } from './employee-service.service';
+import { ButtonModule } from 'primeng/button';
+
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    TableModule,
-    DialogModule,
-  ],
-  providers: [ProfileDetailServiceService],
-  bootstrap: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,ButtonModule,HttpClientModule,FormsModule,ReactiveFormsModule],
+  providers: [EmployeeServiceService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
