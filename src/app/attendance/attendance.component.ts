@@ -11,7 +11,7 @@ export class AttendanceComponent {
   @Input() page: any;
 
   pages = [
-    { name: 'Attendance', path: 'home' },
+    { name: 'Attendance', path: 'AddAttendance' },
     { name: 'View Table', path: 'home' },
   ];
 }

@@ -9,12 +9,11 @@ import { environment } from 'src/Environment/environment';
 export class empInfo {
   environment: string = environment.apiUrl;
   departments: string[] = [
-    'BACKEND',
-    'CYBER',
-    'FRONTEND',
+    'Frontend Developer',
+    'Backend Developer',
+    'Tester',
     'HR',
-    'TESTING',
-    'TL',
+    'CyberSecurity',
   ];
 
   constructor(private http: HttpClient) {}

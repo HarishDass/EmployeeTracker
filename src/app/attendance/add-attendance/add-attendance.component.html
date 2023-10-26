@@ -1,0 +1,165 @@
+<p-card>
+  <p-table
+    #table
+    [paginator]="true"
+    [rowsPerPageOptions]="[4, 5, 8, 10]"
+    [rows]="5"
+    styleClass="p-datatable-sm p-datatable-striped"
+    [value]="employee_data"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['employeeName', 'department', 'EmployeeNo']"
+    [filterDelay]="0"
+  >
+    <ng-template pTemplate="caption">
+      <div id="table_attendance_title">
+        <img
+          src="../../../assets/attendance_list_images/icons8-attendance-60.png"
+        />
+        <h2>ATTENDANCE LIST</h2>
+      </div>
+      <div id="search_bar_holder">
+        <p-dropdown
+          [options]="departments"
+          placeholder="Select Department"
+          (onChange)="onDepartmentChange($event)"
+          styleClass="p-column-filter"
+          optionLabel="name"
+        >
+          <ng-template let-option pTemplate="item">
+            <span class="p-ml-1">{{ option.name }}</span>
+          </ng-template>
+        </p-dropdown>
+        <span>
+          <input
+            pInputText
+            type="text"
+            (input)="table.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search keyword"
+          />
+        </span>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let column of headers">
+          {{ column.header }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-employee_data>
+      <tr>
+        <td><img id="table_img" src="{{ employee_data.photo }}" /></td>
+        <td>{{ employee_data.AttendanceDate }}</td>
+        <td>{{ employee_data.employeeName }}</td>
+        <td>{{ employee_data.EmployeeNo }}</td>
+        <td [pSortableColumn]="employee_data.department">
+          {{ employee_data.department }}
+        </td>
+        <td>
+          <label class="present_checkbox"
+            >Present
+            <p-checkbox
+              [(ngModel)]="employee_data.present"
+              [binary]="true"
+              inputId="binary"
+              (onChange)="isPresent(employee_data)"
+              [disabled]="employee_data.absent || tableDisabled"
+            ></p-checkbox> </label
+          ><br />
+          <br />
+          <label class="absent_checkbox"
+            >Absent&nbsp;
+            <p-checkbox
+              [(ngModel)]="employee_data.absent"
+              [disabled]="employee_data.present || tableDisabled"
+              [binary]="true"
+              (onChange)="isAbsent(employee_data)"
+              inputId="binary"
+            ></p-checkbox
+          ></label>
+        </td>
+        <td>
+          <label
+            >With &nbsp; &nbsp; &nbsp;
+            <p-checkbox
+              [(ngModel)]="employee_data.withPermission"
+              [disabled]="true"
+              [disabled]="
+                employee_data.present ||
+                !employee_data.absent ||
+                employee_data.withoutPermission ||
+                tableDisabled
+              "
+              [binary]="true"
+              inputId="binary"
+            ></p-checkbox>
+          </label>
+          <br />
+          <br />
+          <label
+            >Without
+            <p-checkbox
+              [(ngModel)]="employee_data.withoutPermission"
+              [disabled]="true"
+              [disabled]="
+                employee_data.present ||
+                !employee_data.absent ||
+                employee_data.withPermission ||
+                tableDisabled
+              "
+              [binary]="true"
+              inputId="binary"
+            ></p-checkbox>
+          </label>
+        </td>
+        <td>
+          <textarea
+            rows="2"
+            cols="20"
+            pInputTextarea
+            [disabled]="!employee_data.withPermission"
+            [(ngModel)]="employee_data.reason"
+          ></textarea>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="8" id="no_details_text">
+          No Employee found with this detail.
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div class="submitButton">
+    <p-button
+      label="Submit"
+      (click)="onSubmit()"
+      [disabled]="!PresentOrAbsent || submitDisabled"
+      styleClass="p-button-raised"
+    ></p-button>
+  </div>
+  <p-dialog
+    [(visible)]="visible"
+    [closable]="false"
+    [modal]="true"
+    header="CLICK CONFIRM TO SUMBIT ATTENDANCE"
+  >
+    <div id="confirmation_dialog_box">
+      <div class="confirmation_status_btn">
+        <p-button
+          label="CONFIRM"
+          styleClass="p-button-sm p-button-success"
+          (onClick)="submitStatus()"
+        ></p-button>
+        <p-button
+          label="CANCEL"
+          styleClass="p-button-sm p-button-blue-900"
+          (onClick)="cancel()"
+        ></p-button>
+      </div>
+    </div>
+  </p-dialog>
+</p-card>

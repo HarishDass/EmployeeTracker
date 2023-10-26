@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LeftoverTableService } from './leftover-table.service';
+import { ApiFetchService } from './api-fetch.service';
 
-describe('LeftoverTableService', () => {
-  let service: LeftoverTableService;
+describe('ApiFetchService', () => {
+  let service: ApiFetchService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LeftoverTableService);
+    service = TestBed.inject(ApiFetchService);
   });
 
   it('should be created', () => {

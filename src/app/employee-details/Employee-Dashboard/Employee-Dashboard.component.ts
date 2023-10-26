@@ -5,7 +5,7 @@ import {
   departmentList,
   EmployeData,
 } from 'src/app/shared-module/interface/employe-data';
-import { empInfo } from 'src/app/shared-module/Services/empInfo.service';
+import { empInfo } from '../../shared-module/services/empInfo.service';
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -24,7 +24,7 @@ export class EmployeeDashboardComponent {
       const department: departmentList[] = departmentList.map((emp) => {
         let object: departmentList = {
           deptName: emp,
-          count: resp.filter((value) => value.deportment === emp).length,
+          count: resp.filter((value) => value.department === emp).length,
         };
         console.log(object);
         return object;

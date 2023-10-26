@@ -8,9 +8,9 @@ export interface empDetails {
   mobileNo: number;
   nationality: string;
   dateOfJoining: string;
-  deportment: string;
+  department: string;
   gender: string;
-  Active: boolean;
+  active: boolean;
   address: Address;
   fatherName: string;
   EmployeeNo: number;
