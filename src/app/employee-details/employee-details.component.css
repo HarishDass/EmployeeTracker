@@ -1,8 +1,12 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 #main {
   position: relative;
   float: right;
-  width: 80%;
-  height: 100vh;
-  padding: 10px;
+  width: 79%;
+  height: 95vh;
   overflow: auto;
 }

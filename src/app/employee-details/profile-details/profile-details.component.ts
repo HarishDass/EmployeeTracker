@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ProfileDetailServiceService } from '../profile-detail-service.service';
 import { ProfileInterface } from '../profile-interface';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+
 interface department{
   department: string;
 }
@@ -39,25 +39,15 @@ export class ProfileDetailsComponent {
       { department: 'Team Leader' },
       { department: 'Cyper Security' },
     ];
+
   }
   onPageChange(event: any) {
     this.first = event.first;
     this.rows = event.rows;
   }
-  showDialog(array: any) {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'You want e dit this Employee details!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, Edit it!',
-    }).then((result) => {
-      if (result.isConfirmed) {
-      }
-    });
-    // this.router.navigate([this.profile_details]);
+  
+  edit(data:any) {
+    this.router.navigate(['EmployeeDetails/AddDetails'], {state:{data:data}})
   }
 
   depart(departments: any) {

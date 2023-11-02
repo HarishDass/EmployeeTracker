@@ -6,7 +6,7 @@
     [rowHover]="true"
     #dt1
     [paginator]="true"
-    [rows]="10"
+    [rows]="5"
     [globalFilterFields]="[
       'EmployeeNo',
       'employeeName',
@@ -24,12 +24,10 @@
       'dateOfBirth'
     ]"
     [showCurrentPageReport]="true"
-    [tableStyle]="{ 'max-width': '30rem' }"
+    [tableStyle]="{ 'max-width': '20rem' }"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [rowsPerPageOptions]="[3, 10, 25, 50]"
     [value]="profile_details"
     [scrollable]="true"
-    scrollHeight="640px"
   >
   <ng-template pTemplate="caption">
       <span class="p-input-icon-left">
@@ -56,7 +54,6 @@
         (onPageChange)="onPageChange($event)"
         [first]="first"
         [rows]="rows"
-        [rowsPerPageOptions]="[3, 10, 20, 30]"
       ></p-paginator>
     </div>
     <ng-template pTemplate="header">
@@ -84,23 +81,23 @@
         <td pFrozenColumn>{{ profile_details.EmployeeNo }}</td>
         <td pFrozenColumn>{{ profile_details.employeeName.toUpperCase() }}</td>
         <td pFrozenColumn>
-          <img [src]="profile_details.Photo" height="100px" width="100px" />
+          <img [src]="profile_details.photo" height="60px" width="60px" />
         </td>
-        <td>{{ profile_details.dateOfBirth }}</td>
+        <td>{{ profile_details.dateOfBirth.slice(0,10) }}</td>
         <td>{{ profile_details.mobileNo }}</td>
         <td>{{ profile_details.nationality.toUpperCase() }}</td>
-        <td>{{ profile_details.dateOfJoining }}</td>
-        <td>{{ profile_details.department.toUpperCase() }}</td>
+        <td>{{ profile_details.dateOfJoining.slice(0,10) }}</td>
+        <td>{{ profile_details.department.department }}</td>
         <td>{{ profile_details.gender.toUpperCase() }}</td>
         <td>{{ profile_details.qualification.toUpperCase() }}</td>
         <td>{{ profile_details.CTC }}</td>
         <td>{{ profile_details.email }}</td>
         <td>{{ profile_details.experience.toUpperCase() }}</td>
-        <td>{{ profile_details.totalyear }}</td>
+        <td>{{ profile_details.totalYears }}</td>
         <td>{{ profile_details.emergencyContactNumber }}</td>
         <td>
           <p-button
-            (click)="showDialog('update')"
+            (click)="edit(profile_details)"
             icon="pi pi-user-edit"
             label="Edit"
           ></p-button>

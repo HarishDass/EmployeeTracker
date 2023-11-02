@@ -2,6 +2,7 @@
   background: url('../../../assets/images/bgimg.jpg');
   background-size: cover;
 }
+
 #heading {
   background-color: #081739;
   padding: 15px;
@@ -9,9 +10,11 @@
   color: white;
   font-size: x-large;
 }
+
 .emp-form {
   margin: 2%;
 }
+
 .star{
   color: #e24f4f;
 }
@@ -23,6 +26,7 @@ img {
   border-radius: 50%;
   border: 2px solid #e0e4e8;
 }
+
 #photoLabel{
   font-weight: bold;
   font-size: medium;
@@ -31,10 +35,12 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+
 #photoError{
   float: right;
   width: 70%;
 }
+
 .p-error{
   font-size: smaller;
 }
@@ -48,9 +54,10 @@ label {
 }
 
 :host >>> .inputField{
-  height: 40px;
+ height: 40px;
   width: 70%;
 }
+
 .field {
   margin: 15px;  
 }
@@ -68,10 +75,12 @@ label {
   width: 70%;
   margin: 22px;
 }
+
 .radioBtn{
   display: inline;
   margin-right: 20px;
 }
+
 .radioLabel{
   padding-left: 5px;
 }
@@ -80,6 +89,7 @@ label {
   display: flex;
   justify-content: center;
 }
+
 .sbtn {
   margin: 10px;
   width: 100px;

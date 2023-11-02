@@ -1,7 +1,7 @@
 <div class="main">
   <h3 id="heading">Add Employee Details</h3>
   <div class="emp-form">
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="myForm">
       <div id="photoBox" class="field">
         <label for="empPhoto" id="photoLabel"
           >Employee Photo<span class="star">*</span></label
@@ -577,17 +577,28 @@
           <button
             pButton
             pRipple
+            *ngIf="!isUpdateActive"
+            (ngSubmit)="onSubmit()"
             label="Submit"
+            type="submit"
+            class="p-button-success"
+          ></button>
+          <button
+            pButton
+            *ngIf="isUpdateActive"
+            pRipple
+            (click)="update()"
+            label="Update"
             type="submit"
             class="p-button-success"
           ></button>
         </div>
         <div class="sbtn">
-          <p-button
+        <p-button
             label="Reset"
             (click)="onReset()"
             styleClass="p-button-secondary"
-          ></p-button>
+        ></p-button>
         </div>
       </div>
     </form>

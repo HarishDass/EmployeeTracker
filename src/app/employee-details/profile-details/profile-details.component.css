@@ -1,3 +1,4 @@
+
 #page_heading {
   background-color: #081739;
   color: aliceblue;
@@ -5,15 +6,17 @@
   border-radius: 5px;
   font-size: x-large;
   width: 100%;
-  top: 50px;
 }
 
-.page_title {
+/* .page_title {
   position: sticky;
-}
+} */
 
 td {
-  font-size: small;
+  font-size: medium;
+}
+tr {
+  height: 15px;
 }
 .edit_button {
   background-color: #081739;

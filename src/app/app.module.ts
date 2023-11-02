@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { EmployeeServiceService } from './employee-service.service';
+import { EmployeeServiceService } from './shared-module/Services/employee-service.service';
 import { ButtonModule } from 'primeng/button';
 
 

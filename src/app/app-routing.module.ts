@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileDetailsComponent } from './employee-details/profile-details/profile-details.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { AttendanceComponent } from './attendance/attendance.component';
+import { AddEmployeeComponent } from './employee-details/add-employee/add-employee.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
       ),
   },
   { path: 'update', component: AttendanceComponent },
+
 ];
 
 @NgModule({

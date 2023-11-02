@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { EmployeeServiceService } from '../../shared-module/Services/employee-service.service';
 import { department } from './add-employee.interface';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
@@ -14,9 +15,11 @@ export class AddEmployeeComponent {
   departments: department[] | undefined;
   url = './assets/images/click.jpg';
   submitted = false;
+  public isUpdateActive = false;
 
   constructor(
     private fb: FormBuilder,
+    private activatedRoute: ActivatedRoute,
     private employee: EmployeeServiceService
   ) {
     this.myForm = this.fb.group({
@@ -58,6 +61,8 @@ export class AddEmployeeComponent {
 
   ngOnInit() {
     this.departments = this.employee.departments;
+    // console.log(history.state.data);
+    this.fillFormToUpdate(history.state.data);
   }
 
   get form() {
@@ -97,7 +102,6 @@ export class AddEmployeeComponent {
     let control = <FormArray>this.myForm.controls['yearOfExperience'];
     control.removeAt(index);
   }
-
   experienceRequired(event: any) {
     if (event.checked) {
       this.myForm.controls['yearOfExperience'].setValidators([
@@ -126,6 +130,31 @@ export class AddEmployeeComponent {
     }
   }
 
+  fillFormToUpdate(user: any) {
+    this.myForm.setValue({
+      employeeName: user.employeeName,
+      dateOfBirth: user.dateOfBirth,
+      mobileNo: user.mobileNo,
+      nationality: user.nationality,
+      dateOfJoining: user.dateOfJoining,
+      department: user.department,
+      gender: user.gender,
+      active: user.active,
+      address: user.address,
+      fatherName: user.fatherName,
+      EmployeeNo: user.EmployeeNo,
+      photo: user.photo,
+      qualification: user.qualification,
+      CTC: user.CTC,
+      email: user.email,
+      experience: user.experience,
+      totalYears: user.totalYears,
+      yearOfExperience: user.yearOfExperience,
+      emergencyContactNumber: user.emergencyContactNumber,
+      panNumber: user.panNumber,
+    });
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.myForm.invalid) {
@@ -139,6 +168,11 @@ export class AddEmployeeComponent {
     }
   }
 
+  update(){
+    console.log('update');
+    
+  }
+
   onReset() {
     Swal.fire({
       title: 'Are you sure?',
@@ -148,7 +182,7 @@ export class AddEmployeeComponent {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, reset it!',
-    }).then((result:any) => {
+    }).then((result: any) => {
       if (result.isConfirmed) {
         this.submitted = false;
         this.myForm.reset();

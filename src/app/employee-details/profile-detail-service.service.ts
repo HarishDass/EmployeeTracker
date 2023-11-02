@@ -7,7 +7,7 @@ import { ProfileInterface } from './profile-interface';
   providedIn: 'root',
 })
 export class ProfileDetailServiceService {
-  _url = 'http://localhost:3000/posts';
+  _url = 'http://localhost:3000/EmpDetails';
 
   constructor(private http: HttpClient) {}
 
