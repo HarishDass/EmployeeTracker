@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeDetailsComponent } from './employee-details.component';
-import { AddDetailsComponent } from './add-details/add-details.component';
-import { ActivePageComponent } from './active-page/active-page.component';
 import { EmployeeDashboardComponent } from './Employee-Dashboard/Employee-Dashboard.component';
 import { InactiveEmployeeComponent } from './inactive-employee/inactive-employee.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 
 const routes: Routes = [
   {
@@ -12,16 +12,20 @@ const routes: Routes = [
     component: EmployeeDetailsComponent,
     children: [
       {
+        path: '',
+        component: EmployeeDashboardComponent,
+      },
+      {
         path: 'Dashboard',
         component: EmployeeDashboardComponent,
       },
       {
         path: 'AddDetails',
-        component: AddDetailsComponent,
+        component: AddEmployeeComponent,
       },
       {
         path: 'activePage',
-        component: ActivePageComponent,
+        component: ProfileDetailsComponent,
       },
       {
         path: 'inActivePage',

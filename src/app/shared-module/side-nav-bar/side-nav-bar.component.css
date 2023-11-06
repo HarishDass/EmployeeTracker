@@ -7,7 +7,7 @@
 .sideBar{
     position : absolute;
     width: 20%;
-    height: 100vh;
+    height: 98vh;
     background-color: #081739;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -40,6 +40,7 @@
     height: 55px;
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 5px;
 }
 .link:hover{
     background-color: #2f3c58;

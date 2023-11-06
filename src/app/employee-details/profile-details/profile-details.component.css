@@ -1,0 +1,38 @@
+
+#page_heading {
+  background-color: #081739;
+  color: aliceblue;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: x-large;
+  width: 100%;
+}
+
+/* .page_title {
+  position: sticky;
+} */
+
+td {
+  font-size: medium;
+}
+tr {
+  height: 15px;
+}
+.edit_button {
+  background-color: #081739;
+  color: aliceblue;
+}
+
+.emptydata {
+  min-width: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: x-large;
+  color: #1f1fde;
+}
+
+.department_filter {
+  float: right;
+  right: 20px;
+}

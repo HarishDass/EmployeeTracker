@@ -1,0 +1,109 @@
+.main {
+  background: url('../../../assets/images/bgimg.jpg');
+  background-size: cover;
+}
+
+#heading {
+  background-color: #081739;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  font-size: x-large;
+}
+
+.emp-form {
+  margin: 2%;
+}
+
+.star{
+  color: #e24f4f;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border: 2px solid #e0e4e8;
+}
+
+#photoLabel{
+  font-weight: bold;
+  font-size: medium;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#photoError{
+  float: right;
+  width: 70%;
+}
+
+.p-error{
+  font-size: smaller;
+}
+
+label {
+  font-weight: bold;
+  font-size: medium;
+  padding: 10px;
+  float: left;
+  width: 30%;
+}
+
+:host >>> .inputField{
+ height: 40px;
+  width: 70%;
+}
+
+.field {
+  margin: 15px;  
+}
+
+.field1 {
+  border: 1px solid #3a81f6;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+  margin-left: 18%;
+  margin-right: 18%;
+}
+
+.inputRadio{
+  width: 70%;
+  margin: 22px;
+}
+
+.radioBtn{
+  display: inline;
+  margin-right: 20px;
+}
+
+.radioLabel{
+  padding-left: 5px;
+}
+
+.mainbtn {
+  display: flex;
+  justify-content: center;
+}
+
+.sbtn {
+  margin: 10px;
+  width: 100px;
+}
+
+@media only screen and (max-width: 768px) {
+  label {
+    font-weight: bold;
+    font-size: medium;
+    padding: 10px;
+    width: 100%;
+  }
+
+  :host >>> .inputField{
+    width: 100%;
+  }
+}
